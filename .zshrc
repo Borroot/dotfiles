@@ -8,10 +8,8 @@ SAVEHIST=100000
 
 # Go to a folder when only a folder is given.
 setopt autocd
-
 # DO NOT BEEP!
 unsetopt beep
-
 # Use emacs keybindings.
 bindkey -e
 
@@ -26,6 +24,8 @@ s() { sudo tee /proc/acpi/bbswitch <<<ON && startx; }
 
 # Brightness settings (only use this when the normal keys don't suffice).
 alias b='echo $1 > /sys/class/backlight/intel_backlight/brightness'
+alias l='ls -alHf'
+alias ls='ls --color=always'
 
 # Open pdf with zathura. You do not see the output and can close the terminal. (':' does nothing, literally)
 pdf() { zathura "$1" &> /dev/null & :; }

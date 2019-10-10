@@ -8,3 +8,6 @@ statusbar &
 
 # Turn on the background.
 setbg &
+
+# For transparency.
+compton &
