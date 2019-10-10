@@ -20,4 +20,5 @@ zstyle :compinstall filename '/home/borroot/.zshrc'
 autoload -Uz compinit
 compinit
 
+# TODO Move this to a shortcut file.
 s() { sudo tee /proc/acpi/bbswitch <<<ON && startx; }

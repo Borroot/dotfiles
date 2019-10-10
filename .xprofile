@@ -5,3 +5,6 @@ unclutter &
 
 # Activate the statusbar for dwm.
 statusbar &
+
+# Turn on the background.
+setbg &
