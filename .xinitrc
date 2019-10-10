@@ -1,1 +1,5 @@
-Dropbox/Configuration/xorg/xinitrc
+#!/usr/bin/env bash
+
+[ -f "$HOME/.xprofile" ] && . ~/.xprofile
+
+exec dwm

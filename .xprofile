@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 
+# Active the gnome keyring for automatic Nextcloud startup.
+eval $(/usr/bin/gnome-keyring-daemon --start) &
+export SSH_AUTH_SOCK &
+
 # Let the cursor disappear when inactive.
 unclutter & 
 
 # Activate the statusbar for dwm.
 statusbar &
 
-# Turn on the background.
-setbg &
-
 # For transparency.
 compton &
+# Turn on the background.
+setbg &
