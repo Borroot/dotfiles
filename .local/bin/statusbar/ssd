@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Show the amount of space left on the ssd.
+df -h | grep /dev/sda2 | awk '{print $4}'

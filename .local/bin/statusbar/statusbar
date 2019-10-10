@@ -2,9 +2,6 @@
 
 while true
 do
-	BATTERY=`acpi -b`
-	DATETIME=`date`
-	xsetroot -name "${BATTERY} | ${DATETIME}"
-
+	xsetroot -name " VOL $(volume) | BAT $(battery) | SSD $(ssd) | $(datestatus) "
 	sleep .5s
 done

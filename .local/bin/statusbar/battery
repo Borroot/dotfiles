@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+acpi -b | awk '{ print substr($0, index($0,$3)) }'
