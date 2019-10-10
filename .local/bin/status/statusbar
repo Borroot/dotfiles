@@ -1,0 +1,10 @@
+#!/bin/bash
+
+while true
+do
+	BATTERY=`acpi -b`
+	DATETIME=`date`
+	xsetroot -name "${BATTERY} | ${DATETIME}"
+
+	sleep .5s
+done
