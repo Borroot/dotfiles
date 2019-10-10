@@ -1,5 +1,8 @@
+# Run the .profile file (if available).
+[[ -f ~/.profile ]] && source ~/.profile
+
 # History settings.
-HISTFILE=~/.zsh/.histfile
+HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
 
@@ -16,3 +19,5 @@ bindkey -v
 zstyle :compinstall filename '/home/borroot/.zshrc'
 autoload -Uz compinit
 compinit
+
+s() { sudo tee /proc/acpi/bbswitch <<<ON && startx; }

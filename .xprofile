@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Let the cursor disappear when inactive.
 unclutter & 
 
 # Activate the statusbar for dwm.
-statusbar
+statusbar &
