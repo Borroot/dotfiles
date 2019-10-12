@@ -6,7 +6,7 @@ np    ~/Nextcloud/Photos
 nc    ~/Nextcloud/Courses
 nC    ~/Nextcloud/Configuration
 nm    ~/Nextcloud/Miscellaneous
-cf    ~/.config
-cfs   ~/.config/shortcuts
+dc    ~/.config
+dcs   ~/.config/shortcuts
 lbt   ~/.local/bin/tools
 lbs   ~/.local/bin/statusbar

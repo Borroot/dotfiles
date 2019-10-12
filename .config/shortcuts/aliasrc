@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-#TODO shortcut for: git remote set-url origin git@github.com:$(username)/$(reponame).git
-
 c() { cd "$1" && ls --color=always; }
+
+# Start nvidia first, then start xorg.
 s() { sudo tee /proc/acpi/bbswitch <<<ON && startx; }
 
 # Open pdf with zathura. You do not see the output and can close the terminal. (':' does nothing, literally)
@@ -10,6 +10,6 @@ p() { zathura "$1" &> /dev/null & :; }
 PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'disown -a -h'
 
 # Brightness settings (only use this when the normal keys don't suffice).
-alias b="echo $1 > /sys/class/backlight/intel_backlight/brightness" \
-      l="ls -alFh" \
+alias l="ls -alFh" \
       ls="ls --color=always"
+      b="echo $1 > /sys/class/backlight/intel_backlight/brightness" \

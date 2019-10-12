@@ -6,15 +6,12 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
-# Go to a folder when only a folder is given.
+# Automatic cd, do not beep and use emacs keybindings.
 setopt autocd
-# DO NOT BEEP!
-unsetopt beep
-# Use emacs keybindings.
+setopt No_Beep
 bindkey -e
 
 # Auto completion of commands.
-zstyle :compinstall filename '/home/borroot/.zshrc'
 autoload -Uz compinit
 compinit
 
@@ -23,6 +20,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
+# Search substring history with C-P and C-N.
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
