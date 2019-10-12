@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Show a notification when the battery is low.
+
+while true
+do
+	BATTINFO=`acpi -b`
+	if [[ `echo $BATTINFO | grep Discharging` && `echo $BATTINFO | cut -f 5 -d " "` < 00:10:00 ]] ; then
+		 notify-send -u critical -t 10000 "Low Battery!" "$BATTINFO"
+	fi
+	sleep 10
+done
