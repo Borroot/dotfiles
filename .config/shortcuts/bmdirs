@@ -4,6 +4,7 @@ d     ~/Downloads
 n     ~/Nextcloud
 np    ~/Nextcloud/Photos
 nc    ~/Nextcloud/Courses
+nm    ~/Nextcloud/Miscellaneous
 cf    ~/.config
 cfs   ~/.config/shortcuts
 lbt   ~/.local/bin/tools

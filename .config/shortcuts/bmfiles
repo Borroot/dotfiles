@@ -1,3 +1,4 @@
-cbf   ~/.config/bmfiles
-cbd   ~/.config/bmdirs
+cbf   ~/.config/shortcuts/bmfiles
+cbd   ~/.config/shortcuts/bmdirs
 cfz   ~/.zshrc
+cfv   ~/.vimrc
