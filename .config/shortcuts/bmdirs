@@ -1,6 +1,10 @@
-h		~/
-d		~/Downloads
-n		~/Nextcloud
-p		~/Nextcloud/Photos
-cf		~/.config
-sc		~/.local/bin
+h     ~/
+b     ~/builds
+d     ~/Downloads
+n     ~/Nextcloud
+np    ~/Nextcloud/Photos
+nc    ~/Nextcloud/Courses
+cf    ~/.config
+cfs   ~/.config/shortcuts
+lbt   ~/.local/bin/tools
+lbs   ~/.local/bin/statusbar
