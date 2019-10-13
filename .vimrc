@@ -18,8 +18,8 @@ set ignorecase
 set number relativenumber
 highlight LineNr ctermfg=grey
 
-" Disables automatic commenting on newline:
+" Disables automatic commenting on newline.
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" When shortcut files are updated, renew configs with new material:
+" When shortcut files are updated, renew configs with new material.
 autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts

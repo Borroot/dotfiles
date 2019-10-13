@@ -11,7 +11,7 @@ setopt autocd
 setopt No_Beep
 bindkey -e
 
-# Auto completion of commands.
+# Auto completion of commands with case insensitive.
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
