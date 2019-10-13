@@ -2,11 +2,11 @@
 
 c() { cd "$1" && ls --color=always; }
 
+# Open pdf with zathura. 
+p() { zathura "$1" &> /dev/null &! }
+
 # Start nvidia first, then start xorg.
 s() { sudo tee /proc/acpi/bbswitch <<<ON && startx; }
-
-# Open pdf with zathura. You do not see the output and can close the terminal. (':' does nothing, literally)
-p() { zathura "$1" &> /dev/null &! }
 
 # Brightness settings (only use this when the normal keys don't suffice).
 alias l="ls -alFh" \
