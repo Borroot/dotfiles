@@ -1,4 +1,4 @@
-#!/usr/env/bin bash
+#!/usr/bin/env bash
 
 # Print the current song if any are playing on Spotify.
 

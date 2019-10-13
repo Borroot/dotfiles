@@ -12,8 +12,8 @@ setopt No_Beep
 bindkey -e
 
 # Auto completion of commands.
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
 # Autosuggestions plugin.
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
