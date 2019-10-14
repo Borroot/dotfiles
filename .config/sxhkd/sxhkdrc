@@ -1,0 +1,14 @@
+# Programs
+super + o ; {f, o}
+	{firefox, firefox --new-window overleaf.com}
+
+# Computer state
+super + b ; {shift + s, shift + b, l}
+	{shutdown now, sudo reboot, i3lock -fi ~/.config/wall.png}
+
+# Keys with 'fn'
+Print
+	deepin-screenshot
+
+XF86TouchpadToggle
+	touchpad-toggle
