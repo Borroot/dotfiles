@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# Top location.
 path="$HOME/.config/shortcuts"
 
 # Input location(s).

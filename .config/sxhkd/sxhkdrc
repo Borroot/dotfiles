@@ -4,7 +4,7 @@ super + o ; {f, o}
 
 # Computer state
 super + b ; {shift + s, shift + b, l}
-	{shutdown now, sudo reboot, i3lock -fi ~/.config/wall.png}
+	{shutdown now, reboot, i3lock -fi ~/.config/wall.png}
 
 # Keys with 'fn'
 Print
@@ -12,3 +12,9 @@ Print
 
 XF86TouchpadToggle
 	touchpad-toggle
+
+XF86Audio{Lower,Raise}Volume
+	pactl set-sink-volume 0 {-,+}2%
+
+XF86AudioMute 
+	mute-toggle
