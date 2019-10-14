@@ -7,8 +7,9 @@ nextcloud & # TODO do not show nextcloud
 sxhkd & # Start the shortcut daemon.
 dunst & # Start dunst for usage of notify-send.
 
-unclutter & # Cursor disappears when inactive.
-statusbar & # Activate the statusbar for dwm.
+statusbar &   # Activate the statusbar for dwm.
+low-battery & # Show a notification when the battery is low.
 
-compton & # For transparency.
-setbg & # Turn on the background.
+unclutter & # Cursor disappears when inactive.
+compton &   # For transparency.
+setbg &     # Turn on the background.

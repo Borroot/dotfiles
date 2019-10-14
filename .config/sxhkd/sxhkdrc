@@ -1,9 +1,9 @@
 # Programs
-super + o ; {f, o}
-	{firefox, firefox --new-window overleaf.com}
+super + shift + {f,o,b}
+	{firefox, firefox --new-window overleaf.com/login, firefox brightspace.ru.nl}
 
 # Computer state
-super + b ; {shift + s, shift + b, l}
+super + shift + l ; {shift + s, shift + r, l}
 	{shutdown now, reboot, i3lock -fi ~/.config/wall.png}
 
 # Keys with 'fn'
@@ -13,8 +13,8 @@ Print
 XF86TouchpadToggle
 	touchpad-toggle
 
-XF86Audio{Lower,Raise}Volume
-	pactl set-sink-volume 0 {-,+}2%
-
 XF86AudioMute 
 	mute-toggle
+
+XF86Audio{Lower,Raise}Volume
+	pactl set-sink-volume 0 {-,+}2%
