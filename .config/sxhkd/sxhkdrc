@@ -1,9 +1,15 @@
 # Programs
-super + shift + {f,o,b}
+alt + Return
+	$TERMINAL
+
+alt + p
+	dmenu_run
+
+alt + shift + {f,o,b}
 	{firefox, firefox --new-window overleaf.com/login, firefox brightspace.ru.nl}
 
 # Computer state
-super + shift + l ; {shift + s, shift + r, l}
+alt + l ; {shift + s, shift + r, l}
 	{shutdown now, reboot, i3lock -fi ~/.config/wall.png}
 
 # Keys with 'fn'

@@ -2,6 +2,6 @@
 
 while true
 do
-	xsetroot -name " VOL $(volume) | BAT $(battery) | DATE $(datestatus) "
+	xsetroot -name " VOL $(volume) | BAT $(battery) | $(datestatus) "
 	sleep .5s
 done
