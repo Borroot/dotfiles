@@ -5,7 +5,7 @@
 [[ -f ~/.profile ]] && . ~/.profile
 
 # Show git repo using __git_ps1.
-[[ -f ~/.bash_git ]] && . ~/.bash_git
+source git-prompt
 PS1='\W$(__git_ps1) $ '
 
 # Unlimited history
