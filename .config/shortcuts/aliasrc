@@ -10,5 +10,5 @@ s() { sudo tee /proc/acpi/bbswitch <<<ON && startx; }
 
 # Brightness settings (only use this when the normal keys don't suffice).
 alias l="ls -alFh" \
-      ls="ls --color=always"
-      b="echo $1 > /sys/class/backlight/intel_backlight/brightness" \
+      ls="ls --color=always" \
+      B="echo $1 > /sys/class/backlight/intel_backlight/brightness" \

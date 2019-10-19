@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+file="$HOME/.config/vpn/laptop.ovpn" 
+log="$(pwd)/vpn_log"
+
+if [[ -f ${file} ]] 
+then
+	echo "Connecting to VPN..."
+	( sudo openvpn "${file}" > "${log}" ) &!
+	
+	sleep 10 
+	if grep -q "Initialization Sequence Completed" "${log}"
+	then
+		echo "Connected to VPN!"
+		rm "${log}"
+	else
+		echo "Something went wrong, check the log file at "${log}""
+	fi
+else
+	echo "The file ${file} does not exist."
+fi
