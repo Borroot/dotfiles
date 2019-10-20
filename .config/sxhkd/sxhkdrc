@@ -5,8 +5,8 @@ alt + Return
 alt + p
 	dmenu_run
 
-alt + n ; {f,o,b,n}
-	{firefox, firefox --new-window overleaf.com/login, firefox brightspace.ru.nl, firefox netflix.com/login}
+alt + n ; {f,o,b,n,v}
+	{firefox, firefox --new-window overleaf.com/login, firefox brightspace.ru.nl, firefox netflix.com/login, pcmanfm}
 
 # Computer state
 alt + o ; {shift + s, shift + r, l}
