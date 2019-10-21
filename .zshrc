@@ -14,11 +14,14 @@ SAVEHIST=10000
 # Automatic cd, do not beep and use emacs keybindings.
 setopt autocd
 setopt No_Beep
-bindkey -e
+bindkey -v
 
 # Auto completion of commands with case insensitive.
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+
+# Shift-Tab moves through the completion menu backwards
+bindkey '^[[Z' reverse-menu-complete
 
 # Autosuggestions plugin.
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
