@@ -11,24 +11,25 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
-# Automatic cd, do not beep and use emacs keybindings.
+# Automatic cd, do not beep and use vi keybindings.
 setopt autocd
 setopt No_Beep
-bindkey -v
+bindkey -e
+
+# Shift-Tab moves through the completion menu backwards.
+bindkey '^[[Z' reverse-menu-complete
 
 # Auto completion of commands with case insensitive.
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
-
-# Shift-Tab moves through the completion menu backwards
-bindkey '^[[Z' reverse-menu-complete
 
 # Autosuggestions plugin.
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-# Search substring history with C-P and C-N.
+# Search substring history with C-P and C-N without duplicates.
+setopt HIST_IGNORE_ALL_DUPS
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
