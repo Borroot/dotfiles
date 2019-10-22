@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-c() { cd "$1" && ls --color=always; }
-
-# Open pdf with zathura. 
-p() { zathura "$1" &> /dev/null &! }
-
 # Start nvidia first, then start xorg.
 s() { sudo tee /proc/acpi/bbswitch <<<ON && startx; }
 
+# cd and ls at the same time and open pdf reader.
+c() { cd "$1" && ls; }
+pdf() { $READER "$1" &> /dev/null &! }
+
 # Brightness settings (only use this when the normal keys don't suffice).
-alias l="ls -alFh" \
-      ls="ls --color=always" \
+alias ls="ls --color=always" \
+      l="ls -dlhF .[^.]* 2> /dev/null ; ls -dlhF *" \
       B="echo $1 > /sys/class/backlight/intel_backlight/brightness" \

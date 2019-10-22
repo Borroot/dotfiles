@@ -11,6 +11,3 @@ export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
-
-# Print the dotfiles first and then normal files.
-export LC_ALL="C"

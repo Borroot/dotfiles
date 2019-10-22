@@ -11,10 +11,13 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
-# Automatic cd, do not beep and use vi keybindings.
+# Use emacs keybindings.
+bindkey -e
+
+# Automatic cd, do not beep and suppress ls error.
 setopt autocd
 setopt No_Beep
-bindkey -e
+setopt +o nomatch
 
 # Shift-Tab moves through the completion menu backwards.
 bindkey '^[[Z' reverse-menu-complete
