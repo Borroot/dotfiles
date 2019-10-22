@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+# vim: filetype=zsh
 
 # Start nvidia first, then start xorg.
 s() { sudo tee /proc/acpi/bbswitch <<<ON && startx; }
