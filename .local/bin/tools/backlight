@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Increase the brightness of the screen with the specified amount.
 var=$(cat /sys/class/backlight/intel_backlight/brightness)

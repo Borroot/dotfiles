@@ -4,7 +4,7 @@
 s() { sudo tee /proc/acpi/bbswitch <<<ON && startx; }
 
 # cd and ls at the same time and open pdf reader.
-c() { cd "$1" && ls; }
+c() { cd "$1" && ls --color=always; }
 pdf() { $READER "$1" &> /dev/null &! }
 
 # Brightness settings (only use this when the normal keys don't suffice).

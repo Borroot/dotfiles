@@ -6,6 +6,8 @@ np    ~/Nextcloud/Photos
 nc    ~/Nextcloud/Courses
 nC    ~/Nextcloud/Configuration
 nm    ~/Nextcloud/Miscellaneous
+nca   ~/Nextcloud/Courses/Algorithms_and_Data_Structures
+ncf   ~/Nextcloud/Courses/Functional_Programming
 dc    ~/.config
 dcs   ~/.config/shortcuts
 lb    ~/.local/bin
