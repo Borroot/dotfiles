@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Adds '~.local/bin/' and all subdirectories to $PATH.
+# Adds '~/.local/bin/' and all direct subdirectories to $PATH.
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
 # TODO Remove when Data Mining is over...
