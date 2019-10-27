@@ -6,7 +6,7 @@
 
 # Show git repo using __git_ps1.
 source git-prompt
-PS1='\W$(__git_ps1) $ '
+PS1='bash \W$(__git_ps1) $ '
 
 # Unlimited history
 HISTSIZE=-1
