@@ -11,7 +11,7 @@ statusbar &       # Activate the statusbar for dwm.
 low-battery &     # Show a notification when the battery is low.
 
 unclutter &       # Cursor disappears when inactive.
-toggle-touchpad & # Turn of the touchpad by default.
+touchpad-toggle & # Turn of the touchpad by default.
 
 xcompmgr &        # For transparency.
 setbg &           # Turn on the background.
