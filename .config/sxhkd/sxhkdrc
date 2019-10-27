@@ -5,8 +5,8 @@ alt + Return
 alt + p
 	dmenu_run
 
-alt + n ; {v,d}
-	{pcmanfm, discord}
+alt + n ; {v,d,s}
+	{pcmanfm, discord, spotify}
 
 alt + n ; {f,o,b,n,w}
 	{firefox, firefox --new-window overleaf.com/login, firefox brightspace.ru.nl, firefox netflix.com/login, firefox --new-window web.whatsapp.com}

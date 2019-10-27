@@ -2,3 +2,4 @@ cbf   ~/.config/shortcuts/bmfiles
 cbd   ~/.config/shortcuts/bmdirs
 cfz   ~/.zshrc
 cfv   ~/.vimrc
+cfs   ~/.config/sxhkd/sxhkdrc
