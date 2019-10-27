@@ -8,8 +8,8 @@ alt + p
 alt + n ; {v,d,s}
 	{pcmanfm, discord, spotify}
 
-alt + n ; {f,o,b,n,w}
-	{firefox, firefox --new-window overleaf.com/login, firefox brightspace.ru.nl, firefox netflix.com/login, firefox --new-window web.whatsapp.com}
+alt + n ; {f,o,b,n,w,g}
+	{firefox, firefox --new-window overleaf.com/login, firefox brightspace.ru.nl, firefox netflix.com/login, firefox --new-window web.whatsapp.com, firefox github.com/borroot}
 
 # Computer state
 alt + y ; {shift + s, shift + r, l}

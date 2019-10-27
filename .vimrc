@@ -1,3 +1,6 @@
+" Set the default shell.
+set shell=/bin/zsh
+
 " Syntax highlighting on.
 filetype plugin on
 syntax on
@@ -23,6 +26,9 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Automatically convert markdown to pdf on save.
 autocmd BufWritePost *.md silent !mdtopdf %
+
+" Automatically update sxhkd shortcuts in running environment.
+autocmd BufWritePost sxhkdrc !killall sxhkd; sxhkd &\!
 
 " When shortcut files are updated, renew configs with new material.
 autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
