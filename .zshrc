@@ -1,6 +1,3 @@
-# Run the .profile file (if available).
-[[ -f ~/.profile ]] && source ~/.profile
-
 # Set the PS1 value using __git_ps1.
 source git-prompt 
 setopt PROMPT_SUBST
