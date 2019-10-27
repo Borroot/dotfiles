@@ -2,14 +2,16 @@
 
 # Active the gnome keyring for automatic Nextcloud startup.
 eval $(/usr/bin/gnome-keyring-daemon --start) & export SSH_AUTH_SOCK &
-nextcloud &   # TODO do not show nextcloud 
+nextcloud &       # TODO do not show nextcloud 
 
-sxhkd &       # Start the shortcut daemon.
-dunst &       # Start dunst for usage of notify-send.
+sxhkd &           # Start the shortcut daemon.
+dunst &           # Start dunst for usage of notify-send.
 
-statusbar &   # Activate the statusbar for dwm.
-low-battery & # Show a notification when the battery is low.
+statusbar &       # Activate the statusbar for dwm.
+low-battery &     # Show a notification when the battery is low.
 
-unclutter &   # Cursor disappears when inactive.
-xcompmgr &    # For transparency.
-setbg &       # Turn on the background.
+unclutter &       # Cursor disappears when inactive.
+toggle-touchpad & # Turn of the touchpad by default.
+
+xcompmgr &        # For transparency.
+setbg &           # Turn on the background.
