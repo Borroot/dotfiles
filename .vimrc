@@ -22,7 +22,7 @@ highlight LineNr ctermfg=grey
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Automatically convert markdown to pdf on save.
-autocmd BufWritePost *.md silent !mktopdf %
+autocmd BufWritePost *.md silent !mdtopdf %
 
 " When shortcut files are updated, renew configs with new material.
 autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
