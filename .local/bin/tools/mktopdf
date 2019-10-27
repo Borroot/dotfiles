@@ -3,4 +3,4 @@
 input_file=$1
 output_file=${1%.*}.pdf
 
-pandoc "$input_file" -o "$output_file"
+pandoc -V geometry:margin=3cm "$input_file" -o "$output_file"
