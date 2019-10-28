@@ -7,8 +7,10 @@ syntax on
 
 " Tabsize is 4.
 filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
+set tabstop=4 shiftwidth=4
+
+" Nice line wrapping.
+set wrap linebreak
 
 " Automatic closing bracket generation.
 inoremap {<CR> {<CR>}<ESC>O
