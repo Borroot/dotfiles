@@ -3,4 +3,4 @@
 # Increase the brightness of the screen with the specified amount.
 var=$(cat /sys/class/backlight/intel_backlight/brightness)
 let "var+=$1"
-echo $var > /sys/class/backlight/intel_backlight/brightness
+echo $var > /sys/class/backlight/intel_backlight/brightness 2> /dev/null
