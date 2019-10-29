@@ -9,3 +9,6 @@ export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
+
+# Swap the control and capslock key in the console (not in X).
+[[ -f ~/.config/keymap/swap-ctrl-caps.map ]] && sudo loadkeys ~/.config/keymap/swap-ctrl-caps.map

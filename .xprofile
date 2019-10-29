@@ -15,3 +15,5 @@ touchpad-toggle & # Turn of the touchpad by default.
 
 xcompmgr &        # For transparency.
 setbg &           # Turn on the background.
+
+setxkbmap -option ctrl:swapcaps & # Swap the left control and caps lock key.
