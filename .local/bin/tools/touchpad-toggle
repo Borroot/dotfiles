@@ -8,4 +8,5 @@ if [ $state == "1" ];then
 	unclutter -idle 0 &> /dev/null &
 else
 	xinput enable "$device"
+	xinput set-prop "$device" 301 1
 fi
