@@ -1,5 +1,8 @@
 cbf   ~/.config/shortcuts/bmfiles
 cbd   ~/.config/shortcuts/bmdirs
+cfb   ~/.bashrc
 cfz   ~/.zshrc
 cfv   ~/.vimrc
+cfx   ~/.xprofile
+cfp   ~/.zprofile
 cfs   ~/.config/sxhkd/sxhkdrc
