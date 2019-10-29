@@ -121,6 +121,7 @@ pciutils
 pcmanfm
 peek
 perl
+perl-rename
 pkgconf
 playerctl
 procps-ng
@@ -172,7 +173,6 @@ vlc
 wget
 which
 wpa_supplicant
-xcape
 xclip
 xcompmgr
 xf86-video-intel

@@ -9,8 +9,11 @@ syntax on
 filetype plugin indent on
 set tabstop=4 shiftwidth=4
 
-" Nice line wrapping.
+" Nice line wrapping. 
 set wrap linebreak
+
+" Automatic indentation.
+set autoindent
 
 " Automatic closing bracket generation.
 inoremap {<CR> {<CR>}<ESC>O
