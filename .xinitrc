@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-[ -f "$HOME/.xprofile" ] && . ~/.xprofile
+[ -f "$HOME/.xprofile" ] && source ~/.xprofile
 
 exec dwm

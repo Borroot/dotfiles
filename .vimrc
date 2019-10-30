@@ -26,6 +26,10 @@ set ignorecase
 set number relativenumber
 highlight LineNr ctermfg=grey
 
+" Readable highlighting of wrongly spelled words.
+highlight clear SpellBad
+highlight SpellBad cterm=standout
+
 " Disables automatic commenting on newline.
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
