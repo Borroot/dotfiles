@@ -1,4 +1,4 @@
-map p navigate previous
+map N navigate previous
 map n navigate next
 map u scroll half-up
 map d scroll half-down
