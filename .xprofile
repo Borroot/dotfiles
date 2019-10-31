@@ -16,5 +16,7 @@ touchpad-toggle & # Turn of the touchpad by default.
 xcompmgr &        # For transparency.
 setbg &           # Turn on the background.
 
-setxkbmap -option ctrl:swapcaps & # Swap the left control and capslock key (only in X).
-xcape -e 'Control_L=Escape' &     # Left control is escape and control at the same time.
+# Swap the left control and capslock key (only in X).
+setxkbmap -option ctrl:swapcaps & 
+# Left control is escape and control at the same time.
+killall xcape 2> /dev/null ; xcape -e 'Control_L=Escape' & 
