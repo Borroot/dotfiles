@@ -17,3 +17,4 @@ xcompmgr &        # For transparency.
 setbg &           # Turn on the background.
 
 setxkbmap -option ctrl:swapcaps & # Swap the left control and capslock key (only in X).
+xcape -e 'Control_L=Escape' &     # Left control is escape and control at the same time.
