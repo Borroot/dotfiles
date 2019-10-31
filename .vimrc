@@ -7,14 +7,15 @@ set shell=/bin/zsh
 filetype plugin on
 syntax on
 
+" Turn on mouse support.
+set mouse=a
+
 " Tabsize is 4.
 filetype plugin indent on
 set tabstop=4 shiftwidth=4
 
-" Nice line wrapping. 
+" Nice line wrapping and automatic indentation.
 set wrap linebreak
-
-" Automatic indentation.
 set autoindent
 
 " Automatic closing bracket generation.
