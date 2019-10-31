@@ -1,3 +1,5 @@
+let mapleader =","
+
 " Set the default shell.
 set shell=/bin/zsh
 
@@ -32,6 +34,9 @@ highlight SpellBad cterm=standout
 
 " Disables automatic commenting on newline.
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Open corresponding pdf to this file.
+map <leader>p :!open-pdf %<CR><CR>
 
 " Automatically convert markdown to pdf on save.
 autocmd BufWritePost *.md silent !mdtopdf %

@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+# Open the pdf corresponding to this files basename.
+file="${1%.*}.pdf"
+[[ -f "$file" ]] && "$READER" "$file" &!
