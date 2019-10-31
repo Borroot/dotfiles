@@ -40,7 +40,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 map <leader>p :!open-pdf %<CR><CR>
 
 " Automatically convert markdown to pdf on save.
-autocmd BufWritePost *.md silent !mdtopdf %
+autocmd BufWritePost *.md silent !mdtopdf % &
 
 " Automatically update sxhkd shortcuts in running environment.
 autocmd BufWritePost sxhkdrc !killall sxhkd; sxhkd &\!

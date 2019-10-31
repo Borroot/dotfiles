@@ -1,5 +1,5 @@
-cbf   ~/.config/shortcuts/bmfiles
-cbd   ~/.config/shortcuts/bmdirs
+cff   ~/.config/shortcuts/bmfiles
+cfd   ~/.config/shortcuts/bmdirs
 cfb   ~/.bashrc
 cfz   ~/.zshrc
 cfv   ~/.vimrc
