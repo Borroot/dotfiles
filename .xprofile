@@ -1,5 +1,3 @@
-#!/usr/bin/env sh
-
 # Active the gnome keyring for automatic Nextcloud startup.
 eval $(/usr/bin/gnome-keyring-daemon --start) & export SSH_AUTH_SOCK &
 nextcloud &       # TODO do not show nextcloud 

@@ -128,6 +128,7 @@ psmisc
 reiserfsprogs
 rmlint
 s-nail
+scdoc
 scrot
 sed
 shadow
@@ -180,6 +181,7 @@ xf86-video-vesa
 xfsprogs
 xorg-xinit
 xorg-xinput
+xorg-xkill
 xorg-xrandr
 xorg-xsetroot
 xwallpaper
