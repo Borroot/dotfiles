@@ -4,10 +4,9 @@
 
 msg=$(playerctl --player=spotify metadata 2>&1)
 
-if [ "$msg" != "No players found" ]
+if [[ "$msg" != "No players found" ]]
 then
-	text=""
-	text+=""$(playerctl --player=spotify metadata title)" - "
-	text+=""$(playerctl --player=spotify metadata artist)""
-	echo "$text"
+	title="$(playerctl --player=spotify metadata title)"
+	artist="$(playerctl --player=spotify metadata artist)"
+	echo $title - $artist
 fi
