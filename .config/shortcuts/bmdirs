@@ -1,5 +1,6 @@
 h     ~/
 b     ~/builds
+bd    ~/builds/dwm
 d     ~/Downloads
 n     ~/Nextcloud
 np    ~/Nextcloud/photos
@@ -11,7 +12,6 @@ ncap  ~/Nextcloud/courses/algorithms_and_data_structures/practicum1
 ncf   ~/Nextcloud/courses/functional_programming
 ncc   ~/Nextcloud/courses/computability
 nco   ~/Nextcloud/courses/operating_systems_security
-ncw   ~/Nextcloud/courses/web_security
 ncc   ~/Nextcloud/courses
 ncc   ~/Nextcloud/courses
 ncc   ~/Nextcloud/courses
