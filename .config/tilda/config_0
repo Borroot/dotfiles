@@ -1,6 +1,6 @@
 tilda_config_version="1.4.1"
 # command=""
-font="Monospace 11"
+font="Monospace 10"
 key="F1"
 addtab_key="<Shift><Control>t"
 fullscreen_key="F11"
@@ -80,7 +80,7 @@ grab_focus=true
 above=true
 notaskbar=false
 bold=true
-blinks=true
+blinks=false
 scroll_on_key=true
 bell=false
 run_command=false
