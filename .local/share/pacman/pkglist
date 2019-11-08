@@ -112,6 +112,7 @@ nvidia-settings
 openssh
 openvpn
 otf-fira-code
+p7zip
 pacman
 pacman-contrib
 pandoc
@@ -169,6 +170,7 @@ unzip
 usbutils
 util-linux
 vim
+virtualbox
 vlc
 wget
 which
@@ -179,6 +181,8 @@ xcompmgr
 xf86-video-intel
 xf86-video-vesa
 xfsprogs
+xorg-server-xvfb
+xorg-xdpyinfo
 xorg-xinit
 xorg-xinput
 xorg-xkill
@@ -188,6 +192,7 @@ xorg-xsetroot
 xwallpaper
 yadm-git
 zathura-pdf-mupdf
+zip
 zsh
 zsh-autosuggestions
 zsh-history-substring-search
