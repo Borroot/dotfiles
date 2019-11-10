@@ -1,12 +1,13 @@
 h     ~/
 b     ~/builds
 bd    ~/builds/dwm
+bs    ~/builds/st
 d     ~/Downloads
 n     ~/Nextcloud
 np    ~/Nextcloud/photos
 nc    ~/Nextcloud/courses
 nC    ~/Nextcloud/configuration
-nm    ~/Nextcloud/miscellaneous
+nm    ~/Nextcloud/misc
 nca   ~/Nextcloud/courses/algorithms_and_data_structures
 ncap  ~/Nextcloud/courses/algorithms_and_data_structures/practicum1
 ncf   ~/Nextcloud/courses/functional_programming
@@ -14,6 +15,7 @@ ncc   ~/Nextcloud/courses/computability
 nco   ~/Nextcloud/courses/operating_systems_security
 ncA   ~/Nextcloud/courses/academic_writing
 ncd   ~/Nextcloud/courses/data_mining
+nci   ~/Nextcloud/courses/information_systems
 dc    ~/.config
 dcs   ~/.config/shortcuts
 lb    ~/.local/bin

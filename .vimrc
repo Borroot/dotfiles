@@ -36,6 +36,9 @@ highlight SpellBad cterm=standout
 " Disables automatic commenting on newline.
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 " Open corresponding pdf to this file.
 map <leader>p :!open-pdf %<CR><CR>
 
