@@ -36,6 +36,9 @@ highlight SpellBad cterm=standout
 " Disables automatic commenting on newline.
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" Automaticlly convert tabs to spaces in haskell files.
+autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
