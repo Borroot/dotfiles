@@ -5,6 +5,7 @@ android-file-transfer
 android-tools
 arc-gtk-theme
 arc-icon-theme
+arch-install-scripts
 asciiquarium
 asp
 autoconf
@@ -112,6 +113,7 @@ nvidia
 nvidia-settings
 openssh
 openvpn
+os-prober
 otf-fira-code
 p7zip
 pacman
@@ -175,6 +177,7 @@ vlc
 wget
 which
 wpa_supplicant
+xbps
 xcape
 xclip
 xcompmgr

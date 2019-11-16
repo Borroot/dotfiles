@@ -1,3 +1,6 @@
+# Shutdown the nvidia card after X has started.
+sudo tee /proc/acpi/bbswitch <<< OFF
+
 # Active the gnome keyring for automatic Nextcloud startup.
 eval $(/usr/bin/gnome-keyring-daemon --start) & export SSH_AUTH_SOCK &
 nextcloud &       # TODO do not show nextcloud 
