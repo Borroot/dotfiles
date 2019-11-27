@@ -1,13 +1,30 @@
 # vim: filetype=zsh
 
-# Start nvidia first, then start xorg.
-s() { sudo tee /proc/acpi/bbswitch <<<ON && startx; }
-
-# cd and ls at the same time and open pdf reader.
-c() { cd "$1" && ls --color=always; }
+# Functions
+c()   { cd      "$1" && eval ls; }
+mc()  { mkdir   "$1" && eval c "$1"; }
 pdf() { $READER "$1" &> /dev/null &! }
 
-# Brightness settings (only use this when the normal keys don't suffice).
-alias ls="ls --color=always" \
-      l="ls -dlhF .[^.]* 2> /dev/null ; ls -dlhF *" \
-      B="echo $1 > /sys/class/backlight/intel_backlight/brightness" \
+# Very useful aliases.
+alias \
+	v="vim" \
+	g="git" \
+	p="sudo pacman" \
+	l="ls -dlhF .[^.]* 2> /dev/null ; ls -dlhF * 2> /dev/null"
+
+# Always be verbose.
+alias \
+	rm="rm -v" \
+	cp="cp -v" \
+	mv="mv -v"
+
+# Colorize when possible.
+alias \
+	ls="ls --color=auto" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto"
+
+# Misc aliases.
+alias \
+	s="sudo tee /proc/acpi/bbswitch <<< ON && startx" \
+	B="echo $1 > /sys/class/backlight/intel_backlight/brightness"

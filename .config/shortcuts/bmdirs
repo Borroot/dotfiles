@@ -9,15 +9,14 @@ nc    ~/Nextcloud/courses
 nC    ~/Nextcloud/configuration
 nm    ~/Nextcloud/misc
 nca   ~/Nextcloud/courses/algorithms_and_data_structures
-ncap  ~/Nextcloud/courses/algorithms_and_data_structures/practicum1
+ncap  ~/Nextcloud/courses/algorithms_and_data_structures/practicum2
 ncf   ~/Nextcloud/courses/functional_programming
 ncc   ~/Nextcloud/courses/computability
 nco   ~/Nextcloud/courses/operating_systems_security
 ncA   ~/Nextcloud/courses/academic_writing
 ncd   ~/Nextcloud/courses/data_mining
 nci   ~/Nextcloud/courses/information_systems
-dc    ~/.config
-dcs   ~/.config/shortcuts
+cs    ~/.config/shortcuts
 lb    ~/.local/bin
 lbt   ~/.local/bin/tools
 lbs   ~/.local/bin/statusbar

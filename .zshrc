@@ -33,6 +33,8 @@ setopt HIST_IGNORE_ALL_DUPS
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
+
 # Load all the aliases and the shortcuts to files and dirs.
-[ -f "$HOME/.config/shortcuts/shortcutrc" ] && source "$HOME/.config/shortcuts/shortcutrc" # Shortcuts to files and dirs.
-[ -f "$HOME/.config/shortcuts/aliasrc" ] && source "$HOME/.config/shortcuts/aliasrc"       # Functions and other aliases.
+CONFIG=.config/shortcuts
+[ -f "$HOME/$CONFIG/shortcutrc" ] && source "$HOME/$CONFIG/shortcutrc" # Shortcuts to files and dirs.
+[ -f "$HOME/$CONFIG/aliasrc" ]    && source "$HOME/$CONFIG/aliasrc"    # Functions and other aliases.

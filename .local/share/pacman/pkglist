@@ -18,8 +18,8 @@ bison
 bleachbit
 bzip2
 clamav
-compton
 coreutils
+cronie
 cryptsetup
 dcd
 deepin-screenshot
@@ -39,7 +39,6 @@ dub
 dunst
 e2fsprogs
 efibootmgr
-emacs
 fakeroot
 file
 filesystem
@@ -125,6 +124,7 @@ pcmanfm
 peek
 perl
 perl-rename
+picom
 pkgconf
 playerctl
 procps-ng
@@ -167,6 +167,7 @@ tmux
 tree
 ttf-font-awesome
 ttf-liberation
+ttf-xkcd-script-font
 unclutter
 unzip
 usbutils
