@@ -2,7 +2,7 @@
 
 # Functions
 c()   { cd         "$1" && eval ls; }
-mc()  { eval mkdir "$1" && eval c "$1"; }
+mc()  { eval mkdir "$1" && c "$1"; }
 pdf() { $READER    "$1" &> /dev/null &! }
 
 # Very useful aliases.
@@ -22,8 +22,9 @@ alias \
 # Colorize when possible.
 alias \
 	ls="ls --color=auto" \
+	diff="diff --color=auto" \
 	grep="grep --color=auto" \
-	diff="diff --color=auto"
+	egrep="egrep --color=auto"
 
 # Misc aliases.
 alias \
