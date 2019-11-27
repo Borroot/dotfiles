@@ -1,9 +1,9 @@
 # vim: filetype=zsh
 
 # Functions
-c()   { cd      "$1" && eval ls; }
-mc()  { mkdir   "$1" && eval c "$1"; }
-pdf() { $READER "$1" &> /dev/null &! }
+c()   { cd         "$1" && eval ls; }
+mc()  { eval mkdir "$1" && eval c "$1"; }
+pdf() { $READER    "$1" &> /dev/null &! }
 
 # Very useful aliases.
 alias \
@@ -16,7 +16,8 @@ alias \
 alias \
 	rm="rm -v" \
 	cp="cp -v" \
-	mv="mv -v"
+	mv="mv -v" \
+	mkdir="mkdir -v"
 
 # Colorize when possible.
 alias \
