@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 
-file="$HOME/.config/vpn/laptop.ovpn" 
-log="$(pwd)/vpn_log"
+CONFIG_FILE=$HOME/.config/vpn/laptop.ovpn
+LOG=$PWD/vpn_log
 
-if [[ -f ${file} ]] 
+if [[ -f $CONFIG_FILE ]] 
 then
-	echo "Connecting to VPN..."
-	( sudo openvpn "${file}" > "${log}" ) &!
+	echo Connecting to VPN...
+	( sudo openvpn $CONFIG_FILE > $LOG ) &!
 	
 	sleep 10 
-	if grep -q "Initialization Sequence Completed" "${log}"
+	if grep -q "Initialization Sequence Completed" $LOG
 	then
-		echo "Connected to VPN!"
-		rm "${log}"
+		echo Connected to VPN!
+		rm "$LOG"
 	else
-		echo "Something went wrong, check the log file at "${log}""
+		echo Something went wrong, check the log file at $LOG.
 	fi
 else
-	echo "The file ${file} does not exist."
+	echo The file $CONFIG_FILE does not exist.
 fi

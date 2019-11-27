@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
 
-# Open the pdf corresponding to this files basename. Usefull in Vim.
+# Open the pdf corresponding to this files basename. Useful in Vim.
 file="${1%.*}.pdf"
 [[ -f "$file" ]] && "$READER" "$file" &!
