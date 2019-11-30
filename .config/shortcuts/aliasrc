@@ -8,9 +8,16 @@ pdf() { $READER    "$1" &> /dev/null &! }
 # Very useful aliases.
 alias \
 	v="vim" \
-	g="git" \
 	p="sudo pacman" \
 	l="ls -dlhF .[^.]* 2> /dev/null ; ls -dlhF * 2> /dev/null"
+
+# Git aliases.
+alias \
+	g="git" \
+	gs="git status" \
+	ga="git add -A" \
+	gp="git push" \
+	gc="git commit -am"
 
 # Always be verbose.
 alias \
