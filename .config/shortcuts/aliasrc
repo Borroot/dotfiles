@@ -19,6 +19,13 @@ alias \
 	gp="git push" \
 	gc="git commit -am"
 
+# Yadm aliases.
+alias \
+	y="yadm" \
+	ys="yadm status" \
+	yp="yadm push" \
+	yc="yadm commit -am"
+
 # Always be verbose.
 alias \
 	rm="rm -v" \
