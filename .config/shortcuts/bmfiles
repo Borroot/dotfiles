@@ -2,7 +2,7 @@ cff   ~/.config/shortcuts/bmfiles
 cfd   ~/.config/shortcuts/bmdirs
 cfa   ~/.config/shortcuts/aliasrc
 cfb   ~/.bashrc
-cfz   ~/.zshrc
+cfz   ~/.config/zsh/.zshrc
 cfv   ~/.vimrc
 cfx   ~/.xprofile
 cfp   ~/.zprofile
