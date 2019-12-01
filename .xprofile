@@ -3,7 +3,7 @@ sudo tee /proc/acpi/bbswitch <<< OFF
 
 # Active the gnome keyring for automatic Nextcloud startup.
 eval $(/usr/bin/gnome-keyring-daemon --start) & export SSH_AUTH_SOCK &
-nextcloud &       # TODO do not show nextcloud 
+nextcloud &       # TODO do not show nextcloud on startup.
 
 sxhkd &           # Start the shortcut daemon.
 dunst &           # Start dunst for usage of notify-send.
@@ -17,7 +17,6 @@ touchpad-toggle & # Turn of the touchpad by default.
 xcompmgr &        # For transparency.
 setbg &           # Turn on the background.
 
-# Swap the left control and capslock key (only in X).
-setxkbmap -option ctrl:swapcaps & 
-# Left control is escape and control at the same time.
-killall xcape 2> /dev/null ; xcape -e 'Control_L=Escape' & 
+setxkbmap -option ctrl:swapcaps &         # Swap ctrl-caps (only in X).
+xmodmap -e "keycode 94 = backslash bar" & # Set the extra key on my laptop.
+killall xcape 2> /dev/null ; xcape -e 'Control_L=Escape' & # ctrl = ctrl and escape
