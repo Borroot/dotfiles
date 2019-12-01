@@ -4,7 +4,7 @@ setopt PROMPT_SUBST
 PS1='%1~$(__git_ps1) %(!.#.$) '
 
 # History settings.
-HISTFILE=~/.histfile
+HISTFILE=$HOME/.config/zsh/histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
