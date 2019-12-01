@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+setxkbmap -option ctrl:swapcaps # Swap CTRL-CAPS (only in X).
+
+killall xcape 2> /dev/null      # Kill of the running xcape instance.
+xcape -e 'Control_L=Escape'     # CTRL is CTRL and ESC.
+
+xmodmap -e "keycode 94 = backslash bar" # Set the extra key on my laptop.

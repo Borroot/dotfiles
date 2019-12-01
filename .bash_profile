@@ -1,2 +1,1 @@
-# Use the bashrc (if available).
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+[ -f $HOME/.bashrc ] && source $HOME/.bashrc

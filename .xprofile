@@ -8,6 +8,8 @@ nextcloud &       # TODO do not show nextcloud on startup.
 sxhkd &           # Start the shortcut daemon.
 dunst &           # Start dunst for usage of notify-send.
 
+remaps &          # Remap some keys.
+
 statusbar &       # Activate the statusbar for dwm.
 low-battery &     # Show a notification when the battery is low.
 
@@ -16,7 +18,3 @@ touchpad-toggle & # Turn of the touchpad by default.
 
 xcompmgr &        # For transparency.
 setbg &           # Turn on the background.
-
-setxkbmap -option ctrl:swapcaps &         # Swap ctrl-caps (only in X).
-xmodmap -e "keycode 94 = backslash bar" & # Set the extra key on my laptop.
-killall xcape 2> /dev/null ; xcape -e 'Control_L=Escape' & # ctrl = ctrl and escape

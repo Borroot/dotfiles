@@ -35,6 +35,6 @@ bindkey -M emacs '^N' history-substring-search-down
 
 
 # Load all the aliases and the shortcuts to files and dirs.
-CONFIG=.config/shortcuts
-[ -f "$HOME/$CONFIG/shortcutrc" ] && source "$HOME/$CONFIG/shortcutrc" # Shortcuts to files and dirs.
-[ -f "$HOME/$CONFIG/aliasrc" ]    && source "$HOME/$CONFIG/aliasrc"    # Functions and other aliases.
+CONFIG=$HOME/.config/shortcuts
+[ -f $CONFIG/shortcutrc ] && source $CONFIG/shortcutrc # Shortcuts to files and dirs.
+[ -f $CONFIG/aliasrc ]    && source $CONFIG/aliasrc    # Functions and other aliases.

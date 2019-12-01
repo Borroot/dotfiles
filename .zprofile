@@ -1,5 +1,5 @@
 # Adds '~/.local/bin/' and all direct subdirectories to $PATH.
-export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$PATH:$(du $HOME/.local/bin/ | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
 # Program specifics.
 export _JAVA_AWT_WM_NONREPARENTING=1 # intellij
@@ -11,5 +11,6 @@ export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
 
-# Swap ctrl-caps (not in X).
-[ -f ~/.config/keymap/swap-ctrl-caps.map ] && sudo loadkeys ~/.config/keymap/swap-ctrl-caps.map
+# Swap ctrl-caps and add the missing key (outside X).
+MAP=$HOME/.config/keymap/my-keys.map
+[ -f $MAP ] && sudo loadkeys $MAP
