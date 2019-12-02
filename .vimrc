@@ -28,6 +28,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 
 " Open corresponding PDF to the current markdown doc and save as sudo.
+map <leader>m :!make<CR>
 map <leader>p :!open-pdf %<CR><CR>
 map <leader>w :w !sudo tee > /dev/null %<CR>
 
