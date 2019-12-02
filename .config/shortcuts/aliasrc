@@ -16,18 +16,18 @@ alias \
 alias \
 	g="git" \
 	gs="git status" \
-	gd="git diff" \
+	gd="git diff"   \
 	ga="git add -A" \
-	gp="git push" \
+	gp="git push"   \
 	gc="git commit -am"
 
 # Yadm aliases.
 alias \
 	y="yadm" \
 	ys="yadm status" \
-	yd="yadm diff" \
-	ya="yadm add" \
-	yp="yadm push" \
+	yd="yadm diff"   \
+	ya="yadm add"    \
+	yp="yadm push"   \
 	yc="yadm commit -am"
 
 # Always be verbose.
@@ -35,7 +35,8 @@ alias \
 	rm="rm -v" \
 	cp="cp -v" \
 	mv="mv -v" \
-	mkdir="mkdir -v"
+	mkdir="mkdir -v" \
+	rmdir="rmdir -v"
 
 # Colorize when possible.
 alias \
