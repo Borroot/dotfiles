@@ -15,6 +15,7 @@ alias \
 alias \
 	g="git" \
 	gs="git status" \
+	gd="git diff" \
 	ga="git add -A" \
 	gp="git push" \
 	gc="git commit -am"
@@ -23,6 +24,8 @@ alias \
 alias \
 	y="yadm" \
 	ys="yadm status" \
+	yd="yadm diff" \
+	ya="yadm add" \
 	yp="yadm push" \
 	yc="yadm commit -am"
 

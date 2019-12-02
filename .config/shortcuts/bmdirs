@@ -17,6 +17,7 @@ nco   ~/Nextcloud/courses/operating_systems_security
 ncA   ~/Nextcloud/courses/academic_writing
 ncd   ~/Nextcloud/courses/data_mining
 nci   ~/Nextcloud/courses/information_systems
+C     ~/.config
 cs    ~/.config/shortcuts
 lb    ~/.local/bin
 lbt   ~/.local/bin/tools
