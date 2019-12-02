@@ -3,8 +3,8 @@ cfd   ~/.config/shortcuts/bmdirs
 cfa   ~/.config/shortcuts/aliasrc
 cfb   ~/.bashrc
 cfv   ~/.vimrc
-cfz   ~/.config/zsh/.zshrc
 cfx   ~/.xprofile
 cfp   ~/.zprofile
+cfz   ~/.config/zsh/.zshrc
 cfs   ~/.config/sxhkd/sxhkdrc
 t     ~/Nextcloud/todo.txt

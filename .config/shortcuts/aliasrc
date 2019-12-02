@@ -5,11 +5,12 @@ c()   { cd         "$@" && eval ls; }
 mc()  { eval mkdir "$@" && c "$1"; }
 pdf() { $READER    "$@" &> /dev/null &! }
 
+
 # Very useful aliases.
 alias \
 	v="vim" \
 	p="sudo pacman" \
-	l="ls -dlhF .[^.]* 2> /dev/null ; ls -dlhF * 2> /dev/null"
+	l="ls -dlhF .[^.]* 2> /dev/null ; ls -dlhF * 2> /dev/null" 
 
 # Git aliases.
 alias \

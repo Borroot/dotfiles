@@ -13,7 +13,6 @@ export READER="zathura"
 
 # Home folder cleanup.
 export ZDOTDIR=$HOME/.config/zsh
-export XINITRC=$HOME/.config/xinit/.xinitrc
 
 # Swap ctrl-caps and add the missing key (in tty).
 sudo loadkeys $HOME/.config/keymap/my-keys.map
