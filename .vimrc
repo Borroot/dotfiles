@@ -1,23 +1,23 @@
-let mapleader =","  " Set the map leader to ','.
-set shell=/bin/zsh  " Set the default shell to zsh.
+let mapleader =","                   " Set the map leader to ','.
+set shell=/bin/zsh                   " Set the default shell to zsh.
 
-filetype plugin on  " Enable recognisition of filetypes.
-syntax on           " Enable syntax highlighting.
+filetype plugin on                   " Enable recognisition of filetypes.
+syntax on                            " Enable syntax highlighting.
 
-set mouse=a         " Turn on mouse support.
-set ignorecase      " Ignore cases in searching.
+set mouse=a                          " Turn on mouse support.
+set ignorecase                       " Ignore cases in searching.
 
-set autoindent      " Auto indentation.
-set wrap linebreak  " Nice line wrapping with words.
+set autoindent                       " Auto indentation.
+set wrap linebreak                   " Nice line wrapping with words.
 
-filetype plugin indent on          " Enable changing of tabs.
-set tabstop=4 shiftwidth=4         " Set the tabsize to 4.
+filetype plugin indent on            " Enable changing of tabs.
+set tabstop=4 shiftwidth=4           " Set the tabsize to 4.
 
-set number relativenumber          " Use relative line numbers.
-highlight LineNr ctermfg=grey      " Set a nice color for line numbers.
+set number relativenumber            " Use relative line numbers.
+highlight LineNr ctermfg=grey        " Set a nice color for line numbers.
 
-highlight clear SpellBad           " Clear highlighting of misspelled words.
-highlight SpellBad cterm=standout  " Set a good highlighting for misspelled words.
+highlight clear SpellBad             " Clear highlighting of misspelled words.
+highlight SpellBad cterm=standout    " Set a good highlighting for misspelled words.
 
 " Automatic closing bracket generation.
 inoremap {<CR> {<CR>}<ESC>O
