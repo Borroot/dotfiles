@@ -1,55 +1,41 @@
-let mapleader =","
+let mapleader =","  " Set the map leader to ','.
+set shell=/bin/zsh  " Set the default shell to zsh.
 
-" Set the default shell.
-set shell=/bin/zsh
+filetype plugin on  " Enable recognisition of filetypes.
+syntax on           " Enable syntax highlighting.
 
-" Syntax highlighting on.
-filetype plugin on
-syntax on
+set mouse=a         " Turn on mouse support.
+set ignorecase      " Ignore cases in searching.
 
-" Turn on mouse support.
-set mouse=a
+set autoindent      " Auto indentation.
+set wrap linebreak  " Nice line wrapping with words.
 
-" Tabsize is 4.
-filetype plugin indent on
-set tabstop=4 shiftwidth=4
+filetype plugin indent on      " Enable changing of tabs.
+set tabstop=4 shiftwidth=4     " Set the tabsize to 4.
 
-" Nice line wrapping and automatic indentation.
-set wrap linebreak
-set autoindent
+set number relativenumber      " Use relative line numbers.
+highlight LineNr ctermfg=grey  " Set a nice color for line numbers.
 
 " Automatic closing bracket generation.
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
-" Ignore cases in searching.
-set ignorecase
-
-" Relative linenumbers.
-set number relativenumber
-highlight LineNr ctermfg=grey
-
 " Readable highlighting of wrongly spelled words.
 highlight clear SpellBad
 highlight SpellBad cterm=standout
 
-" Disables automatic commenting on newline.
+" No auto commenting for all files and set tabs to spaces and tabsize to 2 for haskell.
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" Automaticlly convert tabs to spaces in haskell files.
 autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
-
-" Open corresponding pdf to this file.
+" Open corresponding PDF to the current markdown doc and save as sudo.
 map <leader>p :!open-pdf %<CR><CR>
+map <leader>w :w !sudo tee > /dev/null %<CR>
 
-" Automatically convert markdown to pdf on save.
+" Auto markdown to pdf on save, auto update sxhkd on change and auto update shortcuts on change.
 autocmd BufWritePost *.md silent !mdtopdf % &
-
-" Automatically update sxhkd shortcuts in running environment.
 autocmd BufWritePost sxhkdrc !killall sxhkd; sxhkd &\!
-
-" When shortcut files are updated, renew configs with new material.
 autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
+
+autocmd BufWrite * :%s/\s\+$//e             " Remove \s at end of lines.
+autocmd BufWrite * :%s/\($\n\s*\)\+\%$//e   " Remove \s at the end of file.
