@@ -10,19 +10,18 @@ set ignorecase      " Ignore cases in searching.
 set autoindent      " Auto indentation.
 set wrap linebreak  " Nice line wrapping with words.
 
-filetype plugin indent on      " Enable changing of tabs.
-set tabstop=4 shiftwidth=4     " Set the tabsize to 4.
+filetype plugin indent on          " Enable changing of tabs.
+set tabstop=4 shiftwidth=4         " Set the tabsize to 4.
 
-set number relativenumber      " Use relative line numbers.
-highlight LineNr ctermfg=grey  " Set a nice color for line numbers.
+set number relativenumber          " Use relative line numbers.
+highlight LineNr ctermfg=grey      " Set a nice color for line numbers.
+
+highlight clear SpellBad           " Clear highlighting of misspelled words.
+highlight SpellBad cterm=standout  " Set a good highlighting for misspelled words.
 
 " Automatic closing bracket generation.
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
-
-" Readable highlighting of wrongly spelled words.
-highlight clear SpellBad
-highlight SpellBad cterm=standout
 
 " No auto commenting for all files and set tabs to spaces and tabsize to 2 for haskell.
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
