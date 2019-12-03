@@ -11,10 +11,11 @@ SAVEHIST=10000
 # Use emacs keybindings.
 bindkey -e
 
-# Automatic cd, do not beep and suppress ls error.
+# Automatic cd, do not beep, suppress ls error and do not ask confirmation for rm.
 setopt autocd
 setopt No_Beep
 setopt +o nomatch
+setopt rm_star_silent
 
 # Shift-Tab moves through the completion menu backwards.
 bindkey '^[[Z' reverse-menu-complete
@@ -32,7 +33,6 @@ source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring
 setopt HIST_IGNORE_ALL_DUPS
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
-
 
 # Load all the aliases and the shortcuts to files and dirs.
 CONFIG=$HOME/.config/shortcuts
