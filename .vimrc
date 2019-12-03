@@ -33,9 +33,8 @@ map <leader>m :!make<CR>
 map <leader>p :!open-pdf %<CR><CR>
 map <leader>b :%s/\s\+$//e<CR> :%s/\($\n\s*\)\+\%$//e<CR>
 
-" Shortcut for saving, quiting and saving and sudo saving.
+" Shortcut for saving and sudo saving.
 map <leader>s     :w<CR>
-map <leader>q     :wq<CR>
 map <leader><S-s> :w !sudo tee > /dev/null %<CR>
 
 " Auto markdown to pdf on save, auto update sxhkd on change and auto update shortcuts on change.
