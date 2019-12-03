@@ -27,13 +27,16 @@ inoremap {;<CR> {<CR>};<ESC>O
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 
-" Run make, open corresponding PDF to the current markdown doc and save as sudo.
+" Run make, open corresponding PDF to the current markdown doc.
 " Remove \s at end of lines and remove \s at the end of file.
-map <leader>s :w<CR>
 map <leader>m :!make<CR>
 map <leader>p :!open-pdf %<CR><CR>
-map <leader>w :w !sudo tee > /dev/null %<CR>
 map <leader>b :%s/\s\+$//e<CR> :%s/\($\n\s*\)\+\%$//e<CR>
+
+" Shortcut for saving, quiting and saving and sudo saving.
+map <leader>s     :w<CR>
+map <leader>q     :wq<CR>
+map <leader><S-s> :w !sudo tee > /dev/null %<CR>
 
 " Auto markdown to pdf on save, auto update sxhkd on change and auto update shortcuts on change.
 autocmd BufWritePost *.md silent !mdtopdf % &

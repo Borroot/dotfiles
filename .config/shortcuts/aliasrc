@@ -5,7 +5,6 @@ c()   { cd         "$@" && eval ls; }
 mc()  { eval mkdir "$@" && c "$1"; }
 pdf() { $READER    "$@" &> /dev/null &! }
 
-
 # Very useful aliases.
 alias \
 	v="vim" \
