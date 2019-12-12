@@ -40,6 +40,7 @@ alias \
 # Colorize when possible.
 alias \
 	ls="ls --color=auto" \
+	tree="tree -C" \
 	diff="diff --color=auto" \
 	grep="grep --color=auto" \
 	egrep="egrep --color=auto"

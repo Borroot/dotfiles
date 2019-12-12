@@ -8,7 +8,7 @@ export PATH="$PATH:$HOME/builds/anaconda/pkg/anaconda/opt/anaconda/bin"
 # Set all the other environment variables.
 export EDITOR="vim"
 export TERMINAL="st"
-export BROWSER="firefox"
+export BROWSER="qutebrowser"
 export READER="zathura"
 
 # Home folder cleanup.

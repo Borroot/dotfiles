@@ -39,11 +39,11 @@ dub
 dunst
 e2fsprogs
 efibootmgr
+emacs
 fakeroot
 file
 filesystem
 findutils
-firefox
 flex
 gawk
 gcc
@@ -97,6 +97,7 @@ man-db
 man-pages
 mdadm
 mesa-demos
+metasploit
 minecraft-launcher
 mtpfs
 networkmanager
@@ -126,6 +127,7 @@ playerctl
 procps-ng
 psmisc
 qutebrowser
+reflector
 reiserfsprogs
 rmlint
 s-nail
