@@ -11,9 +11,6 @@ export TERMINAL=st
 export READER=zathura
 export BROWSER=qutebrowser
 
-# Set the locale to C (equivalent to POSIX).
-export LC_ALL=C
-
 # Home folder cleanup.
 export ZDOTDIR=$HOME/.config/zsh
 

@@ -1,6 +1,6 @@
 # Set the PS1 value using __git_ps1.
 source git-prompt 
-setopt PROMPT_SUBST
+set -o PROMPT_SUBST
 PS1='%1~$(__git_ps1) %(!.#.$) '
 
 # History settings.
@@ -11,11 +11,13 @@ SAVEHIST=10000
 # Use emacs keybindings.
 bindkey -e
 
-# Automatic cd, do not beep, suppress ls error and do not ask confirmation for rm.
-setopt autocd
-setopt No_Beep
-setopt +o nomatch
-setopt rm_star_silent
+# Automatic cd, do not beep, suppress ls error, do not ask confirmation for rm
+# and enable extended globbing.
+set -o autocd
+set -o No_Beep
+set +o nomatch
+set -o rm_star_silent
+set -o extended_glob
 
 # Shift-Tab moves through the completion menu backwards.
 bindkey '^[[Z' reverse-menu-complete
@@ -30,7 +32,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Search substring history with C-P and C-N without duplicates.
-setopt HIST_IGNORE_ALL_DUPS
+set -o HIST_IGNORE_ALL_DUPS
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
