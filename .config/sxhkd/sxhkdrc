@@ -5,8 +5,8 @@ alt + Return
 alt + p
 	dmenu_run
 
-alt + n ; {v,d,s,p}
-	{pcmanfm, discord, spotify, zathura}
+alt + n ; {v,d,s,p,e}
+	{pcmanfm, discord, spotify, zathura, emacs}
 
 alt + n ; {f,o,b,w,g}
 	qutebrowser { , overleaf.com/login --target window, brightspace.ru.nl, web.whatsapp.com --target window, github.com/borroot/\?tab=repositories} 2> /dev/null &!

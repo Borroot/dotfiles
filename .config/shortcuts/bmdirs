@@ -1,4 +1,3 @@
-h     ~/
 b     ~/builds
 bd    ~/builds/dwm
 bs    ~/builds/st
@@ -8,6 +7,7 @@ np    ~/Nextcloud/photos
 nc    ~/Nextcloud/courses
 nC    ~/Nextcloud/configuration
 nm    ~/Nextcloud/misc
+nmf   ~/Nextcloud/misc/references
 nca   ~/Nextcloud/courses/algorithms_and_data_structures
 ncaa  ~/Nextcloud/courses/algorithms_and_data_structures/alg-tester
 ncap  ~/Nextcloud/courses/algorithms_and_data_structures/practicum2
