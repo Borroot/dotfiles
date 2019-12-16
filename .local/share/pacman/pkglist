@@ -125,6 +125,7 @@ perl-rename
 picom
 pkgconf
 playerctl
+poppler-glib
 procps-ng
 psmisc
 qutebrowser
