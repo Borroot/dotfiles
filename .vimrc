@@ -43,6 +43,7 @@ autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 " Run make, open corresponding PDF to the current markdown doc.
 map <leader>m :!make<CR>
 map <leader>p :!open-pdf %<CR><CR>
+map <leader>b :%s/\s\+$//e<CR> :%s/\($\n\s*\)\+\%$//e<CR>
 
 " Shortcut for saving and sudo saving.
 map <leader>s     :w<CR>
