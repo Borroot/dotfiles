@@ -16,12 +16,6 @@ set display=lastline                 " Show parts of a wrapped line not just @'s
 autocmd FileType   tex,markdown set columns=80
 autocmd VimResized *.tex,*.md   set columns=80
 
-" Auto highlight whitespace: at the end of lines and spaces before tabs.
-highlight ExtraWhite ctermbg=Red
-match ExtraWhite /\s\+$\| \+\ze\t/
-autocmd InsertEnter * match ExtraWhite / \+\ze\t/
-autocmd InsertLeave * match ExtraWhite /\s\+$\| \+\ze\t/
-
 filetype plugin indent on            " Enable changing of tabs.
 set tabstop=4 shiftwidth=4           " Set the tabsize to 4.
 
@@ -46,7 +40,6 @@ autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 " Run make, open corresponding PDF to the current markdown doc.
 map <leader>m :!make<CR>
 map <leader>p :!open-pdf %<CR><CR>
-map <leader>b :%s/\s\+$//e<CR> :%s/\($\n\s*\)\+\%$//e<CR>
 
 " Shortcut for saving and sudo saving.
 map <leader>w     :w<CR>
@@ -70,21 +63,29 @@ endif
 
 call plug#begin('~/.vim/plugged') " Specify directory for plugins.
 
-Plug 'scrooloose/nerdtree'        " Tree file system explorer.
-Plug 'vim-syntastic/syntastic'    " Syntax checking.
+Plug 'scrooloose/nerdtree'            " Tree file system explorer.
+Plug 'vim-syntastic/syntastic'        " Syntax checking.
+Plug 'scrooloose/nerdcommenter'       " Commenting like a pro.
+Plug 'ntpeters/vim-better-whitespace' " Whitespace cleaning.
 
 call plug#end()
 
-" Settings and mappings for NerdTree.
+" Mapping for NerdTree.
 map <leader>t :NERDTree<CR>
 
 " Settings and mappings for Syntastic.
-let g:syntastic_sh_checkers        = ['shellcheck']
-let g:syntastic_sh_shellcheck_args = "-x"
-let g:syntastic_check_on_open      = 1
-
 map <leader>sn     :lnext<CR>
 map <leader>s<S-n> :lprevious<CR>
 map <leader>se     :Errors<CR>
 map <leader>sc     :lclose<CR>
 map <leader>st     :SyntasticToggleMode<CR>
+
+let g:syntastic_sh_checkers        = ['shellcheck']
+let g:syntastic_sh_shellcheck_args = "-x"
+let g:syntastic_check_on_open      = 1
+
+" Settings and mapping for better whitespace.
+map <leader>b :StripWhitespace<CR> :%s/\($\n\s*\)\+\%$//e<CR>
+
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
