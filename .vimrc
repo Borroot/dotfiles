@@ -75,7 +75,7 @@ Plug 'vim-syntastic/syntastic'        " Syntax checking.
 Plug 'scrooloose/nerdcommenter'       " Commenting like a pro.
 Plug 'ntpeters/vim-better-whitespace' " Whitespace cleaning.
 Plug 'jreybert/vimagit'               " Git plugin.
-Plug 'vim-scripts/vim-auto-save'      " Auto saving.
+Plug 'airblade/vim-gitgutter'         " Show git status in the file.
 
 call plug#end()
 
@@ -84,8 +84,8 @@ map <leader>t  :NERDTree<CR>
 map <leader>g  :Magit<CR>
 map <leader>gp :!git push<CR>
 
-" Settings for auto save.
-let g:auto_save = 1
+" Setting for git gutter.
+set updatetime=500
 
 " Settings and mappings for Syntastic.
 map <leader>sn     :lnext<CR>
