@@ -34,16 +34,22 @@ inoremap {;<CR> {<CR>};<ESC>O
 
 " No auto commenting, set tabs to spaces and tabsize to 2 for sh and Haskell.
 autocmd FileType *       setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-autocmd FileType sh,bash setlocal expandtab
 autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 
 " Run make, open corresponding PDF to the current markdown doc.
 map <leader>m :!make<CR>
 map <leader>p :!open-pdf %<CR><CR>
 
-" Shortcut for saving and sudo saving.
+" Shortcut for saving, sudo saving and showing whitespace.
 map <leader>w     :w<CR>
 map <leader><S-w> :w !sudo tee > /dev/null %<CR>
+map <leader>l     :set invlist<CR>
+
+" Remap shortcuts for moving around in windows.
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Auto markdown to pdf on save, auto restart sxhkd and auto restart shortcuts.
 autocmd BufWritePost *.md silent !mdtopdf % &
@@ -61,17 +67,20 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged') " Specify directory for plugins.
+call plug#begin('~/.vim/plugged')    " Specify directory for plugins.
 
 Plug 'scrooloose/nerdtree'            " Tree file system explorer.
 Plug 'vim-syntastic/syntastic'        " Syntax checking.
 Plug 'scrooloose/nerdcommenter'       " Commenting like a pro.
 Plug 'ntpeters/vim-better-whitespace' " Whitespace cleaning.
+Plug 'jreybert/vimagit'               " Git plugin.
 
 call plug#end()
 
-" Mapping for NerdTree.
-map <leader>t :NERDTree<CR>
+" Mapping for NerdTree and Magit.
+map <leader>t  :NERDTree<CR>
+map <leader>g  :Magit<CR>
+map <leader>gp :!git push<CR>
 
 " Settings and mappings for Syntastic.
 map <leader>sn     :lnext<CR>
@@ -79,13 +88,12 @@ map <leader>s<S-n> :lprevious<CR>
 map <leader>se     :Errors<CR>
 map <leader>sc     :lclose<CR>
 map <leader>st     :SyntasticToggleMode<CR>
-
 let g:syntastic_sh_checkers        = ['shellcheck']
 let g:syntastic_sh_shellcheck_args = "-x"
 let g:syntastic_check_on_open      = 1
 
 " Settings and mapping for better whitespace.
 map <leader>b :StripWhitespace<CR> :%s/\($\n\s*\)\+\%$//e<CR>
-
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
+let g:show_spaces_that_precede_tabs=1
