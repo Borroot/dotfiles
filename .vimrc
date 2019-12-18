@@ -75,6 +75,7 @@ Plug 'vim-syntastic/syntastic'        " Syntax checking.
 Plug 'scrooloose/nerdcommenter'       " Commenting like a pro.
 Plug 'ntpeters/vim-better-whitespace' " Whitespace cleaning.
 Plug 'jreybert/vimagit'               " Git plugin.
+Plug 'vim-scripts/vim-auto-save'      " Auto saving.
 
 call plug#end()
 
@@ -82,6 +83,9 @@ call plug#end()
 map <leader>t  :NERDTree<CR>
 map <leader>g  :Magit<CR>
 map <leader>gp :!git push<CR>
+
+" Settings for auto save.
+let g:auto_save = 1
 
 " Settings and mappings for Syntastic.
 map <leader>sn     :lnext<CR>
