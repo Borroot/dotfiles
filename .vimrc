@@ -27,9 +27,12 @@ set tabstop=4 shiftwidth=4           " Set the tabsize to 4.
 
 set number relativenumber            " Use relative line numbers.
 highlight LineNr ctermfg=grey        " Set a nice color for line numbers.
+highlight clear SignColumn           " No color for the sign column.
 
-highlight clear SpellBad             " Clear highlighting of misspelled words.
-highlight SpellBad cterm=standout    " Set a good highlighting for misspelled words.
+highlight clear SpellCap             " Clear the highlight color.
+highlight clear SpellBad             " Clear the highlight color.
+highlight SpellCap ctermbg=Yellow    " Highlighting color for misspelled words.
+highlight SpellBad ctermbg=DarkGrey  " Highlighting color for misspelled words.
 
 " Automatic closing bracket generation.
 inoremap {<CR> {<CR>}<ESC>O
@@ -46,10 +49,39 @@ map <leader>p :!open-pdf %<CR><CR>
 map <leader>b :%s/\s\+$//e<CR> :%s/\($\n\s*\)\+\%$//e<CR>
 
 " Shortcut for saving and sudo saving.
-map <leader>s     :w<CR>
-map <leader><S-s> :w !sudo tee > /dev/null %<CR>
+map <leader>w     :w<CR>
+map <leader><S-w> :w !sudo tee > /dev/null %<CR>
 
 " Auto markdown to pdf on save, auto restart sxhkd and auto restart shortcuts.
 autocmd BufWritePost *.md silent !mdtopdf % &
 autocmd BufWritePost sxhkdrc !killall sxhkd; sxhkd &\!
 autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
+
+" --------------------------------------------------------------------
+" PLUGINS
+" --------------------------------------------------------------------
+
+" Auto install Vim-Plug if not available.
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+	  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged') " Specify directory for plugins.
+
+Plug 'vim-syntastic/syntastic'    " Syntax checking.
+
+call plug#end()
+
+
+" Settings and mappings for Syntastic.
+let g:syntastic_sh_checkers        = ['shellcheck']
+let g:syntastic_sh_shellcheck_args = "-x"
+let g:syntastic_check_on_open      = 1
+
+map <leader>sn     :lnext<CR>
+map <leader>s<S-n> :lprevious<CR>
+map <leader>se     :Errors<CR>
+map <leader>sc     :lclose<CR>
+map <leader>st     :SyntasticToggleMode<CR>
