@@ -1,7 +1,8 @@
 # Set the PS1 value using __git_ps1.
-source git-prompt 
+source git-prompt
 set -o PROMPT_SUBST
 PS1='%1~$(__git_ps1) %(!.#.$) '
+PS3='> '
 
 # History settings.
 HISTFILE=$HOME/.config/zsh/histfile

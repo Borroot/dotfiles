@@ -9,7 +9,7 @@ pdf() { $READER    "$@" &> /dev/null &! }
 alias \
 	v="vim" \
 	p="sudo pacman" \
-	l="ls -dlhF .[^.]* 2> /dev/null ; ls -dlhF * 2> /dev/null" 
+	l="ls -dlhF .[^.]* 2> /dev/null ; ls -dlhF * 2> /dev/null"
 
 # Git aliases.
 alias \
@@ -47,5 +47,6 @@ alias \
 
 # Misc aliases.
 alias \
+	ser=". ser" \
 	s="sudo tee /proc/acpi/bbswitch <<< ON && startx" \
 	B="echo $1 > /sys/class/backlight/intel_backlight/brightness"

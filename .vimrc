@@ -13,14 +13,14 @@ set wrap linebreak                   " Nice line wrapping with words.
 set display=lastline                 " Show parts of a wrapped line not just @'s.
 
 " Auto soft line wrapping at 80 columns for some file types.
-autocmd FileType   txt,tex,markdown set columns=80
-autocmd VimResized *.txt,*.tex,*.md set columns=80
+autocmd FileType   tex,markdown set columns=80
+autocmd VimResized *.tex,*.md   set columns=80
 
 " Auto highlight whitespace: at the end of lines and spaces before tabs.
 highlight ExtraWhite ctermbg=Red
-match ExtraWhite /\s\+$\| \s\+\t/
-autocmd InsertEnter * match ExtraWhite /\s\+\t/
-autocmd InsertLeave * match ExtraWhite /\s\+$\|\s\+\t/
+match ExtraWhite /\s\+$\| \+\ze\t/
+autocmd InsertEnter * match ExtraWhite / \+\ze\t/
+autocmd InsertLeave * match ExtraWhite /\s\+$\| \+\ze\t/
 
 filetype plugin indent on            " Enable changing of tabs.
 set tabstop=4 shiftwidth=4           " Set the tabsize to 4.

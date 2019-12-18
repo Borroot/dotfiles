@@ -9,6 +9,7 @@ export PATH="$PATH:$HOME/builds/anaconda/pkg/anaconda/opt/anaconda/bin"
 export EDITOR=vim
 export TERMINAL=st
 export READER=zathura
+export VIEWER=sxiv
 export BROWSER=qutebrowser
 
 # Home folder cleanup.
