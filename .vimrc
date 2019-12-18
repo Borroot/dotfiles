@@ -70,10 +70,13 @@ endif
 
 call plug#begin('~/.vim/plugged') " Specify directory for plugins.
 
+Plug 'scrooloose/nerdtree'        " Tree file system explorer.
 Plug 'vim-syntastic/syntastic'    " Syntax checking.
 
 call plug#end()
 
+" Settings and mappings for NerdTree.
+map <leader>t :NERDTree<CR>
 
 " Settings and mappings for Syntastic.
 let g:syntastic_sh_checkers        = ['shellcheck']
