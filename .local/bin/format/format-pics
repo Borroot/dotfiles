@@ -12,11 +12,13 @@ tmp_out=$(mktemp)
 
 ls "$DIR" > "$tmp_in"
 sed -nE -f "$FORMATS" < "$tmp_in" > "$tmp_out"
-sed -E 's/.*/mv &/g' < "$tmp_out"
-
 
 num_in=$(wc -l < "$tmp_in")
 num_out=$(wc -l < "$tmp_out")
+
+sed -E 's/.*/mv &/g' < "$tmp_out"
+
+
 echo "Replaced $num_out out of $num_in."
 
 rm -f "$tmp_in" "$tmp_out"
