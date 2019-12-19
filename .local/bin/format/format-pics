@@ -33,26 +33,66 @@ count ()
 	         | sort | uniq | wc -l)
 }
 
+# Increase the last six digits of the dest variable by one.
+inc_dest ()
+{
+	local six
+	six=$(sed -E 's/.*-.*-.*-([[:digit:]]{6})\..*/\1/g' <<< "$dest")
+
+	six=$(sed 's/^0*//g' <<< "$six")   # remove leading zero's
+	((six++))                          # increase by one
+	six=$(printf '%06i' "$six")        # add leading zero's
+
+	dest=$(sed -E 's/(.*-.*-.*-).*\.(.*)/\1'"$six"'.\2/g' <<< "$dest")
+}
+
 # Not all of the files in the new format are unique, this means that
 # those files have to be made unique in some way to prevent data loss.
 uniqueify ()
 {
 	((num_out == num_uniq)) && return
 
-	>&2 echo -e "Not all of the files map to a unique file in the" \
-	    "new format :(.\nThe fix for this has yet to be implemented.\n"
-	>&2 echo -e "The following files map to the same new format:"
+	>&2 echo -e "The following files map to the same dest:\n"
 
-	sed -E 's/(".+"|.+) (.+)/\2/g' < "$TMP_OUT" | sort | uniq -d |
-	while read -r double
+	# Loop over all the dests which are not unique. For every
+	# dest take all the mappings corresponding to this dest
+	# and change them until they are all unique.
+	sed -E 's/(".+"|.+) (.+)/\2/g' < "$TMP_OUT" | sort | uniq -dc |
+	while read -r num_dest
 	do
-		grep -F "$double" < "$TMP_OUT" | sed -E 's/(.*) (.*)/    \1\t\2/g' >&2
+		local num dest original # num of occurences of dest
+		num=$(     cut -d ' ' -f 1 <<< "$num_dest") # >= 2
+		dest=$(cut -d ' ' -f 2 <<< "$num_dest") && original="$dest"
+
+		# Print the mappings which are not unique.
+		>&2 echo "  Conflicting mappings:"
+		grep -F "$dest" < "$TMP_OUT" | sed -E 's/(.*) (.*)/    \1\t-> \2/g' >&2
+		>&2 echo "  Automatically resolve:"
+
+		for ((i = 2; i <= num; i++))
+		do
+			# Increase the destinations until is is unique.
+			inc_dest
+			while grep -q "$dest" < "$TMP_OUT"
+			do
+				inc_dest
+			done
+
+			# Replace the dest at the line number found, this is the i'th dest.
+			# The i'th dest is found with 'grep -m $i'.
+			local dest_line dest_linenr
+			dest_line=$(grep --line-number -m "$i" "$original" < "$TMP_OUT" | tail -n 1)
+			dest_linenr=$(sed -E 's/^([[:digit:]]+):.*/\1/' <<< "$dest_line")
+
+			sed -i "${dest_linenr}s/$original/$dest/" "$TMP_OUT"
+
+			# Print how the conflict is solved.
+			local line src
+			line=$(grep -F "$dest" < "$TMP_OUT")
+			src=$(sed -E "s/(\".+\"|.+) .+/\\1/" <<< "$line")
+			>&2 echo -e "    $src\t-> $dest\n"
+		done
 	done
-
-	# TODO fix the conflicts
-
-	cleanup
-	exit 1
 }
 
 # Prompt to ask for verification of the user.
@@ -60,7 +100,12 @@ verify ()
 {
 	less < "$TMP_OUT" && echo -n "Please verify if this is correct [no/yes]: "
 	read -r answer
-	[[ "$answer" != yes ]] && exit 1
+
+	if [[ "$answer" != yes ]]
+	then
+		cleanup
+		exit 1
+	fi
 }
 
 # Convert the files from the old format to the new format by simply
@@ -70,8 +115,8 @@ convert ()
 	while read -r line
 	do
 		local src dest
-		src=$( cut -d ' ' -f 1 <<< "$line")
-		dest=$(cut -d ' ' -f 2 <<< "$line")
+		src=$( sed -E 's/(".+"|.+) (.+)/\1/g' <<< "$line")
+		dest=$(sed -E 's/(".+"|.+) (.+)/\2/g' <<< "$line")
 		# TODO do the actual 'mv' command
 		echo "mv $src -> $dest"
 	done < "$TMP_OUT"

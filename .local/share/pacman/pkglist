@@ -12,6 +12,7 @@ autoconf
 automake
 bash
 bbswitch
+bc
 biber
 binutils
 bison
