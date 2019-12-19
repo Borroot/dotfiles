@@ -43,13 +43,11 @@ uniqueify ()
 	    "new format :(.\nThe fix for this has yet to be implemented.\n"
 	>&2 echo -e "The following files map to the same new format:"
 
-	local doubles
-	doubles=$(sed -E 's/(".+"|.+) (.+)/\2/g' < "$TMP_OUT" | sort | uniq -d)
-
+	sed -E 's/(".+"|.+) (.+)/\2/g' < "$TMP_OUT" | sort | uniq -d |
 	while read -r double
 	do
 		grep -E "$double" < "$TMP_OUT" | sed -E 's/(.*) (.*)/    \1\t\2/g' >&2
-	done <<< "$doubles"
+	done
 
 	# TODO fix the conflicts
 
