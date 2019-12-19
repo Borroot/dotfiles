@@ -46,7 +46,7 @@ uniqueify ()
 	sed -E 's/(".+"|.+) (.+)/\2/g' < "$TMP_OUT" | sort | uniq -d |
 	while read -r double
 	do
-		grep -E "$double" < "$TMP_OUT" | sed -E 's/(.*) (.*)/    \1\t\2/g' >&2
+		grep -F "$double" < "$TMP_OUT" | sed -E 's/(.*) (.*)/    \1\t\2/g' >&2
 	done
 
 	# TODO fix the conflicts
@@ -58,8 +58,9 @@ uniqueify ()
 # Prompt to ask for verification of the user.
 verify ()
 {
-	less < "$TMP_OUT" && answer=$(echo -e "no\nyes" | dmenu -p "Good?")
-	[[ "$answer" == no ]] && exit 1
+	less < "$TMP_OUT" && echo -n "Please verify if this is correct [no/yes]: "
+	read -r answer
+	[[ "$answer" != yes ]] && exit 1
 }
 
 # Convert the files from the old format to the new format by simply

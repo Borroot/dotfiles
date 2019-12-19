@@ -76,6 +76,7 @@ Plug 'scrooloose/nerdcommenter'       " Commenting like a pro.
 Plug 'ntpeters/vim-better-whitespace' " Whitespace cleaning.
 Plug 'jreybert/vimagit'               " Git plugin.
 Plug 'airblade/vim-gitgutter'         " Show git status in the file.
+Plug 'farmergreg/vim-lastplace'       " Remember the last position.
 
 call plug#end()
 
