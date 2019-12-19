@@ -7,18 +7,101 @@
 readonly DIR=$HOME/Nextcloud/photos/archive
 readonly FORMATS=./formats
 
-tmp_in=$(mktemp)
-tmp_out=$(mktemp)
+readonly TMP_IN=$(mktemp)
+readonly TMP_OUT=$(mktemp)
 
-ls "$DIR" > "$tmp_in"
-sed -nE -f "$FORMATS" < "$tmp_in" > "$tmp_out"
+# Remove all the temporaray files.
+cleanup ()
+{
+	rm -f "$TMP_IN" "$TMP_OUT"
+}
 
-num_in=$(wc -l < "$tmp_in")
-num_out=$(wc -l < "$tmp_out")
+# Convert all of the matching formats to the unified format.
+format ()
+{
+	ls "$DIR" > "$TMP_IN"
+	sed -nE -f "$FORMATS" < "$TMP_IN" > "$TMP_OUT"
+}
 
-sed -E 's/.*/mv &/g' < "$tmp_out"
+# Count how many files came in and how many files are converted.
+# Also count how many of the converted files are unique.
+count ()
+{
+	num_in=$(wc -l < "$TMP_IN")
+	num_out=$(wc -l < "$TMP_OUT")
+	num_uniq=$(sed -E 's/(".+"|.+) (.+)/\2/g' < "$TMP_OUT" \
+	         | sort | uniq | wc -l)
+}
 
+# Not all of the files in the new format are unique, this means that
+# those files have to be made unique in some way to prevent data loss.
+uniqueify ()
+{
+	((num_out == num_uniq)) && return
 
-echo "Replaced $num_out out of $num_in."
+	>&2 echo -e "Not all of the files map to a unique file in the" \
+	    "new format :(.\nThe fix for this has yet to be implemented.\n"
+	>&2 echo -e "The following files map to the same new format:"
 
-rm -f "$tmp_in" "$tmp_out"
+	local doubles
+	doubles=$(sed -E 's/(".+"|.+) (.+)/\2/g' < "$TMP_OUT" | sort | uniq -d)
+
+	while read -r double
+	do
+		grep -E "$double" < "$TMP_OUT" | sed -E 's/(.*) (.*)/    \1\t\2/g' >&2
+	done <<< "$doubles"
+
+	# TODO fix the conflicts
+
+	cleanup
+	exit 1
+}
+
+# Prompt to ask for verification of the user.
+verify ()
+{
+	less < "$TMP_OUT" && answer=$(echo -e "no\nyes" | dmenu -p "Good?")
+	[[ "$answer" == no ]] && exit 1
+}
+
+# Convert the files from the old format to the new format by simply
+# renaming them using 'mv'.
+convert ()
+{
+	while read -r line
+	do
+		local src dest
+		src=$( cut -d ' ' -f 1 <<< "$line")
+		dest=$(cut -d ' ' -f 2 <<< "$line")
+		# TODO do the actual 'mv' command
+		echo "mv $src -> $dest"
+	done < "$TMP_OUT"
+
+	echo "Replaced $num_out out of $num_in."
+}
+
+# Print all the files which are not converted and thus not matched
+# with any of the formats in the $FORMATS file.
+not_converted ()
+{
+	local formats_or
+	# Create a regex from the $FORMATS file for grep, the inverted
+	# matched files are all files which are not converted.
+	formats_or=$(sed -nE 's;s/(.*)/.*/gp;(\1);p' < formats \
+	            | tr '\n' '|' | sed -E 's/(.*)\|/\1/g')
+	>&2 echo "These files cannot be matched against any pattern in $FORMATS."
+	grep -vE "$formats_or" < "$TMP_IN" | sed 's/.*/    &/g' >&2
+}
+
+main ()
+{
+	format
+	count
+	uniqueify
+	verify
+	convert
+	not_converted
+	cleanup
+}
+
+main "$@"
