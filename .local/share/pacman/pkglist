@@ -21,6 +21,7 @@ clamav
 coreutils
 cronie
 cryptsetup
+ctags
 dcd
 deepin-screenshot
 device-mapper
@@ -46,6 +47,7 @@ filesystem
 findutils
 firefox
 flex
+fzf
 gawk
 gcc
 gcc-d
