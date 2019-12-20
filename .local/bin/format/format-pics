@@ -19,6 +19,7 @@ cleanup ()
 # Convert all of the matching formats to the unified format.
 format ()
 {
+	trap "cleanup; exit 1" SIGINT
 	ls "$DIR" > "$TMP_IN"
 	sed -nE -f "$FORMATS" < "$TMP_IN" > "$TMP_OUT"
 }
@@ -127,6 +128,7 @@ convert ()
 		src=$( sed -E 's/(".+"|.+) (.+)/\1/g' <<< "$line")
 		dest=$(sed -E 's/(".+"|.+) (.+)/\2/g' <<< "$line")
 		# TODO do the actual 'mv' command
+		# TODO cp to another folder instead of mv (choice of user)
 		echo "mv $src -> $dest"
 	done < "$TMP_OUT"
 
