@@ -52,7 +52,7 @@ uniqueify ()
 {
 	((num_out == num_uniq)) && return
 
-	>&2 echo -e "The following files map to the same dest:\n"
+	>&2 echo -e "The following files map to the same destination:\n"
 
 	# Loop over all the dests which are not unique. For every
 	# dest take all the mappings corresponding to this dest
@@ -61,7 +61,7 @@ uniqueify ()
 	while read -r num_dest
 	do
 		local num dest original # num of occurences of dest
-		num=$(     cut -d ' ' -f 1 <<< "$num_dest") # >= 2
+		num=$( cut -d ' ' -f 1 <<< "$num_dest") # >= 2
 		dest=$(cut -d ' ' -f 2 <<< "$num_dest") && original="$dest"
 
 		# Print the mappings which are not unique.
@@ -95,10 +95,11 @@ uniqueify ()
 	done
 }
 
-# Prompt to ask for verification of the user.
-verify ()
+# Ask the user a yes/no question and continue only if they said yes.
+ask ()
 {
-	less < "$TMP_OUT" && echo -n "Please verify if this is correct [no/yes]: "
+	local answer
+	echo -n "$@"
 	read -r answer
 
 	if [[ "$answer" != yes ]]
@@ -106,6 +107,14 @@ verify ()
 		cleanup
 		exit 1
 	fi
+}
+
+# Prompt to ask for verification of the user.
+verify ()
+{
+	local tmp
+	echo -n "Show the mappings. [press enter] " && read -r tmp
+	less < "$TMP_OUT" && ask "Are these mappings correct? [no/yes] "
 }
 
 # Convert the files from the old format to the new format by simply
@@ -121,20 +130,23 @@ convert ()
 		echo "mv $src -> $dest"
 	done < "$TMP_OUT"
 
-	echo "Replaced $num_out out of $num_in."
+	echo "Renamed $num_out out of $num_in files."
 }
 
 # Print all the files which are not converted and thus not matched
 # with any of the formats in the $FORMATS file.
 not_converted ()
 {
-	local formats_or
+	local formats_or answer
+
 	# Create a regex from the $FORMATS file for grep, the inverted
 	# matched files are all files which are not converted.
 	formats_or=$(sed -nE 's;s/(.*)/.*/gp;(\1);p' < formats \
 	            | tr '\n' '|' | sed -E 's/(.*)\|/\1/g')
-	>&2 echo "These files cannot be matched against any pattern in $FORMATS."
+
+	>&2 echo -e "\nThe following files cannot be converted:"
 	grep -vE "$formats_or" < "$TMP_IN" | sed 's/.*/    &/g' >&2
+	ask "Do you wish to continue? (Then converting will start.) [no/yes] "
 }
 
 main ()
@@ -143,8 +155,8 @@ main ()
 	count
 	uniqueify
 	verify
-	convert
 	not_converted
+	convert
 	cleanup
 }
 
