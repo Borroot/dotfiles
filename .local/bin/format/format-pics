@@ -1,37 +1,44 @@
 #!/usr/bin/env bash
 # AUTHOR: Bram Pulles
 
-# This program formats all the images in the $DIR folder
+# This program formats all the images given as arguments
 # to one unified format.
 
-readonly DIR=$HOME/Nextcloud/photos/archive
-readonly FORMATS=./formats
-
-readonly TMP_IN=$(mktemp)
+readonly FORMATS=$HOME/.local/bin/format/formats
 readonly TMP_OUT=$(mktemp)
+
+trap "cleanup; exit 1" SIGINT
 
 # Remove all the temporaray files.
 cleanup ()
 {
-	rm -f "$TMP_IN" "$TMP_OUT"
+	rm -f "$TMP_OUT"
+}
+
+# Check if all of the filenames do not contain spaces. $1 is the
+# amount of arguments and $@ (excluding $1) are the actual arguments.
+# We also check if there is at least one argument.
+check_spaces ()
+{
+	[[ "$1" == 0 ]] && >&2 echo "Please provide files to convert." && exit 1
+
+	local act_args perc_args # actual and perceived amount of arguments
+	act_args=$1; shift
+	perc_args=$(grep -o ' ' <<< "$@" | wc -l) && ((perc_args++))
+
+	if ((act_args != perc_args))
+	then
+		>&2 echo "Some of the files given contain spaces, please remove these."
+		>&2 echo -e "This can be done with e.g. \e[1mperl-rename 'y/ /_/' FILES"
+		exit 1
+	fi
 }
 
 # Convert all of the matching formats to the unified format.
+# All of the files which need to be converted are given in $@.
 format ()
 {
-	trap "cleanup; exit 1" SIGINT
-	ls "$DIR" > "$TMP_IN"
-	sed -nE -f "$FORMATS" < "$TMP_IN" > "$TMP_OUT"
-}
-
-# Count how many files came in and how many files are converted.
-# Also count how many of the converted files are unique.
-count ()
-{
-	num_in=$(wc -l < "$TMP_IN")
-	num_out=$(wc -l < "$TMP_OUT")
-	num_uniq=$(sed -E 's/(".+"|.+) (.+)/\2/g' < "$TMP_OUT" \
-	         | sort | uniq | wc -l)
+	echo "$@" | tr ' ' '\n' | sed -nE -f "$FORMATS" > "$TMP_OUT" || exit 1
 }
 
 # Increase the last six digits of the dest variable by one.
@@ -51,6 +58,10 @@ inc_dest ()
 # those files have to be made unique in some way to prevent data loss.
 uniqueify ()
 {
+	# First we check if there are conflicts, if not we immediately return.
+	local num_out num_uniq
+	num_out=$(wc -l < "$TMP_OUT")
+	num_uniq=$(sed -E 's/.+ (.+)/\1/g' < "$TMP_OUT" | sort | uniq | wc -l)
 	((num_out == num_uniq)) && return
 
 	>&2 echo -e "The following files map to the same destination:\n"
@@ -58,7 +69,7 @@ uniqueify ()
 	# Loop over all the dests which are not unique. For every
 	# dest take all the mappings corresponding to this dest
 	# and change them until they are all unique.
-	sed -E 's/(".+"|.+) (.+)/\2/g' < "$TMP_OUT" | sort | uniq -dc |
+	sed -E 's/.+ (.+)/\1/g' < "$TMP_OUT" | sort | uniq -dc |
 	while read -r num_dest
 	do
 		local num dest original # num of occurences of dest
@@ -85,12 +96,12 @@ uniqueify ()
 			dest_line=$(grep --line-number -m "$i" "$original" < "$TMP_OUT" | tail -n 1)
 			dest_linenr=$(sed -E 's/^([[:digit:]]+):.*/\1/' <<< "$dest_line")
 
-			sed -i "${dest_linenr}s/$original/$dest/" "$TMP_OUT"
+			sed -i "${dest_linenr}s;$original;$dest;" "$TMP_OUT"
 
 			# Print how the conflict is solved.
 			local line src
 			line=$(grep -F "$dest" < "$TMP_OUT")
-			src=$(sed -E "s/(\".+\"|.+) .+/\\1/" <<< "$line")
+			src=$(sed -E 's/(.+) .+/\1/' <<< "$line")
 			>&2 echo -e "    $src\t-> $dest\n"
 		done
 	done
@@ -100,8 +111,7 @@ uniqueify ()
 ask ()
 {
 	local answer
-	echo -n "$@"
-	read -r answer
+	echo -en "$@" && read -r answer
 
 	if [[ "$answer" != yes ]]
 	then
@@ -113,8 +123,7 @@ ask ()
 # Prompt to ask for verification of the user.
 verify ()
 {
-	local tmp
-	echo -n "Show the mappings. [press enter] " && read -r tmp
+	echo -n "Show the mappings. [press enter] " && read -r
 	less < "$TMP_OUT" && ask "Are these mappings correct? [no/yes] "
 }
 
@@ -122,43 +131,80 @@ verify ()
 # renaming them using 'mv'.
 convert ()
 {
+	local run dest_folder
+
+	# Ask where the user wants to store the new files and set $dest_folder.
+	echo -en "What will be the destination directory? (default 'new'): "
+	read -r dest_folder
+	dest_folder=${dest_folder:-new}
+
+	# Set the $run variable according to the $dest_folder.
+	if [[ $(basename $dest_folder) == '.' ]]
+	then
+		run='mv'
+		echo -e "\nSo we will rename all images in their original directory."
+	else
+		run='cp'
+		echo -e "\nSo we will copy all of the images to '$dest_folder'."
+	fi
+
+	# Ask for a last confirmation.
+	ask "Converting is about to start, do you want to proceed? [no/yes] "
+
+	# Create the directory and its parents if necessary.
+	mkdir -p $dest_folder
+	[[ ! -d $dest_folder ]] && exit 1
+
+	# Do the actual conversions!
 	while read -r line
 	do
 		local src dest
-		src=$( sed -E 's/(".+"|.+) (.+)/\1/g' <<< "$line")
-		dest=$(sed -E 's/(".+"|.+) (.+)/\2/g' <<< "$line")
-		# TODO do the actual 'mv' command
-		# TODO cp to another folder instead of mv (choice of user)
-		echo "mv $src -> $dest"
+		src=$(sed -E 's/(.+) (.+)/\1/g' <<< "$line")
+		dest=$dest_folder/$(sed -E 's/(.+) (.+)/\2/g' <<< "$line")
+		$run -v "$src" "$dest"
 	done < "$TMP_OUT"
-
-	echo "Renamed $num_out out of $num_in files."
 }
 
-# Print all the files which are not converted and thus not matched
-# with any of the formats in the $FORMATS file.
-not_converted ()
+# Display the results. The amount of files coming in is given in $1.
+results ()
+{
+	out=$(wc -l < "$TMP_OUT")
+	echo "Renamed $out out of $1 files."
+}
+
+# Print all the files which cannot be converted and thus are not
+# matched with any of the formats in the $FORMATS file. The files
+# are given through $@.
+no_convert ()
 {
 	local formats_or answer
 
 	# Create a regex from the $FORMATS file for grep, the inverted
 	# matched files are all files which are not converted.
-	formats_or=$(sed -nE 's;s/(.*)/.*/gp;(\1);p' < formats \
+	formats_or=$(sed -nE 's/s;(.*);.*;gp/(\1)/p' < $FORMATS \
 	            | tr '\n' '|' | sed -E 's/(.*)\|/\1/g')
 
-	>&2 echo -e "\nThe following files cannot be converted:"
-	grep -vE "$formats_or" < "$TMP_IN" | sed 's/.*/    &/g' >&2
-	ask "Do you wish to continue? (Then converting will start.) [no/yes] "
+	# Now get all the files which are not matched by the regex. Print
+	# each of this files if they are not a directory.
+	>&2 echo -e "\nThe following files cannot be converted:\n"
+	echo "$@" | tr ' ' '\n' | grep -vE "$formats_or" |
+	while read -r file
+	do
+		[[ ! -d "$file" ]] && >&2 echo "    $file"
+	done
+
+	ask "\nDo you still wish to continue? [no/yes] "
 }
 
 main ()
 {
-	format
-	count
+	check_spaces "$#" "$@"
+	format "$@"
 	uniqueify
 	verify
-	not_converted
+	no_convert "$@"
 	convert
+	results "$#"
 	cleanup
 }
 

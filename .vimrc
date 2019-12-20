@@ -93,10 +93,9 @@ map <leader>sn     :lnext<CR>
 map <leader>s<S-n> :lprevious<CR>
 map <leader>se     :Errors<CR>
 map <leader>sc     :lclose<CR>
-map <leader>st     :SyntasticToggleMode<CR>
+map <leader>st     :SyntasticToggleMode<CR> :w<CR>
 let g:syntastic_sh_checkers        = ['shellcheck']
 let g:syntastic_sh_shellcheck_args = "-x"
-let g:syntastic_check_on_open      = 1
 
 " Settings and mapping for better whitespace.
 map <leader>b :StripWhitespace<CR> :%s/\($\n\s*\)\+\%$//e<CR>

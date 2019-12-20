@@ -35,6 +35,7 @@ dmd
 dmd-docs
 dmenu
 docker-compose
+dos2unix
 dscanner
 dtools
 dub
