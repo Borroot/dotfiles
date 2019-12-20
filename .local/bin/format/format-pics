@@ -62,6 +62,8 @@ uniqueify ()
 	local num_out num_uniq
 	num_out=$(wc -l < "$TMP_OUT")
 	num_uniq=$(sed -E 's/.+ (.+)/\1/g' < "$TMP_OUT" | sort | uniq | wc -l)
+
+	((num_out == 0)) && NO_CONVERSIONS=true
 	((num_out == num_uniq)) && return
 
 	>&2 echo -e "The following files map to the same destination:\n"
@@ -120,11 +122,17 @@ ask ()
 	fi
 }
 
-# Prompt to ask for verification of the user.
+# Prompt to ask for verification of the user. If there are no possible
+# conversion then do not ask the user.
 verify ()
 {
-	echo -n "Show the mappings. [press enter] " && read -r
-	less < "$TMP_OUT" && ask "Are these mappings correct? [no/yes] "
+	if [[ $NO_CONVERSIONS == true ]]
+	then
+		echo "There are no possible conversions :(."
+	else
+		echo -n "Show the mappings. [press enter] " && read -r
+		less < "$TMP_OUT" && ask "Are these mappings correct? [no/yes] "
+	fi
 }
 
 # Convert the files from the old format to the new format by simply
@@ -132,6 +140,7 @@ verify ()
 convert ()
 {
 	local run dest_folder
+	[[ $NO_CONVERSIONS == true ]] && return
 
 	# Ask where the user wants to store the new files and set $dest_folder.
 	echo -en "What will be the destination directory? (default 'new'): "
@@ -151,7 +160,7 @@ convert ()
 	# Ask for a last confirmation.
 	ask "Converting is about to start, do you want to proceed? [no/yes] "
 
-	# Create the directory and its parents if necessary.
+	# Create the top directory and its parents if necessary.
 	mkdir -p $dest_folder
 	[[ ! -d $dest_folder ]] && exit 1
 
@@ -161,15 +170,13 @@ convert ()
 		local src dest
 		src=$(sed -E 's/(.+) (.+)/\1/g' <<< "$line")
 		dest=$dest_folder/$(sed -E 's/(.+) (.+)/\2/g' <<< "$line")
+
+		# Create the subdirectories if necessary.
+		dir=$(dirname $dest)
+		[[ ! -d $dir ]] && mkdir -p $dir
+
 		$run -v "$src" "$dest"
 	done < "$TMP_OUT"
-}
-
-# Display the results. The amount of files coming in is given in $1.
-results ()
-{
-	out=$(wc -l < "$TMP_OUT")
-	echo "Renamed $out out of $1 files."
 }
 
 # Print all the files which cannot be converted and thus are not
@@ -185,15 +192,27 @@ no_convert ()
 	            | tr '\n' '|' | sed -E 's/(.*)\|/\1/g')
 
 	# Now get all the files which are not matched by the regex. Print
-	# each of this files if they are not a directory.
+	# each of these files if they are not a directory and not in the
+	# correct format already.
 	>&2 echo -e "\nThe following files cannot be converted:\n"
 	echo "$@" | tr ' ' '\n' | grep -vE "$formats_or" |
 	while read -r file
 	do
-		[[ ! -d "$file" ]] && >&2 echo "    $file"
+		if [[ ! -d "$file" ]] && ! echo "$file" | grep -Eq \
+		    '[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}-[[:digit:]]{6}\.'
+		then
+			>&2 echo "    $file"
+		fi
 	done
 
-	ask "\nDo you still wish to continue? [no/yes] "
+	[[ $NO_CONVERSIONS != true ]] && ask "\nDo you still wish to continue? [no/yes] "
+}
+
+# Display the results. The amount of files coming in is given in $1.
+results ()
+{
+	out=$(wc -l < "$TMP_OUT")
+	echo -e "\nRenamed $out out of $1 files."
 }
 
 main ()
