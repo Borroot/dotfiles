@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# AUTHOR: Bram Pulles
 
 usage ()
 {
@@ -8,14 +9,12 @@ usage ()
 delete ()
 {
 	ans=$(echo -e 'n\ny' | dmenu -p "Are you sure you want to remove them?")
+	[[ "$ans" != 'y' ]] && exit
 
-	if [[ "$ans" == 'y' ]]
-	then
-		while read -r file
-		do
-			rm "$file"
-		done
-	fi
+	while read -r file
+	do
+		rm "$file"
+	done
 }
 
 case "$1" in
