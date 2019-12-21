@@ -43,6 +43,7 @@ dunst
 e2fsprogs
 efibootmgr
 emacs
+exiv2
 fakeroot
 file
 filesystem
@@ -125,6 +126,7 @@ pciutils
 pcmanfm
 peek
 perl
+perl-image-exiftool
 perl-rename
 picom
 pkgconf
