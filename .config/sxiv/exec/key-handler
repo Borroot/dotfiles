@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+usage ()
+{
+	notify-send "sxiv" "Option $1 not supported."
+}
+
+delete ()
+{
+	ans=$(echo -e 'n\ny' | dmenu -p "Are you sure you want to remove them?")
+
+	if [[ "$ans" == 'y' ]]
+	then
+		while read -r file
+		do
+			rm "$file"
+		done
+	fi
+}
+
+case "$1" in
+	d) delete     ;;
+	*) usage "$1" ;;
+esac

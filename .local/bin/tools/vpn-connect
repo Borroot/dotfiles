@@ -1,14 +1,14 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 CONFIG_FILE=$HOME/.config/vpn/laptop.ovpn
 LOG=$PWD/vpn_log
 
-if [[ -f $CONFIG_FILE ]] 
+if [[ -f $CONFIG_FILE ]]
 then
 	echo Connecting to VPN...
-	( sudo openvpn $CONFIG_FILE > $LOG ) &!
-	
-	sleep 10 
+	sudo openvpn $CONFIG_FILE > $LOG &!
+
+	sleep 10
 	if grep -q "Initialization Sequence Completed" $LOG
 	then
 		echo Connected to VPN!
