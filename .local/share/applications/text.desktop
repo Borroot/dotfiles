@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Text editor
+Exec=/usr/bin/env st -e vim %u
