@@ -8,19 +8,13 @@ font pango:monospace 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-
-# Start dmenu
-bindsym $mod+d exec dmenu_run
-
 # Kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
-# Restart i3 inplace 
+# Restart i3 inplace
 bindsym $mod+Shift+r restart
-# Exit i3 
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# Exit i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Change focus
 bindsym $mod+j focus left
@@ -94,7 +88,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Color definitions.
-set $bg-color 	         #2f343f
+set $bg-color            #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
@@ -112,13 +106,13 @@ hide_edge_borders both
 # Remove the titlebar of all windows.
 new_window 1pixel
 
-# Start i3bar to display a workspace bar 
+# Start i3bar to display a workspace bar
 bar {
 	mode hide
 	hidden_state hide
 	modifier $mod
 
-	status_command i3blocks -c ~/.config/i3/i3blocks.conf 
+	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	colors {
 			background $bg-color
 			separator #757575

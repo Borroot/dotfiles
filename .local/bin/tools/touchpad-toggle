@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-DEV='SynPS/2 Synaptics TouchPad'
-state=$(xinput list-props "$DEV" | grep 'Device Enabled' | grep -o "[01]$")
+readonly DEVICE='SynPS/2 Synaptics TouchPad'
+state=$(xinput list-props "$DEVICE" | grep 'Device Enabled' | grep -o "[01]$")
 
 if [[ $state == 1 ]]
 then
-	xinput disable "$DEV"
+	xinput disable "$DEVICE"
 	unclutter -idle 0 &> /dev/null &
 else
-	xinput enable "$DEV"
-	xinput set-prop "$DEV" 'libinput Tapping Enabled' 1
-	xinput set-prop "$DEV" 'libinput Accel Speed' '0.3'
+	xinput enable "$DEVICE"
+	xinput set-prop "$DEVICE" 'libinput Tapping Enabled' 1
+	xinput set-prop "$DEVICE" 'libinput Accel Speed' '0.3'
 fi

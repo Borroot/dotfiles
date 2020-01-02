@@ -73,7 +73,10 @@ gtk-engines
 gvfs-gphoto2
 gvfs-mtp
 gzip
+i3-wm
+i3blocks
 i3lock
+i3status
 inetutils
 intellij-idea-community-edition
 iproute2
@@ -144,7 +147,6 @@ scrot
 sed
 shadow
 shellcheck
-sl
 spotify
 steam
 strace
