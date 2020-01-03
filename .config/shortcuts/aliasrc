@@ -16,6 +16,7 @@ alias \
 	g="git" \
 	gs="git status" \
 	gd="git diff"   \
+	gb="git branch" \
 	ga="git add -A" \
 	gp="git push"   \
 	gc="git commit -am"

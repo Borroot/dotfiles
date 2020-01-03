@@ -22,7 +22,7 @@ Print
 XF86TouchpadToggle
 	touchpad-toggle
 
-XF86AudioMute 
+XF86AudioMute
 	mute-toggle
 
 XF86Audio{Lower,Raise}Volume

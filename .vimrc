@@ -36,6 +36,10 @@ inoremap {;<CR> {<CR>};<ESC>O
 autocmd FileType *       setlocal formatoptions-=ro
 autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 
+" Enter vim with a block cursor and leave with a beam.
+autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
+autocmd VimLeave * silent exec "! echo -ne '\e[5 q'"
+
 " Run make, open corresponding PDF to the current markdown doc.
 map <leader>m :!make<CR>
 map <leader>p :!open-pdf %<CR><CR>
