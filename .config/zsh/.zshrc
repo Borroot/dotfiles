@@ -27,9 +27,6 @@ zmodload zsh/complist
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' menu select
 
-# Shift-Tab moves through the completion menu backwards.
-bindkey '^[[Z' reverse-menu-complete
-
 # Autosuggestions plugin.
 PLUG=/usr/share/zsh/plugins
 source $PLUG/zsh-autosuggestions/zsh-autosuggestions.zsh

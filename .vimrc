@@ -28,6 +28,10 @@ highlight clear SpellBad             " Clear the highlight color.
 highlight SpellCap ctermbg=Yellow    " Highlighting color for misspelled words.
 highlight SpellBad ctermbg=DarkGrey  " Highlighting color for misspelled words.
 
+" Enter vim with a block cursor and leave with a beam.
+autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
+autocmd VimLeave * silent exec "! echo -ne '\e[5 q'"
+
 " Automatic closing bracket generation.
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
@@ -35,10 +39,6 @@ inoremap {;<CR> {<CR>};<ESC>O
 " No auto commenting, set tabs to spaces and tabsize to 2 for Haskell.
 autocmd FileType *       setlocal formatoptions-=ro
 autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
-
-" Enter vim with a block cursor and leave with a beam.
-autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
-autocmd VimLeave * silent exec "! echo -ne '\e[5 q'"
 
 " Run make, open corresponding PDF to the current markdown doc.
 map <leader>m :!make<CR>
