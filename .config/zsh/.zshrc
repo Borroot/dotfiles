@@ -51,10 +51,12 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-# Search substring history with C-P and C-N without duplicates.
+# Search substring history without duplicates.
 set -o HIST_IGNORE_ALL_DUPS
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+bindkey -M vicmd 'k'  history-substring-search-up
+bindkey -M vicmd 'j'  history-substring-search-down
+bindkey -M viins '^P' history-substring-search-up
+bindkey -M viins '^N' history-substring-search-down
 
 # Set all of the settings for the correct cursor depeninding on the vi mode.
 # Instant changing from beam to block cursor.
