@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-while xsetroot -name " VOL $(volume) | BAT $(battery) | $(datestatus)"
+while xsetroot -name " VOL $(volume) | BAT $(battery) | $(clock)"
 do
 	sleep .5s
 done
