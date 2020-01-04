@@ -28,17 +28,23 @@ highlight clear SpellBad             " Clear the highlight color.
 highlight SpellCap ctermbg=Yellow    " Highlighting color for misspelled words.
 highlight SpellBad ctermbg=DarkGrey  " Highlighting color for misspelled words.
 
-" Enter vim with a block cursor and leave with a beam.
-autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
-autocmd VimLeave * silent exec "! echo -ne '\e[5 q'"
+" Start with a block cursor and leave with a beam cursor.
+au VimEnter * silent exec "! echo -ne '\e[1 q'"
+au VimLeave * silent exec "! echo -ne '\e[5 q'"
+" Leaving insert mode will instantly change the cursor to a beam.
+au InsertEnter * set timeoutlen=0
+au InsertLeave * set timeoutlen=1000
+" Change the cursor when changing the mode.
+au InsertEnter * silent exec "! echo -ne '\e[5 q'"
+au InsertLeave * silent exec "! echo -ne '\e[1 q'"
 
 " Automatic closing bracket generation.
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
 " No auto commenting, set tabs to spaces and tabsize to 2 for Haskell.
-autocmd FileType *       setlocal formatoptions-=ro
-autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
+au FileType *       setlocal formatoptions-=ro
+au FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 
 " Run make, open corresponding PDF to the current markdown doc.
 map <leader>m :!make<CR>
@@ -57,9 +63,9 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Auto markdown to pdf on save, auto restart sxhkd and auto restart shortcuts.
-autocmd BufWritePost *.md silent !mdtopdf % &
-autocmd BufWritePost sxhkdrc !killall sxhkd; sxhkd 2> /dev/null &\!
-autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
+au BufWritePost *.md silent !mdtopdf % &
+au BufWritePost sxhkdrc !killall sxhkd; sxhkd 2> /dev/null &\!
+au BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
 
 " --------------------------------------------------------------------
 " PLUGINS
@@ -69,25 +75,20 @@ autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !sho
 if empty(glob('~/.vim/autoload/plug.vim'))
 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
 	  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	au VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')    " Specify directory for plugins.
-
-Plug 'scrooloose/nerdtree'            " Tree file system explorer.
-Plug 'vim-syntastic/syntastic'        " Syntax checking.
-Plug 'scrooloose/nerdcommenter'       " Commenting like a pro.
-Plug 'ntpeters/vim-better-whitespace' " Whitespace cleaning.
-Plug 'jreybert/vimagit'               " Git plugin.
-Plug 'airblade/vim-gitgutter'         " Show git status in the file.
-Plug 'farmergreg/vim-lastplace'       " Remember the last position.
-
+call plug#begin('~/.vim/plugged') " Specify directory for plugins.
+	Plug 'scrooloose/nerdtree'            " Tree file system explorer.
+	Plug 'vim-syntastic/syntastic'        " Syntax checking.
+	Plug 'scrooloose/nerdcommenter'       " Commenting like a pro.
+	Plug 'ntpeters/vim-better-whitespace' " Whitespace cleaning.
+	Plug 'airblade/vim-gitgutter'         " Show git status in the file.
+	Plug 'farmergreg/vim-lastplace'       " Remember the last position.
 call plug#end()
 
-" Mapping for NerdTree and Magit.
+" Mapping for NerdTree.
 map <leader>t  :NERDTree<CR>
-map <leader>g  :Magit<CR>
-map <leader>gp :!git push<CR>
 
 " Setting for git gutter.
 set updatetime=500
