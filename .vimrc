@@ -58,7 +58,7 @@ map <C-l> <C-w>l
 
 " Auto markdown to pdf on save, auto restart sxhkd and auto restart shortcuts.
 autocmd BufWritePost *.md silent !mdtopdf % &
-autocmd BufWritePost sxhkdrc !killall sxhkd; sxhkd &\!
+autocmd BufWritePost sxhkdrc !killall sxhkd; sxhkd 2> /dev/null &\!
 autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
 
 " --------------------------------------------------------------------

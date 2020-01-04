@@ -8,8 +8,11 @@ alt + p
 alt + n ; {v,d,s,p,e}
 	{pcmanfm, discord, spotify, zathura, emacs}
 
-alt + n ; {f,o,b,w,g}
-	qutebrowser { , overleaf.com/login --target window, brightspace.ru.nl, web.whatsapp.com --target window, github.com/borroot/\?tab=repositories} 2> /dev/null &!
+alt + n ; {f,b,w,g}
+	qutebrowser { , brightspace.ru.nl, web.whatsapp.com --target window, github.com/borroot/\?tab=repositories}
+
+alt + n ; {o,n}
+	firefox {overleaf.com/login, netflix.com/login}
 
 # Computer state
 alt + y ; {shift + s, shift + r, l}
