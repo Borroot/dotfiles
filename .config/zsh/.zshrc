@@ -36,7 +36,7 @@ source $PLUG/zsh-history-substring-search/zsh-history-substring-search.zsh
 # Load all the aliases and the shortcuts to files and dirs.
 CONFIG=$HOME/.config/shortcuts
 [ -f $CONFIG/shortcutrc ] && source $CONFIG/shortcutrc # Shortcuts to files and dirs.
-[ -f $CONFIG/aliasrc ]    && source $CONFIG/aliasrc    # Short functions and aliases.
+[ -f $CONFIG/aliasrc    ] && source $CONFIG/aliasrc    # Short functions and aliases.
 [ -f $CONFIG/functionrc ] && source $CONFIG/functionrc # Big functions.
 
 # ----------------------------------------------------------------------

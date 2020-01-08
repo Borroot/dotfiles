@@ -8,8 +8,12 @@ pdf() { $READER    "$@" &> /dev/null &! }
 # Very useful aliases.
 alias \
 	v="vim" \
-	p="sudo pacman" \
 	l="ls -dlhF .[^.]* 2> /dev/null ; ls -dlhF * 2> /dev/null"
+
+# Pacman aliases.
+alias \
+	pi="sudo pacman -S" \
+	pu="sudo pacman -Rns"
 
 # Git aliases.
 alias \
