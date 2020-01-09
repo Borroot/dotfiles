@@ -6,7 +6,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1 # intellij
 export PATH="$PATH:$HOME/builds/anaconda/pkg/anaconda/opt/anaconda/bin"
 
 # Set all the default programs.
-export EDITOR=vim
+export EDITOR=nvim
 export TERMINAL=st
 export READER=zathura
 export VIEWER=sxiv

@@ -110,6 +110,7 @@ mesa-demos
 metasploit
 minecraft-launcher
 mtpfs
+neovim
 networkmanager
 nextcloud-client
 notify-osd
@@ -183,7 +184,6 @@ unclutter
 unzip
 usbutils
 util-linux
-vim
 virtualbox
 vlc
 weechat

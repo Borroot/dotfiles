@@ -5,9 +5,6 @@
 let mapleader =","            " Set the map leader to ','.
 set shell=/bin/zsh            " Set the default shell to zsh.
 
-syntax on                     " Enable syntax highlighting.
-filetype plugin on            " Enable recognition of file types.
-
 set mouse=a                   " Turn on mouse support.
 set ignorecase                " Ignore cases in searching.
 
@@ -36,10 +33,9 @@ call Visuals()
 " FORMATTING
 " --------------------------------------------------------------------
 
-filetype plugin indent on     " Enable changing of tabs.
 set tabstop=4 shiftwidth=4    " Set the tabsize to 4.
 
-set autoindent breakindent    " Auto indent and keep indent when wrapping.
+set breakindent               " Keep indent when wrapping.
 set wrap linebreak            " Nice line wrapping with words.
 set display=lastline          " Show parts of a wrapped line not @'s.
 
@@ -97,13 +93,13 @@ au InsertLeave * silent exec "! echo -ne '\e[1 q'"
 " --------------------------------------------------------------------
 
 " Auto install Vim-Plug if not available.
-if empty(glob('~/.vim/autoload/plug.vim'))
-	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
 	  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	au VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 	Plug 'junegunn/goyo.vim'              " Distraction free writing.
 	Plug 'ntpeters/vim-better-whitespace' " Whitespace cleaning like a pro.
 	Plug 'scrooloose/nerdcommenter'       " Toggle comments: <leader>c<space>.
