@@ -64,7 +64,7 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 " Shortcut for toggling 'list', saving and sudo saving.
-nmap <leader>l     :set invlist listchars=tab:>-,eol:$<CR>
+nmap <leader>l     :set invlist listchars=tab:>-,space:•,eol:$<CR>
 nmap <leader>w     :w<CR>
 nmap <leader><S-w> :w !sudo tee > /dev/null %<CR><CR>
 
