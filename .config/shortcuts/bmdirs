@@ -19,6 +19,7 @@ ncd   ~/Nextcloud/courses/data_mining
 nci   ~/Nextcloud/courses/information_systems
 C     ~/.config
 cs    ~/.config/shortcuts
+cn    ~/.config/nvim
 lb    ~/.local/bin
 lbt   ~/.local/bin/tools
 lbs   ~/.local/bin/statusbar

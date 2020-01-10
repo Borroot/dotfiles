@@ -54,6 +54,10 @@ au FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 " MAPS & AUTOCMDS
 " --------------------------------------------------------------------
 
+" Always open the help on the right.
+cabbrev h vert h
+cabbrev help vert help
+
 " Automatic closing bracket generation.
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
@@ -114,6 +118,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'airblade/vim-gitgutter'         " Show git status in the file.
 	Plug 'kovetskiy/sxhkd-vim'            " Syntax highlighting for sxhkd.
 	Plug 'scrooloose/nerdtree'            " Tree file system explorer.
+	Plug 'sirver/ultisnips'               " Snippets are the best.
 	Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " Better concealment.
 call plug#end()
 
@@ -129,7 +134,18 @@ nmap <leader>t :NERDTree<CR>
 set updatetime=500
 
 " Setting for tex conceal.
-let g:tex_conceal="abdmgs"
+let g:tex_conceal='abdmg'
+
+" Mapping and settings for UltiSnips.
+nmap <leader>u :UltiSnipsEdit<CR>
+
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsListSnippets='<c-h>'
+let g:UltiSnipsJumpForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+
+let g:UltiSnipsEditSplit='vertical'
+let g:UltiSnipsSnippetDirectories=['ultisnips']
 
 " Settings for better whitespace.
 let g:strip_whitespace_on_save=1
