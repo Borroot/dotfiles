@@ -15,6 +15,7 @@ set ignorecase                " Ignore cases in searching.
 " VISUALS
 " --------------------------------------------------------------------
 
+set laststatus=0              " Show no statusbar, its a waste of space.
 set conceallevel=2            " Conceal some latex commands.
 set number relativenumber     " Use relative line numbers.
 
@@ -24,8 +25,8 @@ function Visuals()
 	hi clear Conceal              " No color for concealed text.
 	hi clear SignColumn           " No color for the sign column.
 
-	hi LineNr ctermfg=grey        " Set a nice color for line numbers.
-	hi CursorLineNr ctermfg=grey  " Set a nice color for current line number.
+	hi LineNr ctermfg=grey        " Nice color for line numbers.
+	hi CursorLineNr ctermfg=grey  " Nice color for current line number.
 
 	hi clear SpellBad             " Clear the color.
 	hi SpellBad ctermbg=DarkGrey  " Color for misspelled words.
