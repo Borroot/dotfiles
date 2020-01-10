@@ -5,6 +5,9 @@
 let mapleader =","            " Set the map leader to ','.
 set shell=/bin/zsh            " Set the default shell to zsh.
 
+syntax on                     " Enable syntax highlighting.
+filetype plugin on            " Enable recognistion of filetypes.
+
 set mouse=a                   " Turn on mouse support.
 set ignorecase                " Ignore cases in searching.
 
@@ -12,16 +15,17 @@ set ignorecase                " Ignore cases in searching.
 " VISUALS
 " --------------------------------------------------------------------
 
+set conceallevel=2            " Conceal some latex commands.
+set number relativenumber     " Use relative line numbers.
+
 function Visuals()
 	set bg=light                  " Set the default theme.
 
-	set conceallevel=2            " Conceal some latex commands.
 	hi clear Conceal              " No color for concealed text.
-
 	hi clear SignColumn           " No color for the sign column.
 
-	set number relativenumber     " Use relative line numbers.
 	hi LineNr ctermfg=grey        " Set a nice color for line numbers.
+	hi CursorLineNr ctermfg=grey  " Set a nice color for current line number.
 
 	hi clear SpellBad             " Clear the color.
 	hi SpellBad ctermbg=DarkGrey  " Color for misspelled words.
@@ -33,8 +37,10 @@ call Visuals()
 " FORMATTING
 " --------------------------------------------------------------------
 
+filetype plugin indent on     " Enable changing of tabs.
 set tabstop=4 shiftwidth=4    " Set the tabsize to 4.
 
+set autoindent smartindent    " Auto indent and smart indent.
 set breakindent               " Keep indent when wrapping.
 set wrap linebreak            " Nice line wrapping with words.
 set display=lastline          " Show parts of a wrapped line not @'s.
@@ -58,7 +64,7 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 " Shortcut for toggling 'list', saving and sudo saving.
-nmap <leader>l     :set invlist<CR>
+nmap <leader>l     :set invlist listchars=tab:>-,eol:$<CR>
 nmap <leader>w     :w<CR>
 nmap <leader><S-w> :w !sudo tee > /dev/null %<CR><CR>
 
@@ -105,8 +111,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'scrooloose/nerdcommenter'       " Toggle comments: <leader>c<space>.
 	Plug 'farmergreg/vim-lastplace'       " Remember the last position.
 	Plug 'airblade/vim-gitgutter'         " Show git status in the file.
-	Plug 'scrooloose/nerdtree'            " Tree file system explorer.
 	Plug 'kovetskiy/sxhkd-vim'            " Syntax highlighting for sxhkd.
+	Plug 'scrooloose/nerdtree'            " Tree file system explorer.
+	Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " Better concealment.
 call plug#end()
 
 " Mapping for Goyo and fix colors.
@@ -119,6 +126,9 @@ nmap <leader>t :NERDTree<CR>
 
 " Setting for git gutter.
 set updatetime=500
+
+" Setting for tex conceal.
+let g:tex_conceal="abdmgs"
 
 " Settings for better whitespace.
 let g:strip_whitespace_on_save=1
