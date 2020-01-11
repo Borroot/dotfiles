@@ -117,6 +117,9 @@ call plug#end()
 " Mapping for Goyo and fix colors.
 nmap <leader>g :Goyo<CR>
 let g:goyo_height=95
+
+au User GoyoEnter cmap q qa
+au User GoyoLeave cunmap q
 au User GoyoEnter,GoyoLeave call Visuals() | syn off | syn on
 
 " Mapping for NerdTree.
