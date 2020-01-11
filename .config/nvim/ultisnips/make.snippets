@@ -1,0 +1,16 @@
+snippet base
+CFLAGS= -Wall -Wextra -Werror -pedantic
+
+all: $1
+
+$1: $1.o
+	$(CC) $(CFLAGS) -o $@ $<
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+clean:
+	rm -f *.o $1
+
+.PHONY: all clean
+endsnippet
