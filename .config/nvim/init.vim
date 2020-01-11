@@ -58,10 +58,6 @@ au FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 cabbrev h vert h
 cabbrev help vert help
 
-" Automatic closing bracket generation.
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
-
 " Remap shortcuts for moving around in windows.
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
@@ -90,10 +86,6 @@ au BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcut
 " Start with a block cursor and leave with a beam cursor.
 au VimEnter * silent exec "! echo -ne '\e[1 q'"
 au VimLeave * silent exec "! echo -ne '\e[5 q'"
-
-" Leaving insert mode will instantly change the cursor to a beam.
-au InsertEnter * set timeoutlen=0
-au InsertLeave * set timeoutlen=1000
 
 " Change the cursor when changing the mode.
 au InsertEnter * silent exec "! echo -ne '\e[5 q'"
