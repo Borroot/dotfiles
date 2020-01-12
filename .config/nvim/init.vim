@@ -106,6 +106,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'junegunn/goyo.vim'              " Distraction free writing.
 	Plug 'ntpeters/vim-better-whitespace' " Whitespace cleaning like a pro.
 	Plug 'scrooloose/nerdcommenter'       " Toggle comments: <leader>c<space>.
+	Plug 'tpope/vim-surround'             " Easy surrounding things.
 	Plug 'farmergreg/vim-lastplace'       " Remember the last position.
 	Plug 'airblade/vim-gitgutter'         " Show git status in the file.
 	Plug 'kovetskiy/sxhkd-vim'            " Syntax highlighting for sxhkd.
