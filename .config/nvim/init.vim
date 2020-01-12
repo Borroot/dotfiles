@@ -47,14 +47,14 @@ set wrap linebreak            " Nice line wrapping with words.
 set display=lastline          " Show parts of a wrapped line not @'s.
 
 " Set all kinds of format options, see `:h fo-table`.
-au FileType *       setlocal formatoptions-=tcro
+au FileType * set fo-=t fo-=c fo-=r fo-=o
 au FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 
 " --------------------------------------------------------------------
 " MAPS & AUTOCMDS
 " --------------------------------------------------------------------
 
-" Always open the help on the right.
+" Always open the help in a vertical split.
 cabbrev h vert h
 cabbrev help vert help
 
