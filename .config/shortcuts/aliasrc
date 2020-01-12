@@ -1,10 +1,5 @@
 # vim: filetype=zsh
 
-# Short functions.
-c()   { cd         "$@" && eval ls; }
-mc()  { eval mkdir "$@" && c "$1"; }
-pdf() { $READER    "$@" &> /dev/null &! }
-
 # Very useful aliases.
 alias \
 	v="nvim" \
@@ -55,3 +50,8 @@ alias \
 alias \
 	s="sudo tee /proc/acpi/bbswitch <<< ON && startx" \
 	B="echo $1 > /sys/class/backlight/intel_backlight/brightness"
+
+# Short functions.
+c()   { cd "$@" && ls }
+pdf() { $READER    "$@" 2> /dev/null &! }
+img() { $VIEWER -a "$@" 2> /dev/null &! }

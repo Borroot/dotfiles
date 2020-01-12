@@ -37,7 +37,6 @@ source $PLUG/zsh-history-substring-search/zsh-history-substring-search.zsh
 CONFIG=$HOME/.config/shortcuts
 [ -f $CONFIG/shortcutrc ] && source $CONFIG/shortcutrc # Shortcuts to files and dirs.
 [ -f $CONFIG/aliasrc    ] && source $CONFIG/aliasrc    # Short functions and aliases.
-[ -f $CONFIG/functionrc ] && source $CONFIG/functionrc # Big functions.
 
 # ----------------------------------------------------------------------
 # VI MODE SETTINGS
@@ -57,6 +56,10 @@ bindkey -M vicmd 'k'  history-substring-search-up
 bindkey -M vicmd 'j'  history-substring-search-down
 bindkey -M viins '^P' history-substring-search-up
 bindkey -M viins '^N' history-substring-search-down
+
+# ----------------------------------------------------------------------
+# CURSOR SETTINGS
+# ----------------------------------------------------------------------
 
 # Set all of the settings for the correct cursor depeninding on the vi mode.
 # Instant changing from beam to block cursor.
