@@ -1,16 +1,35 @@
 snippet base
 CFLAGS= -Wall -Wextra -Werror -pedantic
+TARGET= ${1}
 
-all: $1
+all: $(TARGET)
 
-$1: $1.o
-	$(CC) $(CFLAGS) -o $@ $<
+$(TARGET): % : %.o
+	$(CC) $(CFLAGS) -o $@ $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -f *.o $1
+	rm -f *.o $(TARGET)
+
+.PHONY: all clean
+endsnippet
+
+snippet basee
+CFLAGS= -Wall -Wextra -Werror -pedantic
+TARGET= ${1}
+
+all: $(TARGET)
+
+$(TARGET): % : %.o
+	$(CXX) $(CFLAGS) -o $@ $^
+
+%.o: %.cpp
+	$(CXX) $(CFLAGS) -c -o $@ $<
+
+clean:
+	rm -f *.o $(TARGET)
 
 .PHONY: all clean
 endsnippet
