@@ -54,8 +54,9 @@ alias \
 # Some short functions.
 c()    { cd "$@" && ls }
 
-pdf()  { $READER    "$@" 2> /dev/null &! }
-img()  { $VIEWER -a "$@" 2> /dev/null &! }
+pdf()  { $READER "$@" 2> /dev/null &! }
+img()  { [[ $# > 1 ]] && arg=-t || arg=
+	     $VIEWER -a $arg "$@" 2> /dev/null &! }
 
 pdff() { pdf "$@" && exit 0 }
 imgg() { img "$@" && exit 0 }

@@ -128,7 +128,7 @@ verify ()
 {
 	if [[ $NO_CONVERSIONS == true ]]
 	then
-		echo "There are no possible conversions :(."
+		echo "There are no possible conversions."
 	else
 		echo -n "Show the mappings. [press enter] " && read -r
 		less < "$TMP_OUT" && ask "Are these mappings correct? [no/yes] "
@@ -184,35 +184,53 @@ convert ()
 # are given through $@.
 no_convert ()
 {
-	local formats_or answer
+	local formats_or answer at_least_one
 
 	# Create a regex from the $FORMATS file for grep, the inverted
 	# matched files are all files which are not converted.
 	formats_or=$(sed -nE 's/s;(.*);.*;gp/(\1)/p' < $FORMATS \
 	            | tr '\n' '|' | sed -E 's/(.*)\|/\1/g')
 
+	at_least_one=0 # There has not been a 'no convertable' yet.
+	already_correct=0 # Count how many files are already correctly formatted.
+
 	# Now get all the files which are not matched by the regex. Print
 	# each of these files if they are not a directory and not in the
 	# correct format already.
-	>&2 echo -e "\nThe following files cannot be converted:\n"
-	echo "$@" | tr ' ' '\n' | grep -vE "$formats_or" |
 	while read -r file
 	do
+		# Check if the file is already in the correct format.
 		if [[ ! -d "$file" ]] && ! echo "$file" | grep -Eq \
 		    '[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}-[[:digit:]]{6}\.'
 		then
-			>&2 echo "    $file"
-		fi
-	done
+			# Print the header only if there is at least one 'no convertable'.
+			if ((++at_least_one == 1))
+			then
+				>&2 echo -e "\nThe following files cannot be converted:\n"
+			fi
 
-	[[ $NO_CONVERSIONS != true ]] && ask "\nDo you still wish to continue? [no/yes] "
+			>&2 echo "    $file"
+		else
+			# The file is in the correct format.
+			((++already_correct))
+		fi
+	done < <(echo "$@" | tr ' ' '\n' | grep -vE "$formats_or")
+
+	# Ask if the user wants to continue considering the nonconvertable files.
+	if ((at_least_one > 0))
+	then
+		>&2 echo
+		[[ $NO_CONVERSIONS != true ]] && ask "Do you still wish to continue? [no/yes] "
+	fi
 }
 
 # Display the results. The amount of files coming in is given in $1.
 results ()
 {
+	local out correct
 	out=$(wc -l < "$TMP_OUT")
-	echo -e "\nRenamed $out out of $1 files."
+	((already_correct > 0)) && correct=" ($already_correct files were already correct.)"
+	echo -e "Renamed $out out of $1 files.$correct"
 }
 
 main ()
