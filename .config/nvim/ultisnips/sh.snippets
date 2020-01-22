@@ -1,15 +1,15 @@
-snippet #! "#!/usr/bin/env bash" b
+snippet #! "" b
 #!/usr/bin/env bash
 endsnippet
 
-snippet if "if .. then .. fi" b
+snippet if "" b
 if ${2:[[ ${1:condition} ]]}
 then
 	${0:${VISUAL}}
 fi
 endsnippet
 
-snippet ife "if . else .. fi" b
+snippet ife "" b
 if ${2:[[ ${1:condition} ]]}
 then
 	${2:${VISUAL}}
@@ -18,47 +18,47 @@ else
 fi
 endsnippet
 
-snippet el "else .. fi" b
+snippet el "" b
 else
 	${0:${VISUAL}}
 fi
 endsnippet
 
-snippet elif "elif .." b
+snippet elif "" b
 elif ${2:[[ ${1:condition} ]]}
 then
 	${0:${VISUAL}}
 endsnippet
 
-snippet case "case .. esac" b
+snippet case "" b
 case ${1:word} in
 	${2:pattern} )
 		${0:${VISUAL}};;
 esac
 endsnippet
 
-snippet for "for .. done" b
+snippet for "" b
 for (( ${1:i} = 0; $1 < ${2:count}; $1++ ))
 do
 	${0:${VISUAL}}
 done
 endsnippet
 
-snippet forin "for .. in ... done" b
+snippet forin "" b
 for ${1:i} in ${2:words}
 do
 	${0:${VISUAL}}
 done
 endsnippet
 
-snippet wh "while .. done" b
+snippet wh "" b
 while ${2:[[ ${1:condition} ]]}
 do
 	${0:${VISUAL}}
 done
 endsnippet
 
-snippet until "until .. done" b
+snippet until "" b
 until ${2:[[ ${1:condition} ]]}
 do
 	${0:${VISUAL}}
