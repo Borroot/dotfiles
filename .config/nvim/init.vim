@@ -112,6 +112,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'kovetskiy/sxhkd-vim'            " Syntax highlighting for sxhkd.
 	Plug 'scrooloose/nerdtree'            " Tree file system explorer.
 	Plug 'sirver/ultisnips'               " Snippets are the best.
+	Plug 'jiangmiao/auto-pairs'           " Auto closing brackets.
 	Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " Better concealment.
 call plug#end()
 

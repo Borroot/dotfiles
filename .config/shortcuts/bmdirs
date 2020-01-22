@@ -5,13 +5,13 @@ d     ~/Downloads
 n     ~/Nextcloud
 np    ~/Nextcloud/photos
 nc    ~/Nextcloud/courses
-nC    ~/Nextcloud/configuration
 nm    ~/Nextcloud/misc
 nmf   ~/Nextcloud/misc/references
+na    ~/Nextcloud/archive
+nah   ~/Nextcloud/archive/highschool
+nar   ~/Nextcloud/archive/research
 ncaa  ~/Nextcloud/courses/algorithms_and_data_structures/alg-tester
 ncap  ~/Nextcloud/courses/algorithms_and_data_structures/practicum2
-ncf   ~/Nextcloud/courses/functional_programming
-ncd   ~/Nextcloud/courses/data_mining
 C     ~/.config
 cs    ~/.config/shortcuts
 cn    ~/.config/nvim
