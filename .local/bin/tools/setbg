@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
+# AUTHOR: Bram Pulles
+
+# The folder where the wallpaper is saved.
+readonly DIR=$HOME/.config
 
 # Sets the background. If given an argument, will set file as background.
-[[ ! -z "$1" ]] && cp "$1" ~/.config/wallpaper.jpg && notify-send -i "$HOME/.config/wall.jpg" "Wallpaper changed."
-xwallpaper --zoom ~/.config/wallpaper.jpg
+if [[ -n $1 ]]
+then
+	# The extension of the wallpaper and the new file.
+	readonly EXT=${1##*.}
+	readonly FILE=$DIR/wallpaper.$EXT
+
+	rm -f "$DIR"/wallpaper.*
+	cp "$1" "$FILE"
+	notify-send -i "$FILE" "Wallpaper changed."
+fi
+
+xwallpaper --zoom "$DIR"/wallpaper.*
