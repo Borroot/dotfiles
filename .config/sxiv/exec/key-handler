@@ -17,7 +17,14 @@ delete ()
 	done
 }
 
+wallpaper ()
+{
+	read -r file
+	setbg $file
+}
+
 case "$1" in
 	d) delete     ;;
+	w) wallpaper  ;;
 	*) usage "$1" ;;
 esac
