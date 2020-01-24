@@ -1,23 +1,27 @@
 #!/usr/bin/env bash
 # AUTHOR: Bram Pulles
 
-usage ()
+USAGE='Available commands:
+  h for this help
+  &lt; for rotate -90 degrees
+  &gt; for rotate  90 degrees
+  d for delete
+  w for setting the wallpaper
+'
+
+rotate ()
 {
-	[[ -n $1 ]] && mess="Option $1 not supported.\n"
-	mess=$mess$(cat <<- EOF
-		Available commands:
-		  h for this help
-		  d for delete
-		  w for setting the wallpaper
-		EOF
-	)
-	notify-send "sxiv" "$mess"
+	while read -r file
+	do
+		notify-send "sxiv" "Rotate $file $1 degrees."
+		convert -rotate "$1" "$file" "$file" &
+	done
 }
 
 delete ()
 {
 	ans=$(echo -e 'n\ny' | dmenu -p "Are you sure you want to remove them?")
-	[[ "$ans" != 'y' ]] && exit
+	[[ "$ans" != 'y' ]] && exit 1
 
 	while read -r file
 	do
@@ -31,7 +35,15 @@ wallpaper ()
 	setbg "$file"
 }
 
+usage ()
+{
+	[[ -n $1 ]] && opt="Option $1 not supported.\n"
+	notify-send "sxiv" "$opt$USAGE"
+}
+
 case "$1" in
+	less   ) rotate -90 ;;
+	greater) rotate  90 ;;
 	d) delete     ;;
 	w) wallpaper  ;;
 	h) usage      ;;
