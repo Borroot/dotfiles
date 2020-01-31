@@ -2,4 +2,14 @@
 # AUTHOR: Bram Pulles
 
 # Lock the screen with i3lock using any image format (not just png).
-convert $HOME/.config/wallpaper.* RGB:- | i3lock --raw 1920x1080:rgb -fi /dev/stdin
+readonly WALLPAPER=$HOME/.config/wallpaper.*
+readonly RESOLUTION_WALLPAPER=$(identify "$WALLPAPER" | cut -d ' ' -f 3)
+readonly RESOLUTION_SCREEN=$(xdpyinfo | grep 'dimensions:' | awk '{print $2}')
+
+# Give a warning if the resolutions differ since i3lock cannot handle these nicely.
+if [[ "$RESOLUTION_WALLPAPER" != "$RESOLUTION_SCREEN" ]]
+then
+	notify-send "i3lock" "Warning: The wallpaper resolution differs from the screen resolution."
+	sleep 2
+fi
+convert "$WALLPAPER" RGB:- | i3lock --raw "$RESOLUTION_WALLPAPER":rgb -fi /dev/stdin

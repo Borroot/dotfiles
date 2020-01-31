@@ -202,6 +202,7 @@ xf86-video-vesa
 xfsprogs
 xorg-server-xvfb
 xorg-xdpyinfo
+xorg-xev
 xorg-xinit
 xorg-xinput
 xorg-xkill
