@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
+# AUTHOR: Bram Pulles
 
+# Show the battery status and if it is (dis)charging.
 if acpi | grep Discharging > /dev/null
 then
-	PREFIX=-
+	readonly PREFIX=-
 else
-	PREFIX=+
+	readonly PREFIX=+
 fi
-
 echo -n $PREFIX && acpi -b | awk '{print $4}' | tr -d ,

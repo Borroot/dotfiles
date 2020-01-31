@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
+# AUTHOR: Bram Pulles
 
+# Show the current time and date.
 date '+%H:%M %d-%m'

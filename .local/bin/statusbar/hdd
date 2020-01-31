@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# AUTHOR: Bram Pulles
 
 # Show the amount of space left on the hdd.
 df -h | grep /dev/sdb | awk '{print $4}'

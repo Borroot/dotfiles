@@ -2,5 +2,5 @@
 # AUTHOR: Bram Pulles
 
 # Open the pdf corresponding to this files basename. Useful in Vim.
-file="${1%.*}.pdf"
-[[ -f "$file" ]] && $READER "$file" &!
+readonly FILE="${1%.*}.pdf"
+[[ -f "$FILE" ]] && $READER "$FILE" &!

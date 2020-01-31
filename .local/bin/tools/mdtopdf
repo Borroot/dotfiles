@@ -2,5 +2,5 @@
 # AUTHOR: Bram Pulles
 
 # Create from the markdown file provided through $1 a pdf file.
-output=${1%.*}.pdf
-pandoc -V geometry:margin=3cm "$1" -o "$output"
+readonly OUTPUT=${1%.*}.pdf
+pandoc -V geometry:margin=3cm "$1" -o "$OUTPUT"

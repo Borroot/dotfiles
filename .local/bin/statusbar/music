@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
+# AUTHOR: Bram Pulles
 
 # Print the current song if any are playing on Spotify.
+readonly STATUS=$(playerctl --player=spotify metadata 2>&1)
 
-msg=$(playerctl --player=spotify metadata 2>&1)
-
-if [[ "$msg" != "No players found" ]]
+if [[ $STATUS != "No players found" ]]
 then
-	title="$(playerctl --player=spotify metadata title)"
-	artist="$(playerctl --player=spotify metadata artist)"
-	echo $title - $artist
+	readonly TITLE=$(playerctl --player=spotify metadata title)
+	readonly ARTIST=$(playerctl --player=spotify metadata artist)
+	echo "$TITLE - $ARTIST"
 fi

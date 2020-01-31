@@ -2,7 +2,7 @@
 # AUTHOR: Bram Pulles
 
 # Increase the brightness of the screen with the specified amount in $1.
-brightness=/sys/class/backlight/intel_backlight/brightness
-var=$(cat $brightness)
-((var += $1))
-echo $var > $brightness 2> /dev/null
+readonly DEVICE=/sys/class/backlight/intel_backlight/brightness
+readonly OLD=$(cat $DEVICE)
+readonly NEW=$((OLD + $1))
+echo $NEW > $DEVICE 2> /dev/null

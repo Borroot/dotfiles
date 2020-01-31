@@ -2,22 +2,31 @@
 # AUTHOR: Bram Pulles
 
 # Connect to the vpn specified in the ovpn file.
-CONFIG_FILE=$HOME/.config/vpn/laptop.ovpn
-LOG=$PWD/vpn_log
+readonly CONFIG_FILE=${1:-$HOME/.config/vpn/laptop.ovpn}
+readonly LOG=$(mktemp)
+readonly TOKEN=$RANDOM
 
-if [[ -f $CONFIG_FILE ]]
+# Check if the file exists.
+if [[ ! -f $CONFIG_FILE ]]
 then
-	echo Connecting to VPN...
-	sudo openvpn $CONFIG_FILE > $LOG &!
-
-	sleep 10
-	if grep -q "Initialization Sequence Completed" $LOG
-	then
-		echo Connected to VPN!
-		rm "$LOG"
-	else
-		echo Something went wrong, check the log file at $LOG.
-	fi
-else
-	echo The file $CONFIG_FILE does not exist.
+	echo "The file $CONFIG_FILE does not exist."
+	exit 1
 fi
+
+# The file exists so try to connect to the vpn.
+echo "Connecting to VPN..."
+sudo openvpn --config $CONFIG_FILE --up "/usr/bin/env echo $TOKEN" --script-security 2 > $LOG &!
+
+# Check if the connection was succesfull by searching for the token, repeat 20 times.
+attempt=0
+while ((++attempt < 20))
+do
+	if grep -q "$TOKEN" $LOG
+	then
+		echo "Connected to VPN!"
+		rm -f "$LOG"
+		exit
+	fi
+	sleep 0.5
+done
+echo "Something went wrong, check the log file at $LOG."

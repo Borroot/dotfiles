@@ -3,9 +3,9 @@
 
 # Toggle the touchpad while preserving some settings like tap to click.
 readonly DEVICE='SynPS/2 Synaptics TouchPad'
-state=$(xinput list-props "$DEVICE" | grep 'Device Enabled' | grep -o "[01]$")
+readonly STATE=$(xinput list-props "$DEVICE" | grep 'Device Enabled' | grep -o "[01]$")
 
-if [[ $state == 1 ]]
+if [[ $STATE == 1 ]]
 then
 	xinput disable "$DEVICE"
 	unclutter -idle 0 &> /dev/null &
