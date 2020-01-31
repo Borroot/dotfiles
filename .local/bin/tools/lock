@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# AUTHOR: Bram Pulles
+
+# Lock the screen with i3lock using any image format (not just png).
+convert $HOME/.config/wallpaper.* RGB:- | i3lock --raw 1920x1080:rgb -fi /dev/stdin

@@ -70,7 +70,7 @@ nmap <leader>w     :w<CR>
 nmap <leader><S-w> :w !sudo tee > /dev/null %<CR><CR>
 
 " Run make, open corresponding PDF and run shellcheck.
-nmap <leader>m :!make<CR>
+nmap <leader>m :!if [[ -f Makefile ]]; then make; else ./%; fi<CR>
 nmap <leader>p :!open-pdf %<CR><CR>
 nmap <leader>s :!shellcheck -x %<CR>
 

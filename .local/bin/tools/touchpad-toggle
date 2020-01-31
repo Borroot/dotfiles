@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
+# AUTHOR: Bram Pulles
 
+# Toggle the touchpad while preserving some settings like tap to click.
 readonly DEVICE='SynPS/2 Synaptics TouchPad'
 state=$(xinput list-props "$DEVICE" | grep 'Device Enabled' | grep -o "[01]$")
 

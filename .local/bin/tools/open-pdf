@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+# AUTHOR: Bram Pulles
 
 # Open the pdf corresponding to this files basename. Useful in Vim.
 file="${1%.*}.pdf"

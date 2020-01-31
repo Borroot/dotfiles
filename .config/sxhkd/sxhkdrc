@@ -5,8 +5,8 @@ alt + Return
 alt + p
 	dmenu_run
 
-alt + n ; {v,d,s,p,e}
-	{pcmanfm, discord, spotify, zathura, emacs}
+alt + n ; {v,d,s,p,e,a}
+	{pcmanfm, discord, spotify, zathura, emacs, android-studio}
 
 alt + n ; {f,b,w,g}
 	qutebrowser { , brightspace.ru.nl, web.whatsapp.com --target window, github.com/borroot/\?tab=repositories}
@@ -16,7 +16,7 @@ alt + n ; {o,n}
 
 # Computer state
 alt + y ; {shift + s, shift + r, l}
-	{shutdown now, reboot, i3lock -fi ~/.config/wall.png}
+	{shutdown now, reboot, lock}
 
 # Keys with 'fn'
 Print

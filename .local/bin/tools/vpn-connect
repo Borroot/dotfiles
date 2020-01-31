@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
+# AUTHOR: Bram Pulles
 
+# Connect to the vpn specified in the ovpn file.
 CONFIG_FILE=$HOME/.config/vpn/laptop.ovpn
 LOG=$PWD/vpn_log
 

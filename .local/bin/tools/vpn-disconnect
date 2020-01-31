@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
+# AUTHOR: Bram Pulles
 
+# Disconnect from the vpn if any.
 sudo killall openvpn && echo Succesfully disconnected from VPN.

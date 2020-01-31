@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# AUTHOR: Bram Pulles
 
 DIR="$HOME/.config/shortcuts"
 
@@ -6,7 +7,7 @@ DIR="$HOME/.config/shortcuts"
 bmdirs="$DIR/bmdirs"
 bmfiles="$DIR/bmfiles"
 
-# Output location(s). 
+# Output location(s).
 shell_shortcuts="$DIR/shortcutrc"
 
 # Prepare file(s).
