@@ -104,7 +104,7 @@ ${1:void} ${2:name}(${3:/* args */})
 endsnippet
 
 snippet fund "" b
-	${1:void} ${2:name}(${3});
+${1:void} ${2:name}(${3});
 endsnippet
 
 # types
@@ -120,24 +120,24 @@ struct ${1:Name} {
 endsnippet
 
 # printf
-snippet pr "" b
-printf(""${2});
+snippet pr
+printf("${1:%s}\n"${2});
 endsnippet
 
-snippet fpr "" b
-fprintf(${1:stderr}, ""${3});
+snippet fpr
+fprintf(${1:stderr}, "${2:%s}\n"${3});
 endsnippet
 
-snippet prd "" b
-printf("", $1);
+snippet prd
+printf("${1:} = %d\n", $1);
 endsnippet
 
-snippet prf "" b
-printf("", $1);
+snippet prf
+printf("${1:} = %f\n", $1);
 endsnippet
 
-snippet prx "" b
-printf("", $1);
+snippet prx
+printf("${1:} = %${2}\n", $1);
 endsnippet
 
 ## MISC
