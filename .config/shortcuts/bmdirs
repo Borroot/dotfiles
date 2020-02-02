@@ -1,17 +1,3 @@
-b     ~/builds
-bd    ~/builds/dwm
-bs    ~/builds/st
-d     ~/Downloads
-n     ~/Nextcloud
-np    ~/Nextcloud/photos
-nc    ~/Nextcloud/courses
-nm    ~/Nextcloud/misc
-nmf   ~/Nextcloud/misc/references
-na    ~/Nextcloud/archive
-nah   ~/Nextcloud/archive/highschool
-nar   ~/Nextcloud/archive/research
-ncaa  ~/Nextcloud/courses/algorithms_and_data_structures/alg-tester
-ncap  ~/Nextcloud/courses/algorithms_and_data_structures/practicum2
 C     ~/.config
 cs    ~/.config/shortcuts
 cn    ~/.config/nvim
@@ -20,3 +6,27 @@ lb    ~/.local/bin
 lbt   ~/.local/bin/tools
 lbs   ~/.local/bin/statusbar
 lbf   ~/.local/bin/format
+
+b     ~/builds
+bd    ~/builds/dwm
+bs    ~/builds/st
+bx    ~/builds/sxiv
+
+d     ~/Downloads
+n     ~/Nextcloud
+
+np    ~/Nextcloud/photos
+nc    ~/Nextcloud/courses
+nm    ~/Nextcloud/misc
+nmf   ~/Nextcloud/misc/references
+na    ~/Nextcloud/archive
+nah   ~/Nextcloud/archive/highschool
+nar   ~/Nextcloud/archive/research
+
+ncl   ~/Nextcloud/courses/new_devices_lab
+ncn   ~/Nextcloud/courses/networks_and_distributed_systems
+ncs   ~/Nextcloud/courses/software_verification
+ncx   ~/Nextcloud/courses/complexity
+ncp   ~/Nextcloud/courses/privacy_and_identity
+nci   ~/Nextcloud/courses/it_and_society
+ncc   ~/Nextcloud/courses/introduction_to_cryptography
