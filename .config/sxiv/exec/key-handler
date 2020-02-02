@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 # AUTHOR: Bram Pulles
 
-USAGE='Available commands:
+# Usage string of this key-handler.
+readonly USAGE='Available commands:
   h for this help
   &lt; for rotate -90 degrees
   &gt; for rotate  90 degrees
   d for delete
   w for setting the wallpaper
+  r for showing the resolution
 '
 
+# Rotate all of the selected images permanentyl a certain amount of degrees.
 rotate ()
 {
 	while read -r file
@@ -18,34 +21,55 @@ rotate ()
 	done
 }
 
+# Delete all of the selected images if confirmed by the user.
 delete ()
 {
-	ans=$(echo -e 'n\ny' | dmenu -p "Are you sure you want to remove them?")
-	[[ "$ans" != 'y' ]] && exit 1
+	readonly ANSWER=$(echo -e 'n\ny' | dmenu -p "Are you sure you want to remove them?")
+	[[ "$ANSWER" != 'y' ]] && exit 1
 
 	while read -r file
 	do
-		rm "$file"
+		rm -f "$file"
 	done
 }
 
+# Set the selected images as the wallpaper.
 wallpaper ()
 {
 	read -r file
 	setbg "$file"
 }
 
+# Show the resolution of the selected images.
+resolution ()
+{
+	while read -r file
+	do
+		resolution=$(identify "$file" | cut -d ' ' -f 3)
+		builder="$builder$file $resolution\n"
+	done
+	builder=$(echo -en "$builder" | column -t)
+	notify-send "sxiv" "$builder"
+}
+
+# Show the usage of the program.
 usage ()
 {
 	[[ -n $1 ]] && opt="Option $1 not supported.\n"
 	notify-send "sxiv" "$opt$USAGE"
 }
 
-case "$1" in
-	less   ) rotate -90 ;;
-	greater) rotate  90 ;;
-	d) delete     ;;
-	w) wallpaper  ;;
-	h) usage      ;;
-	*) usage "$1" ;;
-esac
+main ()
+{
+	case "$1" in
+		less   ) rotate -90 ;;
+		greater) rotate  90 ;;
+		d) delete     ;;
+		w) wallpaper  ;;
+		r) resolution ;;
+		h) usage      ;;
+		*) usage "$1" ;;
+	esac
+}
+
+main "$@"
