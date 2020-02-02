@@ -1,3 +1,4 @@
+# Dotfiles
 C     ~/.config
 cs    ~/.config/shortcuts
 cn    ~/.config/nvim
@@ -7,15 +8,21 @@ lbt   ~/.local/bin/tools
 lbs   ~/.local/bin/statusbar
 lbf   ~/.local/bin/format
 
+# Builds
 b     ~/builds
 bd    ~/builds/dwm
 bs    ~/builds/st
 bx    ~/builds/sxiv
 
+# Misc
 d     ~/Downloads
 n     ~/Nextcloud
 
+# Nextcloud
 np    ~/Nextcloud/photos
+npa   ~/Nextcloud/photos/archive
+npi   ~/Nextcloud/photos/inbox
+npw   ~/Nextcloud/photos/wallpapers
 nc    ~/Nextcloud/courses
 nm    ~/Nextcloud/misc
 nmf   ~/Nextcloud/misc/references
@@ -23,6 +30,7 @@ na    ~/Nextcloud/archive
 nah   ~/Nextcloud/archive/highschool
 nar   ~/Nextcloud/archive/research
 
+# Courses
 ncl   ~/Nextcloud/courses/new_devices_lab
 ncn   ~/Nextcloud/courses/networks_and_distributed_systems
 ncs   ~/Nextcloud/courses/software_verification
