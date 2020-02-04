@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# AUTHOR: Bram Pulles
+
+# This program is run with in $1 a tex file and build it.
+if [[ -z $1 ]] || [[ ! $1 =~ .tex$ ]]
+then
+	>&2 echo "Please provide a tex file."
+	exit 1
+fi
+
+# Build the given tex file.
+pdflatex "$1"
