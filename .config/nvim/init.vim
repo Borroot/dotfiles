@@ -64,8 +64,9 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-" Shortcut for toggling 'list', saving and sudo saving.
+" Shortcut for toggling 'list', clear highlighting, saving and sudo saving.
 nmap <leader>l     :set invlist listchars=tab:>-,space:•,eol:$<CR>
+nmap <leader>h     :noh<CR>
 nmap <leader>w     :w<CR>
 nmap <leader><S-w> :w !sudo tee > /dev/null %<CR><CR>
 
@@ -78,6 +79,10 @@ nmap <leader>s :!shellcheck -x %<CR>
 au BufWritePost *.md    silent !mdtopdf % &
 au BufWritePost sxhkdrc silent !killall sxhkd; sxhkd 2> /dev/null &\!
 au BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
+
+" Auto commands for tex editing.
+au VimLeave     *.tex silent !tex-clear %
+au BufWritePost *.tex silent !tex-build %
 
 " --------------------------------------------------------------------
 " CURSOR
