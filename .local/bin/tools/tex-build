@@ -8,5 +8,5 @@ then
 	exit 1
 fi
 
-# Build the given tex file.
+# Build the given tex file, two times so the references are made.
 pdflatex "$1"
