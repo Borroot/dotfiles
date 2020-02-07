@@ -4,10 +4,10 @@
 # Show a notification when the battery is low.
 while true
 do
-	readonly BATTERY_INFO=$(acpi -b)
-	if [[ $(echo $BATTERY_INFO | grep Discharging) && $(echo $BATTERY_INFO | cut -f 5 -d " ") < 00:10:00 ]]
+	battery_info=$(acpi -b)
+	if [[ $(echo $battery_info | grep Discharging) && $(echo $battery_info | cut -f 5 -d " ") < 02:10:00 ]]
 	then
-		 notify-send -u critical -t 10000 "Low Battery!" "$BATTERY_INFO"
+		 notify-send -u critical -t 10000 "Low Battery!" "$battery_info"
 	fi
 	sleep 10
 done
