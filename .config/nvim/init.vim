@@ -118,7 +118,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'scrooloose/nerdtree'            " Tree file system explorer.
 	Plug 'sirver/ultisnips'               " Snippets are the best.
 	Plug 'jiangmiao/auto-pairs'           " Auto closing brackets.
-	Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " Better concealment.
+	Plug 'borroot/tex-conceal', {'for': 'tex'} " Better concealment.
 call plug#end()
 
 " Mapping for Goyo and fix colors.

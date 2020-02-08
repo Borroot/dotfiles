@@ -9,4 +9,5 @@ then
 fi
 
 # Build the given tex file, two times so the references are made.
-pdflatex "$1"
+cd $(dirname "$1")
+pdflatex $(basename "$1")
