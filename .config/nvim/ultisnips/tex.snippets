@@ -12,71 +12,71 @@ $0
 \end{document}
 endsnippet
 
+# TEXT
 snippet tt ""
-\texttt{$1}$0
+\texttt{${1:${VISUAL}}}
 endsnippet
 
 snippet bf ""
-\textbf{$1}$0
+\textbf{${1:${VISUAL}}}
 endsnippet
 
 snippet it ""
-\textit{$1}$0
+\textit{${1:${VISUAL}}}
 endsnippet
 
-snippet toc "" bA
-\tableofcontents
-endsnippet
-
-snippet ss "" bA
+# SECTIONS
+snippet s "" b
 \section{$1}
 $0
 endsnippet
 
-snippet su "" bA
+snippet ss "" b
 \subsection{$1}
 $0
 endsnippet
 
-snippet beg "" bA
+snippet sss "" b
+\subsection{$1}
+$0
+endsnippet
+
+# ENVIRONMENTS
+snippet beg "" b
 \begin{$1}
 	$0
 \end{$1}
 endsnippet
 
-snippet ite "" bA
-\begin{itemize}
-	\item $0
-\end{itemize}
-endsnippet
-
-snippet enu "" bA
-\begin{enumerate}
-	\item $0
-\end{enumerate}
-endsnippet
-
-snippet ali "" bA
+snippet ali "" b
 \begin{align*}
 	$0
 \end{align*}
 endsnippet
 
-snippet fig "" bA
+snippet ite "" b
+\begin{itemize}
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet enu "" b
+\begin{enumerate}
+	\item $0
+\end{enumerate}
+endsnippet
+
+# TEMPLATES
+snippet fig "" b
 \begin{figure}[h]
 	\centering
-	\includegraphics[width = \textwidth]{$1}
-	\caption{$2}
-	\label{fig: $3}
+	\includegraphics[width = \textwidth]{$0}
+	\caption{$1}
+	\label{fig: $2}
 \end{figure}
-$0
 endsnippet
 
-snippet bh "" A
-\\\\ \\hline
-endsnippet
-
-snippet tab "" bA
+snippet tab "" b
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|$3|}
@@ -85,4 +85,13 @@ snippet tab "" bA
 	\caption{$1}
 	\label{tab: $2}
 \end{table}
+endsnippet
+
+# MISC
+snippet bh ""
+\\\\ \\hline
+endsnippet
+
+snippet toc "" b
+\tableofcontents
 endsnippet
