@@ -1,0 +1,71 @@
+# DEFINE MATH CONTEXT
+global !p
+texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C', 'CS', 'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS', 'J', 'JS', 'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
+texIgnoreMathZones = ['texMathText']
+
+texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
+texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
+ignore = texIgnoreMathZoneIds[0]
+
+def math():
+	synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
+	try:
+		first = next(i for i in reversed(synstackids) if i in texIgnoreMathZoneIds or i in texMathZoneIds)
+		return first != ignore
+	except StopIteration:
+		return False
+endglobal
+
+## ENVIRONMENTS
+snippet mm "" wA
+$${1}$
+endsnippet
+
+snippet md "" bA
+\[
+${1:${VISUAL}}
+\]
+endsnippet
+
+context "math()"
+snippet text "" iA
+\text{${1}}
+endsnippet
+
+snippet ali "" bA
+\begin{align}
+	$0
+\end{align}
+endsnippet
+
+snippet ali* "" bA
+\begin{align*}
+	$0
+\end{align*}
+endsnippet
+
+
+## LOGIC
+snippet => "" iA
+\implies
+endsnippet
+
+snippet <= "" iA
+\impliedby
+endsnippet
+
+context "math()"
+snippet iff "" iA
+\iff
+endsnippet
+
+context "math()"
+snippet or "" iA
+\lor
+endsnippet
+
+context "math()"
+snippet and "" iA
+\land
+endsnippet
+

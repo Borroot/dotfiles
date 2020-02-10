@@ -117,7 +117,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'kovetskiy/sxhkd-vim'            " Syntax highlighting for sxhkd.
 	Plug 'scrooloose/nerdtree'            " Tree file system explorer.
 	Plug 'sirver/ultisnips'               " Snippets are the best.
-	Plug 'jiangmiao/auto-pairs'           " Auto closing brackets.
 	Plug 'borroot/tex-conceal', {'for': 'tex'} " Better concealment.
 call plug#end()
 
@@ -150,8 +149,8 @@ let g:UltiSnipsEditSplit='vertical'
 let g:UltiSnipsSnippetDirectories=['ultisnips']
 
 " Settings for better whitespace.
-let g:strip_whitespace_on_save=1
-let g:strip_whitespace_confirm=0
-let g:better_whitespace_enabled=1
-let g:strip_whitelines_at_eof=1
-let g:show_spaces_that_precede_tabs=1
+"let g:strip_whitespace_on_save=1
+"let g:strip_whitespace_confirm=0
+"let g:better_whitespace_enabled=1
+"let g:strip_whitelines_at_eof=1
+"let g:show_spaces_that_precede_tabs=1
