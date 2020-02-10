@@ -13,61 +13,85 @@ $0
 endsnippet
 
 # TEXT
-snippet tt ""
+snippet tt "" w
 \texttt{${1:${VISUAL}}}
 endsnippet
 
-snippet bf ""
+snippet bf "" w
 \textbf{${1:${VISUAL}}}
 endsnippet
 
-snippet it ""
+snippet it "" w
 \textit{${1:${VISUAL}}}
 endsnippet
 
 # SECTIONS
-snippet s "" b
+snippet sec "" b
 \section{$1}
-$0
 endsnippet
 
-snippet ss "" b
-\subsection{$1}
-$0
+snippet sec* "" b
+\section*{$1}
 endsnippet
 
-snippet sss "" b
+snippet sub "" b
 \subsection{$1}
-$0
+endsnippet
+
+snippet sub* "" b
+\subsection*{$1}
+endsnippet
+
+snippet ssub "" b
+\subsubsection{$1}
+endsnippet
+
+snippet ssub* "" b
+\subsubsection*{$1}
 endsnippet
 
 # ENVIRONMENTS
-snippet beg "" b
+snippet beg "" bA
 \begin{$1}
 	$0
 \end{$1}
 endsnippet
 
-snippet ali "" b
+snippet ali "" bA
 \begin{align*}
 	$0
 \end{align*}
 endsnippet
 
-snippet ite "" b
+snippet quo "" bA
+\begin{quote}
+	$0
+\end{quote}
+endsnippet
+
+snippet ite "" bA
 \begin{itemize}
 	\item $0
 \end{itemize}
 endsnippet
 
-snippet enu "" b
+snippet enu "" bA
 \begin{enumerate}
 	\item $0
 \end{enumerate}
 endsnippet
 
+# ITEMS
+snippet iit "" bA
+\item $0
+endsnippet
+
+snippet iid "" bA
+\item[$1] $0
+endsnippet
+
 # TEMPLATES
-snippet fig "" b
+snippet fig "" bA
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = \textwidth]{$0}
@@ -76,7 +100,7 @@ snippet fig "" b
 \end{figure}
 endsnippet
 
-snippet tab "" b
+snippet tab "" bA
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|$3|}
@@ -88,10 +112,10 @@ snippet tab "" b
 endsnippet
 
 # MISC
-snippet bh ""
-\\\\ \\hline
+snippet ni "" bA
+\noindent $0
 endsnippet
 
-snippet toc "" b
+snippet toc "" bA
 \tableofcontents
 endsnippet
