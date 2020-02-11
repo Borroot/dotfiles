@@ -70,6 +70,12 @@ snippet quo "" bA
 \end{quote}
 endsnippet
 
+snippet min "" bA
+\begin{minted}{${1}}
+	$0
+\end{minted}
+endsnippet
+
 snippet ite "" bA
 \begin{itemize}
 	\item $0
@@ -98,6 +104,7 @@ snippet iid "" bA
 endsnippet
 
 ## TEMPLATES
+# FIGURE
 snippet fig "" bA
 \begin{figure}[h]
 	\centering
@@ -107,10 +114,15 @@ snippet fig "" bA
 \end{figure}
 endsnippet
 
+# TABLE
+snippet hh "" wA
+\\\\\\hline
+endsnippet
+
 snippet tab "" bA
 \begin{table}[h]
 	\centering
-	\begin{tabular}{|${3}|}
+	\begin{tabular}{|${3}|}\hline
 		$0
 	\end{tabular}
 	\caption{${1}}

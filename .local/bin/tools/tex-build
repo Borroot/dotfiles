@@ -9,5 +9,6 @@ then
 fi
 
 # Build the given tex file, two times so the references are made.
+# The -shell-escape flag is for the `minted` package.
 cd $(dirname "$1")
-pdflatex $(basename "$1")
+pdflatex -shell-escape $(basename "$1")
