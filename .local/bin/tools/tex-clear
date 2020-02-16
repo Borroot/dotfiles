@@ -15,4 +15,4 @@ readonly BASE=${FILE%.*}
 
 # Find and remove all of the files.
 rm -rf _minted-*
-find "$DIR" -maxdepth 1 -type f -regextype 'egrep' -regex "^$BASE\\.(aux|log|toc)" -delete
+find "$DIR" -maxdepth 1 -type f -regextype 'egrep' -regex "^$BASE\\.(aux|log|toc|out)" -delete
