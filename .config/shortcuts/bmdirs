@@ -13,6 +13,7 @@ b     ~/builds
 bd    ~/builds/dwm
 bs    ~/builds/st
 bx    ~/builds/sxiv
+bt    ~/builds/tex-conceal
 
 # Misc
 d     ~/Downloads
@@ -25,6 +26,7 @@ npi   ~/Nextcloud/photos/inbox
 npw   ~/Nextcloud/photos/wallpapers
 nc    ~/Nextcloud/courses
 nm    ~/Nextcloud/misc
+nmc   ~/Nextcloud/misc/cv
 nmf   ~/Nextcloud/misc/refs
 na    ~/Nextcloud/archive
 nah   ~/Nextcloud/archive/highschool

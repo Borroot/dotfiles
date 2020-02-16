@@ -30,7 +30,7 @@ function Visuals()
 
 	hi clear SpellBad             " Clear the color.
 	hi SpellBad ctermbg=DarkGrey  " Color for misspelled words.
-endfunction
+endf
 
 call Visuals()
 
@@ -149,8 +149,15 @@ let g:UltiSnipsEditSplit='vertical'
 let g:UltiSnipsSnippetDirectories=['ultisnips']
 
 " Settings for better whitespace.
-let g:strip_whitespace_on_save=1
-let g:strip_whitespace_confirm=0
-let g:better_whitespace_enabled=1
-let g:strip_whitelines_at_eof=1
-let g:show_spaces_that_precede_tabs=1
+function Whitespace()
+	if @% =~ '.*tex.vim$'
+		return
+	endif
+
+	let g:strip_whitespace_on_save=1
+	let g:strip_whitespace_confirm=0
+	let g:better_whitespace_enabled=1
+	let g:strip_whitelines_at_eof=1
+	let g:show_spaces_that_precede_tabs=1
+endf
+au BufEnter * call Whitespace()

@@ -1,7 +1,9 @@
+# Shortcuts
 cff   ~/.config/shortcuts/bmfiles
 cfd   ~/.config/shortcuts/bmdirs
 cfa   ~/.config/shortcuts/aliasrc
 
+# Programs
 cfb   ~/.bashrc
 cfx   ~/.xprofile
 cfp   ~/.zprofile
@@ -9,4 +11,5 @@ cfz   ~/.config/zsh/.zshrc
 cfn   ~/.config/nvim/init.vim
 cfs   ~/.config/sxhkd/sxhkdrc
 
+# Misc
 t     ~/Nextcloud/todo.txt

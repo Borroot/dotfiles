@@ -2,4 +2,4 @@
 
 [ -f $HOME/.xprofile ] && source $HOME/.xprofile
 
-exec dwm
+exec i3

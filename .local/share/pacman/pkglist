@@ -118,6 +118,7 @@ nextcloud-client
 notify-osd
 ntp
 numlockx
+nusmv
 nvidia
 nvidia-settings
 openssh
@@ -178,6 +179,7 @@ texlive-publishers
 texlive-science
 thunderbird
 tk
+tldr
 tlp
 tmux
 traceroute
