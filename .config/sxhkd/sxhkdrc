@@ -1,6 +1,6 @@
 # Programs
 alt + Return
-	$TERMINAL
+	$TERM
 
 alt + p
 	dmenu_run
