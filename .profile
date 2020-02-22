@@ -7,7 +7,7 @@ export PATH="$PATH:$HOME/builds/anaconda/pkg/anaconda/opt/anaconda/bin"
 
 # Set all the default programs.
 export EDITOR=nvim
-export TERM=st
+export TERMINAL=st
 export READER=zathura
 export VIEWER=sxiv
 export BROWSER=qutebrowser

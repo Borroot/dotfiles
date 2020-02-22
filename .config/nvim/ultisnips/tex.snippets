@@ -37,7 +37,7 @@ snippet sec "" b
 \section{${1}}
 endsnippet
 
-snippet sec* "" b
+snippet sec* "" bA
 \section*{${1}}
 endsnippet
 
@@ -45,7 +45,7 @@ snippet sub "" b
 \subsection{${1}}
 endsnippet
 
-snippet sub* "" b
+snippet sub* "" bA
 \subsection*{${1}}
 endsnippet
 
@@ -53,14 +53,14 @@ snippet ssub "" b
 \subsubsection{${1}}
 endsnippet
 
-snippet ssub* "" b
+snippet ssub* "" bA
 \subsubsection*{${1}}
 endsnippet
 
 ## ENVIRONMENTS
 snippet beg "" bA
 \begin{$1}
-	$0
+	${0:${VISUAL}}
 \end{$1}
 endsnippet
 
@@ -72,7 +72,7 @@ endsnippet
 
 snippet min "" bA
 \begin{minted}{${1}}
-	$0
+	${0:${VISUAL}}
 \end{minted}
 endsnippet
 
@@ -108,7 +108,7 @@ endsnippet
 snippet fig "" bA
 \begin{figure}[h]
 	\centering
-	\includegraphics[width = \textwidth]{$0}
+	\includegraphics[width = \textwidth]{${3}}
 	\caption{${1}}
 	\label{fig: ${2}}
 \end{figure}

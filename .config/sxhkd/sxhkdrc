@@ -1,24 +1,41 @@
-# Programs
+# TERMINAL
 alt + Return
-	$TERM
+	$TERMINAL
 
+alt + n ; n
+	$TERMINAL -e nmtui
+
+alt + n ; t
+	$TERMINAL -e $EDITOR $HOME/Nextcloud/todo.txt
+
+# PROGRAMS
 alt + p
 	dmenu_run
 
-alt + n ; {v,d,s,p,e,a}
-	{pcmanfm, discord, spotify, zathura, emacs, android-studio}
+alt + n ; {v,d,s,a}
+	{pcmanfm,discord,spotify,android-studio}
 
-alt + n ; {f,b,w,g}
-	qutebrowser { , brightspace.ru.nl, web.whatsapp.com --target window, github.com/borroot/\?tab=repositories}
+# BROWSER
+alt + n ; f
+	$BROWSER
 
-alt + n ; {o,n}
-	firefox {overleaf.com/login, netflix.com/login}
+alt + n ; b
+	$BROWSER https://brightspace.ru.nl
 
-# Computer state
+alt + n ; w
+	$BROWSER https://web.whatsapp.com --target window
+
+alt + n ; g
+	$BROWSER github.com/borroot/\?tab=repositories
+
+alt + n ; o
+	firefox https://overleaf.com/login
+
+# COMPUTER STATE
 alt + y ; {shift + s, shift + r, l}
 	{shutdown now, reboot, lock}
 
-# Keys with 'fn'
+# SPECIAL KEYS
 Print
 	deepin-screenshot
 
