@@ -45,10 +45,18 @@ snippet pmat "" bA
 endsnippet
 
 ## LOGIC
+context "math()"
+snippet qed "" wA
+_\square
+endsnippet
+
+# ARROWS
+context "math()"
 snippet => "" iA
 \implies
 endsnippet
 
+context "math()"
 snippet <= "" iA
 \impliedby
 endsnippet
@@ -58,17 +66,101 @@ snippet iff "" iA
 \iff
 endsnippet
 
+# OPERATORS
 context "math()"
-snippet eq "" iA
-\equiv
-endsnippet
-
-context "math()"
-snippet or "" iA
+snippet or "" wA
 \lor
 endsnippet
 
 context "math()"
-snippet and "" iA
+snippet and "" wA
 \land
+endsnippet
+
+context "math()"
+snippet ~~ "" wA
+\approx
+endsnippet
+
+context "math()"
+snippet != "" iA
+\neq
+endsnippet
+
+context "math()"
+snippet equiv "" wA
+\equiv
+endsnippet
+
+## SCRIPTS
+# SUB SCRIPTS
+context "math()"
+snippet __ "" iA
+_{${1}}
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])(\d)' "" rwA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])_(\d\d)' "" rwA
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+endsnippet
+
+# SUPER SCRIPTS
+context "math()"
+snippet ^^ "" iA
+^{${1}}
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])\^(\d\d)' "" rwA
+`!p snip.rv = match.group(1)`^{`!p snip.rv = match.group(2)`}
+endsnippet
+
+## LEFT AND RIGHT
+snippet floor "" iA
+\left\lfloor ${1} \right\rfloor ${0}
+endsnippet
+
+snippet ceil "" iA
+\left\lceil ${1} \right\rceil ${0}
+endsnippet
+
+snippet '(\(\)|lr\()' "" riA
+\left( ${1:${VISUAL}} \right) ${0}
+endsnippet
+
+snippet 'lr[<a]' "" riA
+\left< ${1:${VISUAL}} \right> ${0}
+endsnippet
+
+snippet 'lr[\|p]' "" riA
+\left| ${1:${VISUAL}} \right| ${0}
+endsnippet
+
+snippet 'lr[\[b]' "" riA
+\left[ ${1:${VISUAL}} \right] ${0}
+endsnippet
+
+snippet 'lr[{c]' "" riA
+\left\\{ ${1:${VISUAL}} \right\\} ${0}
+endsnippet
+
+## FUNCTIONS
+context "math()"
+snippet log "" wA
+\log_${1}{${2}}
+endsnippet
+
+context "math()"
+snippet mod "" wA
+\mod
+endsnippet
+
+context "math()"
+snippet '(cos|tan|sin)' "" wrA
+\\`!p snip.rv = match.group(1)`{${2}}
 endsnippet
