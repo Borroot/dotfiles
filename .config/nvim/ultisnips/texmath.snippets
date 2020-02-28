@@ -121,32 +121,39 @@ snippet '([A-Za-z])\^(\d\d)' "" rwA
 endsnippet
 
 ## LEFT AND RIGHT
+context "math()"
 snippet floor "" iA
-\left\lfloor ${1} \right\rfloor ${0}
+\left\lfloor ${1} \right\rfloor
 endsnippet
 
+context "math()"
 snippet ceil "" iA
-\left\lceil ${1} \right\rceil ${0}
+\left\lceil ${1} \right\rceil
 endsnippet
 
+context "math()"
 snippet '(\(\)|lr\()' "" riA
-\left( ${1:${VISUAL}} \right) ${0}
+\left( ${1:${VISUAL}} \right)
 endsnippet
 
+context "math()"
 snippet 'lr[<a]' "" riA
-\left< ${1:${VISUAL}} \right> ${0}
+\left< ${1:${VISUAL}} \right>
 endsnippet
 
+context "math()"
 snippet 'lr[\|p]' "" riA
-\left| ${1:${VISUAL}} \right| ${0}
+\left| ${1:${VISUAL}} \right|
 endsnippet
 
+context "math()"
 snippet 'lr[\[b]' "" riA
-\left[ ${1:${VISUAL}} \right] ${0}
+\left[ ${1:${VISUAL}} \right]
 endsnippet
 
+context "math()"
 snippet 'lr[{c]' "" riA
-\left\\{ ${1:${VISUAL}} \right\\} ${0}
+\left\\{ ${1:${VISUAL}} \right\\}
 endsnippet
 
 ## FUNCTIONS
