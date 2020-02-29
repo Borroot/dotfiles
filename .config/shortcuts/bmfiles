@@ -13,3 +13,4 @@ cfs   ~/.config/sxhkd/sxhkdrc
 
 # Misc
 t     ~/Nextcloud/todo.txt
+cft   ~/builds/tex-conceal/after/syntax/tex.vim

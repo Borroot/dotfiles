@@ -28,6 +28,7 @@ nc    ~/Nextcloud/courses
 nm    ~/Nextcloud/misc
 nmc   ~/Nextcloud/misc/cv
 nmf   ~/Nextcloud/misc/refs
+nmt   ~/Nextcloud/misc/tex
 na    ~/Nextcloud/archive
 nah   ~/Nextcloud/archive/highschool
 nar   ~/Nextcloud/archive/research
