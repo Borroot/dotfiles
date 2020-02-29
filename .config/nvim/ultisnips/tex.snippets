@@ -2,7 +2,7 @@ extends texmath
 
 ## BASE
 snippet base "" b
-\documentclass{article}
+\documentclass[a4paper]{article}
 
 \author{Bram Pulles}
 \title{${1}}
@@ -17,6 +17,19 @@ endsnippet
 
 snippet pac "" bA
 \usepackage{${1}}
+endsnippet
+
+## MISC
+snippet ni "" bA
+\noindent ${0}
+endsnippet
+
+snippet break "" bA
+\pagebreak
+endsnippet
+
+snippet toc "" bA
+\tableofcontents
 endsnippet
 
 ## TEXT
@@ -133,17 +146,4 @@ snippet tab "" bA
 	\caption{${1}}
 	\label{tab: ${2}}
 \end{table}
-endsnippet
-
-## MISC
-snippet ni "" bA
-\noindent ${0}
-endsnippet
-
-snippet break "" bA
-\pagebreak
-endsnippet
-
-snippet toc "" bA
-\tableofcontents
 endsnippet

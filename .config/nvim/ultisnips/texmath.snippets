@@ -16,6 +16,22 @@ def math():
 		return False
 endglobal
 
+## TEXT
+context "math()"
+snippet text "" iA
+\text{${1:${VISUAL}}}
+endsnippet
+
+context "math()"
+snippet cal "" wA
+\mathcal{${1}}
+endsnippet
+
+context "math()"
+snippet src "" wA
+\mathsrc{${1}}
+endsnippet
+
 ## ENVIRONMENTS
 snippet mm "" wA
 $${1:${VISUAL}}$
@@ -25,11 +41,6 @@ snippet md "" bA
 \[
 ${1:${VISUAL}}
 \]
-endsnippet
-
-context "math()"
-snippet text "" iA
-\text{${1:${VISUAL}}}
 endsnippet
 
 snippet ali "" bA
@@ -67,6 +78,11 @@ snippet iff "" iA
 endsnippet
 
 # OPERATORS
+context "math()"
+snippet in "" wA
+\in
+endsnippet
+
 context "math()"
 snippet or "" wA
 \lor
@@ -142,13 +158,18 @@ snippet 'lr[<a]' "" riA
 endsnippet
 
 context "math()"
+snippet 'lr[\[b]' "" riA
+\left[ ${1:${VISUAL}} \right]
+endsnippet
+
+context "math()"
 snippet 'lr[\|p]' "" riA
 \left| ${1:${VISUAL}} \right|
 endsnippet
 
 context "math()"
-snippet 'lr[\[b]' "" riA
-\left[ ${1:${VISUAL}} \right]
+snippet 'lr[\\d]' "" riA
+\left\| ${1:${VISUAL}} \right\|
 endsnippet
 
 context "math()"
