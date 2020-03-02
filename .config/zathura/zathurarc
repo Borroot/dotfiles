@@ -1,9 +1,15 @@
-map <C-k> navigate previous
-map <C-j> navigate next
-map u scroll half-up
-map d scroll half-down
 map K zoom in
 map J zoom out
+
+map d scroll half-down
+map u scroll half-up
+map <C-j> navigate next
+map <C-k> navigate previous
+
 set statusbar-home-tilde
-set default-bg "#333333"
-set statusbar-bg "#555555"
+map <C-i> recolor
+
+set default-bg           "#333333"
+set statusbar-bg         "#555555"
+set recolor-lightcolor   "#303030"
+set recolor-darkcolor    "#FFFFFF"
