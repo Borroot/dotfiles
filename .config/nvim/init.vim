@@ -78,7 +78,7 @@ au BufWritePost sxhkdrc silent !killall sxhkd; sxhkd 2> /dev/null &\!
 au BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
 
 " Auto commands for tex editing.
-"au VimLeave     *.tex silent !tex-clear %
+au VimLeave     *.tex silent !tex-clear %
 "au BufWritePost *.tex silent !tex-build %
 
 " --------------------------------------------------------------------

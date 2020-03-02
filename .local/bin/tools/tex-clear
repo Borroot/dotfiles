@@ -12,7 +12,8 @@ fi
 readonly FILE=$(readlink -f "$1")
 readonly DIR=$(dirname "$FILE")
 readonly BASE=${FILE%.*}
+readonly EXTS='(aux|log|toc|out|blg|bbl|fdb_latexmk|fls|dvi|synctex.gz)'
 
 # Find and remove all of the files.
 rm -rf _minted-*
-find "$DIR" -maxdepth 1 -type f -regextype 'egrep' -regex "^$BASE\\.(aux|log|toc|out|blg|bbl)" -delete
+find "$DIR" -maxdepth 1 -type f -regextype 'egrep' -regex "^$BASE\\.$EXTS" -delete
