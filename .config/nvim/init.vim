@@ -2,7 +2,8 @@
 " BASICS
 " --------------------------------------------------------------------
 
-let mapleader =","            " Set the map leader to ','.
+let mapleader = ","           " Set the leader to ','.
+let maplocalleader = ","      " Set the local leader to ','.
 set shell=/bin/zsh            " Set the default shell to zsh.
 
 syntax on                     " Enable syntax highlighting.
@@ -19,20 +20,15 @@ set laststatus=0              " Show no statusbar, its a waste of space.
 set conceallevel=2            " Conceal some latex commands.
 set number relativenumber     " Use relative line numbers.
 
-function Visuals()
-	set bg=light                  " Set the default theme.
+set bg=light                  " Set the default theme.
 
-	hi clear Conceal              " No color for concealed text.
-	hi clear SignColumn           " No color for the sign column.
+hi clear Conceal              " No color for concealed text.
+hi clear SignColumn           " No color for the sign column.
+hi clear SpellBad             " Clear the color.
 
-	hi LineNr ctermfg=grey        " Nice color for line numbers.
-	hi CursorLineNr ctermfg=grey  " Nice color for current line number.
-
-	hi clear SpellBad             " Clear the color.
-	hi SpellBad ctermbg=DarkGrey  " Color for misspelled words.
-endf
-
-call Visuals()
+hi LineNr ctermfg=grey        " Nice color for line numbers.
+hi CursorLineNr ctermfg=grey  " Nice color for current line number.
+hi SpellBad ctermbg=DarkGrey  " Color for misspelled words.
 
 " --------------------------------------------------------------------
 " FORMATTING
@@ -65,8 +61,9 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 " Shortcut for toggling 'list', clear highlighting, saving and sudo saving.
-nmap <leader>l     :set invlist listchars=tab:>-,space:•,eol:$<CR>
+nmap <leader>i     :set invlist listchars=tab:>-,space:•,eol:$<CR>
 nmap <leader>h     :noh<CR>
+nmap <leader>x     :x<CR>
 nmap <leader>w     :w<CR>
 nmap <leader><S-w> :w !sudo tee > /dev/null %<CR><CR>
 
@@ -81,8 +78,8 @@ au BufWritePost sxhkdrc silent !killall sxhkd; sxhkd 2> /dev/null &\!
 au BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
 
 " Auto commands for tex editing.
-au VimLeave     *.tex silent !tex-clear %
-au BufWritePost *.tex silent !tex-build %
+"au VimLeave     *.tex silent !tex-clear %
+"au BufWritePost *.tex silent !tex-build %
 
 " --------------------------------------------------------------------
 " CURSOR
@@ -108,51 +105,46 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-	Plug 'junegunn/goyo.vim'              " Distraction free writing.
+	Plug 'lervag/vimtex'
 	Plug 'ntpeters/vim-better-whitespace' " Whitespace cleaning like a pro.
 	Plug 'scrooloose/nerdcommenter'       " Toggle comments: <leader>c<space>.
 	Plug 'tpope/vim-surround'             " Easy surrounding things.
 	Plug 'farmergreg/vim-lastplace'       " Remember the last position.
-	Plug 'airblade/vim-gitgutter'         " Show git status in the file.
 	Plug 'kovetskiy/sxhkd-vim'            " Syntax highlighting for sxhkd.
 	Plug 'scrooloose/nerdtree'            " Tree file system explorer.
 	Plug 'sirver/ultisnips'               " Snippets are the best.
 	Plug 'borroot/tex-conceal', {'for': 'tex'} " Better concealment.
 call plug#end()
 
-" Mapping for Goyo and fix colors.
-nmap <leader>g :Goyo<CR>
-let g:goyo_height=95
-
-au User GoyoEnter cmap q qa
-au User GoyoLeave cunmap q
-au User GoyoEnter,GoyoLeave call Visuals() | syn off | syn on
+" Vimtex settings.
+au TextChanged,TextChangedI *.tex silent :w
+let g:tex_flavor = 'latex'
+let g:vimtex_enabled = 1
+let g:vimtex_matchparen_enabled = 0
+let g:vimtex_quickfix_mode = 0
 
 " Mapping for NerdTree.
 nmap <leader>t :NERDTree<CR>
 
-" Setting for git gutter.
-set updatetime=500
-
 " Setting for tex conceal.
-let g:tex_conceal='abdmg'
+let g:tex_conceal = 'abdmg'
 
 " Mapping and settings for UltiSnips.
 nmap <leader>u :UltiSnipsEdit<CR>
 
-let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsListSnippets='<c-h>'
-let g:UltiSnipsJumpForwardTrigger='<tab>'
-let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsListSnippets  = '<c-h>'
+let g:UltiSnipsJumpForwardTrigger  = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
-let g:UltiSnipsEditSplit='vertical'
-let g:UltiSnipsSnippetDirectories=['ultisnips']
+let g:UltiSnipsEditSplit = 'vertical'
+let g:UltiSnipsSnippetDirectories = ['ultisnips']
 
 " Better whitespace settings.
-let g:strip_whitespace_confirm=0
-let g:better_whitespace_enabled=1
-let g:strip_whitelines_at_eof=1
-let g:show_spaces_that_precede_tabs=1
+let g:strip_whitespace_confirm  = 0
+let g:better_whitespace_enabled = 1
+let g:strip_whitelines_at_eof   = 1
+let g:show_spaces_that_precede_tabs = 1
 
 " Do not automatically remove whitespace in some files.
 function Whitespace()
