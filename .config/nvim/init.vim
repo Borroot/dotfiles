@@ -50,6 +50,9 @@ au FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 " MAPS & AUTOCMDS
 " --------------------------------------------------------------------
 
+" Don't accidentally open a command-line window.
+nmap q: :q
+
 " Always open the help in a vertical split.
 cabbrev h vert h
 cabbrev help vert help
@@ -62,6 +65,7 @@ nmap <C-l> <C-w>l
 
 " Shortcut for toggling 'list', clear highlighting, saving and sudo saving.
 nmap <leader>i     :set invlist listchars=tab:>-,space:•,eol:$<CR>
+nmap <leader>s     :set invspell<CR>
 nmap <leader>h     :noh<CR>
 nmap <leader>x     :x<CR>
 nmap <leader>w     :w<CR>
@@ -70,7 +74,7 @@ nmap <leader><S-w> :w !sudo tee > /dev/null %<CR><CR>
 " Run make, open corresponding PDF and run shellcheck.
 nmap <leader>m :make<CR>
 nmap <leader>p :!open-pdf %<CR><CR>
-nmap <leader>s :!shellcheck -x %<CR>
+nmap <leader>b :!shellcheck -x %<CR>
 
 " Auto markdown to pdf on save, auto restart sxhkd and auto restart shortcuts.
 au BufWritePost *.md    silent !mdtopdf % &
