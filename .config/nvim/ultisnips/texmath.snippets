@@ -55,10 +55,25 @@ snippet pmat "" bA
 \end{pmatrix}
 endsnippet
 
+# IN ENV
+snippet == "" wA
+&= ${1} \\\\
+endsnippet
+
 ## LOGIC
 context "math()"
-snippet qed "" wA
+snippet qed "" iA
 _\square
+endsnippet
+
+context "math()"
+snippet emtpy "" iA
+\emptyset
+endsnippet
+
+context "math()"
+snippet mid "" iA
+\mid
 endsnippet
 
 # ARROWS
@@ -94,6 +109,21 @@ snippet and "" wA
 endsnippet
 
 context "math()"
+snippet cup "" wA
+\cup
+endsnippet
+
+context "math()"
+snippet cap "" wA
+\cap
+endsnippet
+
+context "math()"
+snippet minus "" wA
+\setminus
+endsnippet
+
+context "math()"
 snippet ~~ "" wA
 \approx
 endsnippet
@@ -109,6 +139,17 @@ snippet equiv "" wA
 endsnippet
 
 ## SCRIPTS
+# OVER AND UNDER
+context "math()"
+snippet overset "" iA
+\overset{${1}}{${2}}
+endsnippet
+
+context "math()"
+snippet underset "" iA
+\underset{${1}}{${2}}
+endsnippet
+
 # SUB SCRIPTS
 context "math()"
 snippet __ "" iA
@@ -136,7 +177,13 @@ snippet '([A-Za-z])\^(\d\d)' "" rwA
 `!p snip.rv = match.group(1)`^{`!p snip.rv = match.group(2)`}
 endsnippet
 
-## LEFT AND RIGHT
+## DELIMITERS
+context "math()"
+snippet {} "" iA
+\\{${1}\\}
+endsnippet
+
+# LEFT AND RIGHT
 context "math()"
 snippet floor "" iA
 \left\lfloor ${1} \right\rfloor
