@@ -8,6 +8,7 @@ arc-icon-theme
 arch-install-scripts
 asciiquarium
 asp
+audacity
 autoconf
 automake
 bash
@@ -145,6 +146,7 @@ procps-ng
 psmisc
 pycharm-professional
 python-pip
+python-pyaudio
 qutebrowser
 ranger
 reflector

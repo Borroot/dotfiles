@@ -60,6 +60,12 @@ snippet pmat "" bA
 \end{pmatrix}
 endsnippet
 
+snippet cases "" bA
+\begin{cases}
+	${0}
+\end{cases}
+endsnippet
+
 # IN ENV
 snippet == "" wA
 &= ${1} \\\\
@@ -106,6 +112,11 @@ endsnippet
 context "math()"
 snippet or "" wA
 \lor
+endsnippet
+
+context "math()"
+snippet xor "" wA
+\oplus
 endsnippet
 
 context "math()"
