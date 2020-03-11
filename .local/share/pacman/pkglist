@@ -145,8 +145,10 @@ poppler-glib
 procps-ng
 psmisc
 pycharm-professional
+pypy
 python-pip
 python-pyaudio
+python37
 qutebrowser
 ranger
 reflector
