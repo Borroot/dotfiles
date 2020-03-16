@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# AUTHOR: Bram Pulles
+
+# Remove the __pycache__ folders in a Python program.
+find . -type d -name __pycache__ -exec rm -rf "{}" +

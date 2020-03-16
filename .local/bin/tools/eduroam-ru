@@ -78,7 +78,7 @@ def byte_to_string(barray):
 
 def get_input(prompt):
     if sys.version_info.major < 3:
-        return raw_input(prompt)
+        return raw_input(prompt) # pylint: disable=undefined-variable
     return input(prompt)
 
 
@@ -103,7 +103,7 @@ except ImportError:
     CRYPTO_AVAILABLE = False
 
 
-if sys.version_info.major == 3 and sys.version_info.minor >= 8:
+if sys.version_info.major == 3 and sys.version_info.minor >= 7:
     import distro
 else:
     import platform
@@ -143,7 +143,7 @@ def get_system():
     It is meant to enable password encryption in distros
     that can handle this well.
     """
-    if sys.version_info.major == 3 and sys.version_info.minor >= 8:
+    if sys.version_info.major == 3 and sys.version_info.minor >= 7:
         system = distro.linux_distribution()
     else:
         system = platform.linux_distribution()
@@ -221,7 +221,7 @@ class Messages(object):
     enter_import_password = "enter your import password"
     incorrect_password = "incorrect password"
     repeat_password = "repeat your password"
-    passwords_difffer = "passwords do not match"
+    passwords_differ = "passwords do not match"
     installation_finished = "Installation successful"
     cat_dir_exists = "Directory {} exists; some of its files may be " \
         "overwritten."
@@ -480,7 +480,7 @@ class InstallerData(object):
             password1 = self.prompt_nonempty_string(
                 0, Messages.repeat_password)
             if password != password1:
-                self.alert(Messages.passwords_difffer)
+                self.alert(Messages.passwords_differ)
         self.password = password
 
     def __get_graphics_support(self):
@@ -702,16 +702,15 @@ class WpaConf(object):
     Prepare and save wpa_supplicant config file
     """
     def __prepare_network_block(self, ssid, user_data):
-        altsubj_match = "altsubject_match=\"%s\"" % ";".join(Config.servers)
         out = """network={
-        ssid=""" + ssid + """
+        ssid=\"""" + ssid + """\"
         key_mgmt=WPA-EAP
         pairwise=CCMP
         group=CCMP TKIP
         eap=""" + Config.eap_outer + """
         ca_cert=\"""" + os.environ.get('HOME') + """/.cat_installer/ca.pem\"
         identity=\"""" + user_data.username + """\"
-        altsubject_match=\"""" + altsubj_match + """\"
+        altsubject_match=\"""" + ";".join(Config.servers) + """\"
         phase2=\"auth=""" + Config.eap_inner + """\"
         password=\"""" + user_data.password + """\"
         anonymous_identity=\"""" + Config.anonymous_identity + """\"
@@ -806,7 +805,7 @@ class CatNMConfigTool(object):
             props = dbus.Interface(proxy, "org.freedesktop.DBus.Properties")
             version = props.Get("org.freedesktop.NetworkManager", "Version")
         except dbus.exceptions.DBusException:
-            version = "0.8"
+            version = ""
         if re.match(r'^1\.', version):
             self.nm_version = "1.0"
             return
@@ -920,7 +919,7 @@ Messages.enter_password = "enter password"
 Messages.enter_import_password = "enter your import password"
 Messages.incorrect_password = "incorrect password"
 Messages.repeat_password = "repeat your password"
-Messages.passwords_difffer = "passwords do not match"
+Messages.passwords_differ = "passwords do not match"
 Messages.installation_finished = "Installation successful"
 Messages.cat_dir_exisits = "Directory {} exists; some of its files may " \
     "be overwritten."
@@ -1019,6 +1018,58 @@ WYsamM6/xvLYMDX/6W9doK867mZTrqqMaci+mqege9iCSzMTyAfzd9fzZM2eY/lC
 J1OuEDOJcjcV8b73HjWizsMt8tey5gvHacDlH198aZt+ziYaM0TDuncFO7pdP0GJ
 +hY77gRuW6xWS++McPJKe1e9GW6LNgdUJi2GCZQfXzer8CM/jyxflp5HcahE3qm5
 hS+1NGClXwmgmkMd1L8tRNaN2v11y18WoA5hwnA9Ng==
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+MIIDxTCCAq2gAwIBAgIQAqxcJmoLQJuPC3nyrkYldzANBgkqhkiG9w0BAQUFADBs
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSswKQYDVQQDEyJEaWdpQ2VydCBIaWdoIEFzc3VyYW5j
+ZSBFViBSb290IENBMB4XDTA2MTExMDAwMDAwMFoXDTMxMTExMDAwMDAwMFowbDEL
+MAkGA1UEBhMCVVMxFTATBgNVBAoTDERpZ2lDZXJ0IEluYzEZMBcGA1UECxMQd3d3
+LmRpZ2ljZXJ0LmNvbTErMCkGA1UEAxMiRGlnaUNlcnQgSGlnaCBBc3N1cmFuY2Ug
+RVYgUm9vdCBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMbM5XPm
++9S75S0tMqbf5YE/yc0lSbZxKsPVlDRnogocsF9ppkCxxLeyj9CYpKlBWTrT3JTW
+PNt0OKRKzE0lgvdKpVMSOO7zSW1xkX5jtqumX8OkhPhPYlG++MXs2ziS4wblCJEM
+xChBVfvLWokVfnHoNb9Ncgk9vjo4UFt3MRuNs8ckRZqnrG0AFFoEt7oT61EKmEFB
+Ik5lYYeBQVCmeVyJ3hlKV9Uu5l0cUyx+mM0aBhakaHPQNAQTXKFx01p8VdteZOE3
+hzBWBOURtCmAEvF5OYiiAhF8J2a3iLd48soKqDirCmTCv2ZdlYTBoSUeh10aUAsg
+EsxBu24LUTi4S8sCAwEAAaNjMGEwDgYDVR0PAQH/BAQDAgGGMA8GA1UdEwEB/wQF
+MAMBAf8wHQYDVR0OBBYEFLE+w2kD+L9HAdSYJhoIAu9jZCvDMB8GA1UdIwQYMBaA
+FLE+w2kD+L9HAdSYJhoIAu9jZCvDMA0GCSqGSIb3DQEBBQUAA4IBAQAcGgaX3Nec
+nzyIZgYIVyHbIUf4KmeqvxgydkAQV8GK83rZEWWONfqe/EW1ntlMMUu4kehDLI6z
+eM7b41N5cdblIZQB2lWHmiRk9opmzN6cN82oNLFpmyPInngiK3BD41VHMWEZ71jF
+hS9OMPagMRYjyOfiZRYzy78aG6A9+MpeizGLYAiJLQwGXFK3xPkKmNEVX58Svnw2
+Yzi9RKR/5CYrCsSXaQ3pjOLAEFe4yHYSkVXySGnYvCoCWw9E1CAx2/S6cCZdkGCe
+vEsXCS+0yx5DaMkHJ8HSXPfqIbloEpw8nL+e/IBcm2PN7EeqJSdnoDfzAIJ9VNep
++OkuE6N36B9K
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+MIIE4DCCA8igAwIBAgIQC1w0NWdbJGfA1zI3+Q1flDANBgkqhkiG9w0BAQsFADBs
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSswKQYDVQQDEyJEaWdpQ2VydCBIaWdoIEFzc3VyYW5j
+ZSBFViBSb290IENBMB4XDTE0MTExODEyMDAwMFoXDTI0MTExODEyMDAwMFowczEL
+MAkGA1UEBhMCTkwxFjAUBgNVBAgTDU5vb3JkLUhvbGxhbmQxEjAQBgNVBAcTCUFt
+c3RlcmRhbTEPMA0GA1UEChMGVEVSRU5BMScwJQYDVQQDEx5URVJFTkEgU1NMIEhp
+Z2ggQXNzdXJhbmNlIENBIDMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+AQChNsmK4gfxr6c9j2OMBRo3gOA7z5keoaPHiX4rUX+1fF1Brmvf7Uo83sRiXRYQ
+RJrD79hzJrulDtdihxgS5HgvIQHqGrp3NRRDUlq/4bItLTp9QCHzLhRQSrSYaFkI
+zztYezwb3ABzNiVciqQFk7WR9ebh9ZaCxaXfebcg7LodgQQ4XDvkW2Aknkb1J8NV
+nlbKen6PLlNSL4+MLV+uF1e87aTgOxbM9sxZ1/1LRqrOu28z9WA8qUZn2Av+hcP2
+TQIBoMPMQ8dT+6Yx/0Y+2J702OU//dS0pi8gMe7FtYVcZrlcSy/C40I7EFYHEjTm
+zH4EGvG6t9wZua2atFKvP/7HAgMBAAGjggF1MIIBcTASBgNVHRMBAf8ECDAGAQH/
+AgEAMA4GA1UdDwEB/wQEAwIBhjB/BggrBgEFBQcBAQRzMHEwJAYIKwYBBQUHMAGG
+GGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBJBggrBgEFBQcwAoY9aHR0cDovL2Nh
+Y2VydHMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0SGlnaEFzc3VyYW5jZUVWUm9vdENB
+LmNydDBLBgNVHR8ERDBCMECgPqA8hjpodHRwOi8vY3JsNC5kaWdpY2VydC5jb20v
+RGlnaUNlcnRIaWdoQXNzdXJhbmNlRVZSb290Q0EuY3JsMD0GA1UdIAQ2MDQwMgYE
+VR0gADAqMCgGCCsGAQUFBwIBFhxodHRwczovL3d3dy5kaWdpY2VydC5jb20vQ1BT
+MB0GA1UdDgQWBBTCuIXX4bkTvdFIvP1e3H2QQnqKqTAfBgNVHSMEGDAWgBSxPsNp
+A/i/RwHUmCYaCALvY2QrwzANBgkqhkiG9w0BAQsFAAOCAQEAsCq7NTey6NjZHqT4
+kjZBNU3sItnD+RYAMWx4ZyaELcy7XhndQzX88TYSCYxl/YWB6lCjxx0dL3wTZUbX
+r+WRDzz5xX+98kdYrwNCT7fmT4eenv6cCS1sC9hc4sIl5dkb1pguY3ViV5D8/yEB
+hadOpw3TwI8xkqe2j/H5fp4Oaf9cFdpf9C85mQgZJwsvtvmmDTQTPcGPRFTgdGtY
+2xbWxDah6HjKpX6iI4BTBQhhpX6TJl6/GEaYK07s2Kr8BFPhrgmep9vrepWv61x7
+dnnqz5SeAs6cbSm551qG7Dj8+6f/8e33oqLC5Ldnbt0Ou6PjtZ4O02dN9cnicemR
+1B0/YQ==
 -----END CERTIFICATE-----
 """
 run_installer()
