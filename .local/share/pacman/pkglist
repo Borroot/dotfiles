@@ -19,7 +19,6 @@ bind-tools
 binutils
 bison
 bleachbit
-blueman
 bzip2
 clamav
 coreutils
@@ -77,6 +76,7 @@ gtk-engines
 gvfs-gphoto2
 gvfs-mtp
 gzip
+htop
 i3-wm
 i3blocks
 i3lock
@@ -144,7 +144,6 @@ playerctl
 poppler-glib
 procps-ng
 psmisc
-pycharm-professional
 pypy
 python-pip
 python-pyaudio
