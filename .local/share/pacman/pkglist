@@ -22,6 +22,7 @@ bleachbit
 bzip2
 clamav
 coreutils
+criterion
 cronie
 cryptsetup
 ctags
@@ -94,6 +95,7 @@ keepass
 keychain
 ldc
 less
+libcsptr
 libgnome-keyring
 liblphobos
 libphobos
