@@ -3,6 +3,7 @@ alsa-utils
 android-file-transfer
 android-studio
 android-tools
+arandr
 arc-gtk-theme
 arc-icon-theme
 arch-install-scripts
@@ -117,6 +118,7 @@ metasploit
 minecraft-launcher
 mtpfs
 neovim
+net-tools
 networkmanager
 nextcloud-client
 notify-osd
@@ -166,6 +168,8 @@ spotify
 steam
 strace
 sudo
+sway
+swaylock
 sxhkd
 sysfsutils
 sysstat
@@ -215,6 +219,7 @@ xf86-video-intel
 xf86-video-vesa
 xfsprogs
 xorg-server-xvfb
+xorg-server-xwayland
 xorg-xdpyinfo
 xorg-xev
 xorg-xinit
@@ -227,6 +232,7 @@ xwallpaper
 yadm-git
 zathura-pdf-mupdf
 zip
+zoom
 zsh
 zsh-autosuggestions
 zsh-history-substring-search

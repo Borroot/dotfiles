@@ -43,7 +43,9 @@ set wrap linebreak            " Nice line wrapping with words.
 set display=lastline          " Show parts of a wrapped line not @'s.
 
 " Set all kinds of format options, see `:h fo-table`.
-au FileType * set fo-=t fo-=c fo-=o
+set textwidth=79
+au FileType *       set      fo-=t fo-=c fo-=o
+au FileType c,cpp   setlocal fo+=r fo+=c fo+=o fo+=q
 au FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 
 " --------------------------------------------------------------------
