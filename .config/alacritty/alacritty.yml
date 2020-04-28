@@ -1,0 +1,33 @@
+background_opacity: 0.9
+
+window:
+    # Spread the padding evenly around the terminal.
+    dynamic_padding: true
+
+font:
+    size: 9.0
+
+cursor:
+    # The style of the cursor in Vi mode.
+    vi_mode_style: Block
+
+# Colors (Gruvbox dark)
+colors:
+  # Default colors
+  primary:
+    background: '#282828'
+    foreground: '#ebdbb2'
+
+  # Normal colors
+  normal:
+    black:   '#282828'
+    red:     '#cc241d'
+    green:   '#98971a'
+    yellow:  '#d79921'
+    blue:    '#458588'
+    magenta: '#b16286'
+    cyan:    '#689d6a'
+    white:   '#a89984'
+
+debug:
+    log_level: Debug
