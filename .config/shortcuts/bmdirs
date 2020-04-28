@@ -11,8 +11,6 @@ lbf   ~/.local/bin/format
 # Builds
 b     ~/builds
 bd    ~/builds/dwm
-bs    ~/builds/st
-bx    ~/builds/sxiv
 
 # Misc
 d     ~/Downloads

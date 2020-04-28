@@ -46,6 +46,10 @@ alias \
 	grep="grep --color=auto" \
 	egrep="egrep --color=auto"
 
+# Misc.
+alias \
+	ssh="TERM=xterm-color ssh"
+
 # Some short functions.
 c()    { cd "$@" && ls }
 pdf()  { $READER "$@" 2> /dev/null &! }
