@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# AUTHOR: Bram Pulles
+
+# Show the current date.
+echo -n ' '
+date '+%d-%m'
