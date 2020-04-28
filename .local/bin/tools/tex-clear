@@ -12,7 +12,7 @@ fi
 readonly FILE=$(readlink -f "$1")
 readonly DIR=$(dirname "$FILE")
 readonly BASE=${FILE%.*}
-readonly EXTS='(aux|log|toc|out|blg|bbl|fdb_latexmk|fls|dvi|synctex.gz|synctex\(busy\))'
+readonly EXTS='(aux|log|toc|out|blg|bbl|fdb_latexmk|fls|dvi|synctex.gz|synctex\(busy\)|nav|snm)'
 
 # Find and remove all of the files.
 rm -rf _minted-*
