@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # AUTHOR: Bram Pulles
 
-xset r rate 300 30              # Make repeating keys faster.
+xset r rate 300 35              # Make repeating keys faster.
 setxkbmap -option ctrl:swapcaps # Swap CTRL-CAPS (only in X).
 
 killall xcape 2> /dev/null      # Kill of the running xcape instance.

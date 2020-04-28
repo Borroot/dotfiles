@@ -10,7 +10,7 @@ cfp   ~/.zprofile
 cfz   ~/.config/zsh/.zshrc
 cfn   ~/.config/nvim/init.vim
 cfs   ~/.config/sxhkd/sxhkdrc
+cft   ~/.config/alacritty/alacritty.yml
 
 # Misc
 t     ~/Nextcloud/todo.txt
-cft   ~/builds/tex-conceal/after/syntax/tex.vim

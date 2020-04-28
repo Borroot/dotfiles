@@ -8,7 +8,7 @@ export PATH_TO_FX="/usr/lib/jvm/javafx-sdk-11.0.2/lib"
 
 # Set all the default programs.
 export EDITOR=nvim
-export TERMINAL=st
+export TERMINAL=alacritty
 export READER=zathura
 export VIEWER=sxiv
 export BROWSER=qutebrowser

@@ -1,8 +1,37 @@
 #!/usr/bin/env bash
 # AUTHOR: Bram Pulles
 
-# Increase the brightness of the screen with the specified amount in $1.
-readonly DEVICE=/sys/class/backlight/intel_backlight/brightness
-readonly OLD=$(cat $DEVICE)
-readonly NEW=$((OLD + $1))
-echo $NEW > $DEVICE 2> /dev/null
+# Interact with the backlight with an inc, dec, set or get.
+usage ()
+{
+	echo "usage: $0 [-i num] [-d num] [-s num] [-g] [-h]"
+	exit $1
+}
+
+parse_options ()
+{
+	while getopts 'i:d:s:gh' opt
+	do
+		case $opt in
+			i) new=$((OLD + $OPTARG)) ;;
+			d) new=$((OLD - $OPTARG)) ;;
+			s) new=$OPTARG            ;;
+			g) echo "$OLD" && exit 0  ;;
+			h) usage 0                ;;
+			?) usage 1                ;;
+		esac
+	done
+}
+
+main ()
+{
+	[[ $# < 1 ]] && usage 1
+
+	readonly DEVICE=/sys/class/backlight/intel_backlight/brightness
+	readonly OLD=$(cat $DEVICE)
+
+	parse_options "$@"
+	sudo sh -c "echo $new > $DEVICE 2> /dev/null"
+}
+
+main "$@"

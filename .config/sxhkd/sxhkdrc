@@ -12,8 +12,8 @@ alt + n ; t
 alt + p
 	dmenu_run
 
-alt + n ; {v,d,s,a}
-	{pcmanfm,discord,spotify,android-studio}
+alt + n ; {v,d,s}
+	{pcmanfm,discord,spotify}
 
 # BROWSER
 alt + n ; f
@@ -28,9 +28,6 @@ alt + n ; w
 alt + n ; g
 	$BROWSER github.com/borroot/\?tab=repositories
 
-alt + n ; o
-	firefox https://overleaf.com/login
-
 # COMPUTER STATE
 alt + y ; {shift + s, shift + r, l}
 	{shutdown now, reboot, lock}
@@ -43,10 +40,10 @@ XF86TouchpadToggle
 	touchpad-toggle
 
 XF86AudioMute
-	mute-toggle
+	amixer set Master toggle
 
 XF86Audio{Lower,Raise}Volume
-	pactl set-sink-volume 0 {-,+}2%
+	amixer set Master 2%{-,+}
 
 XF86MonBrightness{Down,Up}
-	backlight {-,+}5
+	backlight -{d,i} 5

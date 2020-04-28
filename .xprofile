@@ -1,6 +1,3 @@
-# Shutdown the nvidia card after X has started.
-sudo tee /proc/acpi/bbswitch <<< OFF
-
 # Active the gnome keyring for automatic Nextcloud authentication.
 eval $(/usr/bin/gnome-keyring-daemon --start) & export SSH_AUTH_SOCK &
 nextcloud       & # Start Nextcloud.
@@ -17,3 +14,6 @@ touchpad-toggle & # Turn of the touchpad by default.
 
 xcompmgr        & # For transparency.
 setbg           & # Turn on the background.
+
+prime-offload   & # Load prime for GPU switching.
+blueman-applet  & # Load the bluetooth applet.

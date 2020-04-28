@@ -2,7 +2,7 @@
 
 # Very useful aliases.
 alias \
-	v="nvim" \
+	v="$EDITOR" \
 	l="ls -dlhF .[^.]* 2> /dev/null ; ls -dlhF * 2> /dev/null"
 
 # Pacman aliases.
@@ -45,11 +45,6 @@ alias \
 	diff="diff --color=auto" \
 	grep="grep --color=auto" \
 	egrep="egrep --color=auto"
-
-# Misc aliases.
-alias \
-	s="sudo tee /proc/acpi/bbswitch <<< ON && startx" \
-	B="echo $1 > /sys/class/backlight/intel_backlight/brightness"
 
 # Some short functions.
 c()    { cd "$@" && ls }

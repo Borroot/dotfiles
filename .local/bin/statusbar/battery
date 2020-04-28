@@ -2,10 +2,30 @@
 # AUTHOR: Bram Pulles
 
 # Show the battery status and if it is (dis)charging.
+readonly OUTPUT=$(acpi -b | awk '{print $4}' | tr -d ,)
+readonly PERCENTAGE=${OUTPUT::-1}
+
 if acpi | grep Discharging > /dev/null
 then
 	readonly PREFIX=-
 else
 	readonly PREFIX=+
 fi
-echo -n $PREFIX && acpi -b | awk '{print $4}' | tr -d ,
+
+if (( $PERCENTAGE < 10 ))
+then
+	SYMBOL=
+elif (( $PERCENTAGE < 30 ))
+then
+	SYMBOL=
+elif (( $PERCENTAGE < 70 ))
+then
+	SYMBOL=
+elif (( $PERCENTAGE < 90 ))
+then
+	SYMBOL=
+else
+	SYMBOL=
+fi
+
+echo "$SYMBOL $PREFIX$PERCENTAGE%"

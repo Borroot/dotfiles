@@ -1,5 +1,5 @@
 # Dotfiles
-C     ~/.config
+cf    ~/.config
 cs    ~/.config/shortcuts
 cn    ~/.config/nvim
 cnu   ~/.config/nvim/ultisnips

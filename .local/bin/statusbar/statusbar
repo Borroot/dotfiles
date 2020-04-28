@@ -2,7 +2,7 @@
 # AUTHOR: Bram Pulles
 
 # Show the current status of the system in the statusbar of dwm.
-while xsetroot -name " VOL $(volume) | BAT $(battery) | $(clock)"
+while xsetroot -name " $(volume) | $(battery) | $(clock)"
 do
 	sleep .5s
 done
