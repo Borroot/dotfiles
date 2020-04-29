@@ -22,6 +22,7 @@ imlib2
 jre11-openjdk
 libappindicator-gtk3
 libexif
+libgnome-keyring
 libxft
 libxinerama
 linux
