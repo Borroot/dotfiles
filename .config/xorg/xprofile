@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+# AUTHOR: Bram Pulles
+
 # Active the gnome keyring for automatic Nextcloud authentication.
 eval $(/usr/bin/gnome-keyring-daemon --start) &
 export SSH_AUTH_SOCK &
@@ -19,3 +22,6 @@ setbg           & # Turn on the background.
 
 prime-offload   & # Load prime for GPU switching.
 blueman-applet  & # Load the bluetooth applet.
+
+# Use the Xresources colors/settings (for sxiv).
+[[ -f "$HOME"/.config/xorg/Xresources ]] && xrdb "$HOME"/.config/xorg/Xresources &

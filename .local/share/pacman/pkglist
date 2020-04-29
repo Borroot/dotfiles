@@ -18,6 +18,7 @@ grub
 gtk2
 gtk3
 htop
+imagemagick
 imlib2
 jre11-openjdk
 libappindicator-gtk3

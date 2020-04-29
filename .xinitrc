@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
 
-[ -f $HOME/.xprofile ] && source $HOME/.xprofile
-
+[ -f $HOME/.config/xorg/xprofile ] && source $HOME/.config/xorg/.xprofile
 exec dwm

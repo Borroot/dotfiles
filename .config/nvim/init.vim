@@ -110,7 +110,9 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-	Plug 'lervag/vimtex'
+	Plug 'miyakogi/seiya.vim'             " Transparent background.
+	Plug 'rafi/awesome-vim-colorschemes'  " More color schemes.
+	Plug 'lervag/vimtex'                  " Latex support of all kinds.
 	Plug 'ntpeters/vim-better-whitespace' " Whitespace cleaning like a pro.
 	Plug 'scrooloose/nerdcommenter'       " Toggle comments: <leader>c<space>.
 	Plug 'tpope/vim-surround'             " Easy surrounding things.
@@ -120,6 +122,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'sirver/ultisnips'               " Snippets are the best.
 	Plug 'borroot/tex-conceal', {'for': 'tex'} " Better concealment.
 call plug#end()
+
+" Seiya settings.
+let g:seiya_auto_enable = 1
 
 " Vimtex settings.
 au TextChanged,TextChangedI *.tex silent :w
