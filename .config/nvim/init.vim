@@ -19,7 +19,6 @@ set ignorecase                " Ignore cases in searching.
 set laststatus=0              " Show no statusbar, its a waste of space.
 set conceallevel=2            " Conceal some latex commands.
 set number relativenumber     " Use relative line numbers.
-
 set bg=light                  " Set the default theme.
 
 hi clear Conceal              " No color for concealed text.
