@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [[ $1 == "nvidia" || $1 == "intel" ]]
+then
+	optimus-manager --switch "$1"
+	killall Xorg
+elif [[ $1 == "x" ]]
+then
+	sudo prime-switch && startx
+else
+	>&2 echo "usage: $0 <nvidia|intel|x>"
+fi

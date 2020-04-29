@@ -1,5 +1,5 @@
 # Active the gnome keyring for automatic Nextcloud authentication.
-eval $(gnome-keyring-daemon --start) & export SSH_AUTH_SOCK &
+gnome-keyring-daemon --start & export SSH_AUTH_SOCK &
 nextcloud       & # Start Nextcloud.
 
 sxhkd           & # Start the shortcut daemon.
