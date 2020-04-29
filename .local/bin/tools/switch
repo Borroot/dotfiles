@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
+# AUTHOR: Bram Pulles
 
+# Switch from GPU with nvidia/intel and start x easily.
 if [[ $1 == "nvidia" || $1 == "intel" ]]
 then
 	optimus-manager --switch "$1"
