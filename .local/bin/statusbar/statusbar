@@ -1,8 +1,23 @@
 #!/usr/bin/env bash
 # AUTHOR: Bram Pulles
 
-# Show the current status of the system in the statusbar of dwm.
-while xsetroot -name " $(music) | $(volume) | $(battery) | $(clock) | $(calendar)"
-do
-	sleep .5s
-done
+# Generate the statusbar and show it on the screen.
+generate_status ()
+{
+	status=""
+	if [[ $(music) != "" ]]
+	then
+		status=" $(music) |"
+	fi
+	status+=" $(volume) | $(battery) | $(clock) | $(calendar) |"
+}
+
+main ()
+{
+	while generate_status && xsetroot -name "$status"
+	do
+		sleep .5s
+	done
+}
+
+main "$@"

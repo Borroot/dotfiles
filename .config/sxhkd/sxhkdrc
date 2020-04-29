@@ -1,32 +1,26 @@
 # TERMINAL
 alt + Return
 	$TERMINAL
-
 alt + n ; n
 	$TERMINAL -e nmtui
-
 alt + n ; t
-	$TERMINAL -e $EDITOR $HOME/Nextcloud/todo.txt
+	$TERMINAL -e $EDITOR "$HOME"/Nextcloud/todo.txt
 
 # PROGRAMS
 alt + p
-	dmenu_run
-
+	rofi -show run
 alt + n ; {v,d,s}
 	{pcmanfm,discord,spotify}
 
 # BROWSER
 alt + n ; f
 	$BROWSER
-
 alt + n ; b
-	$BROWSER https://brightspace.ru.nl
-
+	$BROWSER "https://brightspace.ru.nl"
 alt + n ; w
-	$BROWSER https://web.whatsapp.com --target window
-
+	$BROWSER "https://web.whatsapp.com" --target window
 alt + n ; g
-	$BROWSER github.com/borroot/\?tab=repositories
+	$BROWSER "https://github.com/borroot/?tab=repositories"
 
 # COMPUTER STATE
 alt + y ; {shift + s, shift + r, l}
@@ -38,12 +32,10 @@ Print
 
 XF86TouchpadToggle
 	touchpad-toggle
+XF86MonBrightness{Down,Up}
+	backlight -{d,i} 5
 
 XF86AudioMute
 	amixer set Master toggle
-
 XF86Audio{Lower,Raise}Volume
 	amixer set Master 2%{-,+}
-
-XF86MonBrightness{Down,Up}
-	backlight -{d,i} 5
