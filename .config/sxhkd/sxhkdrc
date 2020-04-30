@@ -17,6 +17,8 @@ alt + n ; f
 	$BROWSER
 alt + n ; b
 	$BROWSER "https://brightspace.ru.nl"
+alt + n ; o
+	$BROWSER "https://overleaf.com/login"
 alt + n ; w
 	$BROWSER "https://web.whatsapp.com" --target window
 alt + n ; g
