@@ -5,12 +5,12 @@ cfa   ~/.config/shortcuts/aliasrc
 
 # Programs
 cfb   ~/.bashrc
-cfx   ~/.xprofile
 cfp   ~/.zprofile
 cfz   ~/.config/zsh/.zshrc
 cfn   ~/.config/nvim/init.vim
 cfs   ~/.config/sxhkd/sxhkdrc
 cft   ~/.config/alacritty/alacritty.yml
+cfx   ~/.config/xorg/xprofile
 
 # Misc
 t     ~/Nextcloud/todo.txt

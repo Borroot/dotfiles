@@ -54,6 +54,8 @@ rofi
 spotify
 sudo
 sxhkd
+texlive-core
+texlive-latexextra
 tree
 ttf-fira-code
 ttf-font-awesome
