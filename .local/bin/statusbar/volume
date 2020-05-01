@@ -2,7 +2,13 @@
 # AUTHOR: Bram Pulles
 
 # Print volume information nicely formatted.
-readonly OUTPUT=$(amixer get Master | grep 'Right:')
+if [[ $(amixer get Master | grep 'Right:') != "" ]]
+then
+	readonly OUTPUT=$(amixer get Master | grep 'Right:')
+else
+	readonly OUTPUT=$(amixer get Master | grep 'Mono:')
+fi
+
 readonly SOUND=$(echo "$OUTPUT" | awk -F '[][]' '{ print $4 }')
 readonly PERCENTAGE=$(echo "$OUTPUT" | awk -F '[][]' '{ print substr($2, 1, length($2) - 1) }')
 
