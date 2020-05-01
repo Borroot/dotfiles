@@ -4,9 +4,9 @@ cs    ~/.config/shortcuts
 cn    ~/.config/nvim
 cnu   ~/.config/nvim/ultisnips
 lb    ~/.local/bin
+lbc   ~/.local/bin/cron
 lbt   ~/.local/bin/tools
 lbs   ~/.local/bin/statusbar
-lbf   ~/.local/bin/format
 
 # Builds
 b     ~/builds

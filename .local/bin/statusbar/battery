@@ -5,14 +5,14 @@
 readonly OUTPUT=$(acpi -b | awk '{print $4}' | tr -d ,)
 readonly PERCENTAGE=${OUTPUT::-1}
 
-if acpi | grep Discharging > /dev/null
+if [[ $(acpi) =~ 'Discharging' ]]
 then
 	readonly PREFIX=-
 else
 	readonly PREFIX=+
 fi
 
-if (( $PERCENTAGE < 10 ))
+if   (( $PERCENTAGE < 10 ))
 then
 	SYMBOL=
 elif (( $PERCENTAGE < 30 ))

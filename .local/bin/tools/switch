@@ -2,13 +2,14 @@
 # AUTHOR: Bram Pulles
 
 # Switch from GPU with nvidia/intel/hybrid and start x easily.
-if [[ $1 == "nvidia" || $1 == "intel" || $1 == "hybrid" ]]
+if [[ $1 == 'nvidia' || $1 == 'intel' || $1 == 'hybrid' ]]
 then
 	optimus-manager --no-confirm --switch "$1"
 	killall Xorg
-elif [[ $1 == "x" ]]
+elif [[ $1 == 'x' ]]
 then
 	sudo prime-switch && startx
 else
 	>&2 echo "usage: $0 <nvidia|intel|hybrid|x>"
+	exit 1
 fi

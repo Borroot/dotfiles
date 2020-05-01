@@ -2,7 +2,7 @@
 # AUTHOR: Bram Pulles
 
 # Print volume information nicely formatted.
-if [[ $(amixer get Master | grep 'Right:') != "" ]]
+if [[ $(amixer get Master) =~ 'Right:' ]]
 then
 	readonly OUTPUT=$(amixer get Master | grep 'Right:')
 else

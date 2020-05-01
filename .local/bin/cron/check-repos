@@ -1,0 +1,104 @@
+#!/usr/bin/env bash
+# AUTHOR: Bram Pulles
+
+# Automatically update the official and the AUR packages.
+
+notify_error()
+{
+	# Send an error notification with an orange color.
+	notify-send -h 'string:bgcolor:#f24a02' ' [Error] Repository synchronizer' "$@"
+}
+
+notify()
+{
+	# Send a normal notification.
+	notify-send ' Repository synchronizer' "$@"
+}
+
+check_options()
+{
+	# Check if the given arguments are valid.
+	if [[ $1 != 'official' && $1 != 'aur' && $1 != 'all' || $# > 1 ]]
+	then
+		>&2 echo "usage: $0 <official|aur|all>"
+		exit 1
+	fi
+}
+
+check_internet()
+{
+	# Check if there is an internet connection.
+	if ! ping -q -c 1 '8.8.8.8' > /dev/null
+	then
+		notify_error 'Could not connect to the internet.'
+		exit 1
+	fi
+}
+
+sync_official()
+{
+	# Synchronize the official repository.
+	notify 'Checking for package updates in the official repositories...'
+	if sudo pacman -Syyuw --noconfirm
+	then
+		declare -r NUMBER_OF_UPDATES=$(pacman -Qu | wc -l)
+		if (( $NUMBER_OF_UPDATES > 0 ))
+		then
+			notify "$NUMBER_OF_UPDATES package(s) can be updated."
+			# TODO Ask if the user wants to update and then update.
+		else
+			notify 'All the official packages are up to date!'
+		fi
+	else
+		notify_error 'An error occured during downloading.'
+	fi
+}
+
+sync_aur()
+{
+	# Synchronize the AUR repository.
+	notify 'Checking for package updates in the AUR...'
+
+	local out_of_date=""  # the packages which can be upgraded
+	declare -r BUILDS_FOLDER="$HOME/builds"  # folder containing the aur repos
+
+	for build_folder in $(command ls "$BUILDS_FOLDER")
+	do
+		cd "$BUILDS_FOLDER/$build_folder"
+
+		# Check if we are on the master branch.
+		local branch=$(git rev-parse --abbrev-ref HEAD)
+		if [[ "$branch" == "master" ]] && $(timeout 5 git fetch 2> /dev/null)
+		then
+			# Check if the local hash is the same as the upstream hash.
+			local local_hash=$(git rev-parse HEAD)
+			local upstream_hash=$(git rev-parse master@{upstream})
+
+			if [[ "$local_hash" != "$upstream_hash" ]]
+			then
+				out_of_date="$out_of_date $build_folder"
+			fi
+		fi
+		cd "$BUILDS_FOLDER"
+	done
+
+	# Show the packages that can be updated.
+	if [[ $out_of_date == '' ]]
+	then
+		notify 'All the AUR packages are up to date!'
+	else
+		notify "The following AUR package(s) can be updated:$out_of_date."
+		# TODO Ask if the user wants to update and then update.
+	fi
+}
+
+main()
+{
+	check_options "$@"
+	check_internet
+
+	[[ $1 == 'official' || $1 == 'all' ]] && sync_official
+	[[ $1 == 'aur'      || $1 == 'all' ]] && sync_aur
+}
+
+main "$@"
