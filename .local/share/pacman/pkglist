@@ -6,6 +6,7 @@ base
 binutils
 blueman
 bluez-utils
+cronie
 discord
 dunst
 efibootmgr

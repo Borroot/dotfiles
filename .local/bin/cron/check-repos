@@ -39,7 +39,7 @@ sync_official()
 {
 	# Synchronize the official repository.
 	notify 'Checking for package updates in the official repositories...'
-	if sudo pacman -Syyuw --noconfirm
+	if sudo pacman -Syyuw --noconfirm > /dev/null
 	then
 		declare -r NUMBER_OF_UPDATES=$(pacman -Qu | wc -l)
 		if (( $NUMBER_OF_UPDATES > 0 ))
@@ -60,7 +60,7 @@ sync_aur()
 	notify 'Checking for package updates in the AUR...'
 
 	local out_of_date=""  # the packages which can be upgraded
-	declare -r BUILDS_FOLDER="$HOME/builds"  # folder containing the aur repos
+	declare -r BUILDS_FOLDER=$HOME/builds  # folder containing the aur repos
 
 	for build_folder in $(command ls "$BUILDS_FOLDER")
 	do
@@ -76,10 +76,10 @@ sync_aur()
 
 			if [[ "$local_hash" != "$upstream_hash" ]]
 			then
+				# Add the package to the out of date packages.
 				out_of_date="$out_of_date $build_folder"
 			fi
 		fi
-		cd "$BUILDS_FOLDER"
 	done
 
 	# Show the packages that can be updated.
