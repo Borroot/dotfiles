@@ -2,11 +2,12 @@
 # AUTHOR: Bram Pulles
 
 # Show a notification (for 60 seconds) when the battery is low.
-readonly TIME_LIMIT=03:10:00  # hh:mm:ss
+readonly TIME_LIMIT=00:10:00  # hh:mm:ss
 readonly TIME_LEFT=$(acpi -b | cut -f 5 -d ' ')
 
 if [[ $(acpi -b) =~ 'Discharging' && "$TIME_LEFT" < "$TIME_LIMIT" ]]
 then
 	readonly MINUTES_LEFT=$(cut -f 2 -d ':' <<< "$TIME_LEFT")
-	notify-send -u critical -t 60000 ' Low Battery!' "Only $MINUTES_LEFT minutes left."
+	readonly MINUTES_LEFT_NICE=${MINUTES_LEFT##*0}  # remove preceding zeros
+	notify-send -u critical -t 60000 ' Low Battery!' "Only $MINUTES_LEFT_NICE minutes left."
 fi
