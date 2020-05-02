@@ -6,6 +6,6 @@ cronjobs, precede the command with `cronenv` as shown below.
 	/home/borroot/.local/bin/cron/cronenv 'script args'
 
 This ensures that notifications will display and that environmental variables
-will work. To give a complete example consider the following.
+will work. A complete example is shown below.
 
 	0 9 * * * /home/borroot/.local/bin/cron/cronenv 'check-repos all'
