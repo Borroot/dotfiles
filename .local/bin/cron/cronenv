@@ -4,7 +4,7 @@
 # Set the environments variables for cronjobs.
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 export DISPLAY=:0
-source $HOME/.profile
+[[ -f $HOME/.profile ]] && source $HOME/.profile
 
 # Run the given command in this environment.
 sh -c "$@"
