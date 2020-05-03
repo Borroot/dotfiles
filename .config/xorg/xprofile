@@ -19,6 +19,7 @@ touchpad-toggle & # Turn of the touchpad by default.
 
 prime-offload   & # Load prime for GPU switching.
 blueman-applet  & # Load the bluetooth applet.
+check-repos all & # Check the repos for updates.
 
 # Use the Xresources colors/settings (for sxiv).
 [[ -f "$HOME"/.config/xorg/Xresources ]] && xrdb "$HOME"/.config/xorg/Xresources &

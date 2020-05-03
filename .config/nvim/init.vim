@@ -19,15 +19,6 @@ set ignorecase                " Ignore cases in searching.
 set laststatus=0              " Show no statusbar, its a waste of space.
 set conceallevel=2            " Conceal some latex commands.
 set number relativenumber     " Use relative line numbers.
-set bg=light                  " Set the default theme.
-
-hi clear Conceal              " No color for concealed text.
-hi clear SignColumn           " No color for the sign column.
-hi clear SpellBad             " Clear the color.
-
-hi LineNr ctermfg=grey        " Nice color for line numbers.
-hi CursorLineNr ctermfg=grey  " Nice color for current line number.
-hi SpellBad ctermbg=DarkGrey  " Color for misspelled words.
 
 " --------------------------------------------------------------------
 " FORMATTING
@@ -48,7 +39,7 @@ au FileType c,cpp   setlocal fo+=r fo+=c fo+=o fo+=q
 au FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 
 " --------------------------------------------------------------------
-" MAPS & AUTOCMDS
+" MAPS
 " --------------------------------------------------------------------
 
 " Don't accidentally open a command-line window.
@@ -76,6 +67,10 @@ nmap <leader><S-w> :w !sudo tee > /dev/null %<CR><CR>
 nmap <leader>m :make<CR>
 nmap <leader>p :!open-pdf %<CR><CR>
 nmap <leader>b :!shellcheck -x %<CR>
+
+" --------------------------------------------------------------------
+" AUTOCMDS
+" --------------------------------------------------------------------
 
 " Auto markdown to pdf on save, auto restart sxhkd and auto restart shortcuts.
 au BufWritePost *.md    silent !mdtopdf % &
@@ -111,7 +106,7 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 	Plug 'miyakogi/seiya.vim'             " Transparent background.
-	Plug 'rafi/awesome-vim-colorschemes'  " More color schemes.
+	Plug 'borroot/materialbox'            " Awesome color theme.
 	Plug 'lervag/vimtex'                  " Latex support of all kinds.
 	Plug 'ntpeters/vim-better-whitespace' " Whitespace cleaning like a pro.
 	Plug 'scrooloose/nerdcommenter'       " Toggle comments: <leader>c<space>.
@@ -122,6 +117,16 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'sirver/ultisnips'               " Snippets are the best.
 	Plug 'borroot/tex-conceal', {'for': 'tex'} " Better concealment.
 call plug#end()
+
+" --------------------------------------------------------------------
+" PLUGIN SETTINGS
+" --------------------------------------------------------------------
+
+" Materialbox settings.
+let g:materialbox_contrast_dark = 'light'
+set bg=dark
+colorscheme materialbox
+hi clear CursorLineNr
 
 " Seiya settings.
 let g:seiya_auto_enable = 1
