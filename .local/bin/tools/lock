@@ -12,5 +12,6 @@ convert "$WALLPAPER" RGB:- | i3lock --raw "$RESOLUTION_WALLPAPER":rgb -fi /dev/s
 # Give a warning if the resolutions differ since i3lock cannot handle these nicely.
 if [[ "$RESOLUTION_WALLPAPER" != "$RESOLUTION_SCREEN" ]]
 then
-	notify-send "i3lock" "Warning: The wallpaper resolution differs from the screen resolution."
+	notify-send -t 3000 -h 'string:bgcolor:#f24a02' \
+		"[Warning] i3lock" "The wallpaper resolution differs from the screen resolution."
 fi
