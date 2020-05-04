@@ -16,17 +16,17 @@ alt + n ; {v,d,s}
 alt + n ; f
 	$BROWSER
 alt + n ; b
-	$BROWSER "https://brightspace.ru.nl"
+	$BROWSER 'https://brightspace.ru.nl'
 alt + n ; o
-	$BROWSER "https://overleaf.com/login"
+	$BROWSER 'https://overleaf.com/login'
 alt + n ; w
-	$BROWSER "https://web.whatsapp.com" --target window
+	$BROWSER 'https://web.whatsapp.com' --target window
 alt + n ; g
-	$BROWSER "https://github.com/borroot/?tab=repositories"
+	$BROWSER 'https://github.com/borroot/?tab=repositories'
 
 # COMPUTER STATE
-alt + y ; {shift + s, shift + r, l}
-	{shutdown now, reboot, lock}
+alt + y ; {shift + s, shift + r, h, l}
+	{shutdown now, reboot, systemctl suspend, lock}
 
 # SPECIAL KEYS
 Print
