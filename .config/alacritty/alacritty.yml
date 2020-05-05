@@ -14,8 +14,8 @@ cursor:
 key_bindings:
     - { key: K, mods: Control,       action: ScrollLineUp   }
     - { key: J, mods: Control,       action: ScrollLineDown }
-    - { key: U, mods: Control|Shift, action: ScrollPageUp   }
-    - { key: D, mods: Control|Shift, action: ScrollPageDown }
+    - { key: K, mods: Control|Shift, action: ScrollPageUp   }
+    - { key: J, mods: Control|Shift, action: ScrollPageDown }
 
 # Colors (Gruvbox dark)
 colors:
