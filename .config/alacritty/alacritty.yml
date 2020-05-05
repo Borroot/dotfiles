@@ -12,8 +12,8 @@ cursor:
     vi_mode_style: Block
 
 key_bindings:
-    - { key: Y, mods: Control|Shift, action: ScrollLineUp   }
-    - { key: E, mods: Control|Shift, action: ScrollLineDown }
+    - { key: K, mods: Control,       action: ScrollLineUp   }
+    - { key: J, mods: Control,       action: ScrollLineDown }
     - { key: U, mods: Control|Shift, action: ScrollPageUp   }
     - { key: D, mods: Control|Shift, action: ScrollPageDown }
 

@@ -19,7 +19,7 @@ alias \
 	gp="git push"   \
 	gc="git commit -am" \
 	gb="git branch" \
-	gC="git checkout"
+	gcb="git checkout"
 
 # Yadm aliases.
 alias \
