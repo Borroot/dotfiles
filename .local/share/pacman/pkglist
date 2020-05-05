@@ -39,11 +39,12 @@ neofetch
 neovim
 networkmanager
 nextcloud-client
+noto-fonts
 nvidia
 nvidia-prime
 nvtop
 optimus-manager
-otf-fira-code
+otf-font-awesome
 perl-rename
 pkgconf
 playerctl
@@ -59,9 +60,7 @@ sxhkd
 texlive-core
 texlive-latexextra
 tree
-ttf-fira-code
-ttf-font-awesome
-ttf-liberation
+ttf-joypixels
 unclutter
 xcape
 xcompmgr
@@ -76,6 +75,7 @@ xwallpaper
 yadm
 zathura
 zathura-pdf-mupdf
+zip
 zsh
 zsh-autosuggestions
 zsh-history-substring-search
