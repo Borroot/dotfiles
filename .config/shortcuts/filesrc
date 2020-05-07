@@ -1,6 +1,6 @@
 # Shortcuts
-cff   ~/.config/shortcuts/bmfiles
-cfd   ~/.config/shortcuts/bmdirs
+cff   ~/.config/shortcuts/filesrc
+cfd   ~/.config/shortcuts/dirsrc
 cfa   ~/.config/shortcuts/aliasrc
 
 # Programs
