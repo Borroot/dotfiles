@@ -30,7 +30,7 @@ alt + y ; {shift + s, shift + r, h, l}
 
 # SPECIAL KEYS
 Print
-	deepin-screenshot
+	flameshot gui
 
 XF86TouchpadToggle
 	touchpad-toggle

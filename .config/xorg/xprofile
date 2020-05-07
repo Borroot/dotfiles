@@ -8,6 +8,7 @@ export SSH_AUTH_SOCK &
 nextcloud       & # Start Nextcloud.
 sxhkd           & # Start the shortcut daemon.
 dunst           & # Start dunst for usage of notify-send.
+flameshot       & # Start the screenshot daemon.
 
 xcompmgr        & # For transparency.
 setbg           & # Turn on the background.

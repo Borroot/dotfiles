@@ -155,6 +155,9 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsEditSplit = 'vertical'
 let g:UltiSnipsSnippetDirectories = ['ultisnips']
 
+let g:loaded_python_provider = 0  " no python 2
+let g:python3_host_prog = '/usr/bin/python'
+
 " Better whitespace settings.
 let g:strip_whitespace_on_save  = 1
 let g:strip_whitespace_confirm  = 0

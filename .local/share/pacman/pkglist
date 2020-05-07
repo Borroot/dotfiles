@@ -11,6 +11,7 @@ discord
 dunst
 efibootmgr
 fakeroot
+flameshot
 gcc
 gconf
 git
@@ -62,6 +63,7 @@ texlive-latexextra
 tree
 ttf-joypixels
 unclutter
+unzip
 virtualbox
 xcape
 xcompmgr
