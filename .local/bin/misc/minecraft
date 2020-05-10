@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# AUTHOR: Bram Pulles
+
+# Automatically remove the GPU cache after playing minecraft.
+minecraft-launcher && rm -rf "$HOME"/GPUCache

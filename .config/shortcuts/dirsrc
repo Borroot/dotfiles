@@ -4,6 +4,7 @@ cs    ~/.config/shortcuts
 cn    ~/.config/nvim
 cnu   ~/.config/nvim/ultisnips
 lb    ~/.local/bin
+lbm   ~/.local/bin/misc
 lbc   ~/.local/bin/cron
 lbt   ~/.local/bin/tools
 lbs   ~/.local/bin/statusbar
