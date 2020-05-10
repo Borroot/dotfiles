@@ -40,7 +40,7 @@ man-db
 man-pages
 mesa-demos
 minecraft-launcher
-mutt
+neomutt
 neovim
 networkmanager
 networkmanager-openvpn
@@ -72,6 +72,7 @@ unclutter
 unzip
 virtualbox
 xcape
+xclip
 xcompmgr
 xorg-font-util
 xorg-fonts-encodings

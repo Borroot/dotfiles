@@ -11,6 +11,7 @@ cfn   ~/.config/nvim/init.vim
 cfs   ~/.config/sxhkd/sxhkdrc
 cft   ~/.config/alacritty/alacritty.yml
 cfx   ~/.config/xorg/xprofile
+cfm   ~/.config/neomutt/neomuttrc
 
 # Misc
 t     ~/Nextcloud/todo.txt
