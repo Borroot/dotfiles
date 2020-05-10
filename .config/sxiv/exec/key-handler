@@ -24,7 +24,7 @@ rotate ()
 # Delete all of the selected images if confirmed by the user.
 delete ()
 {
-	readonly ANSWER=$(echo -e 'n\ny' | rofi -dmenu -p "Are you sure you want to remove them?")
+	readonly ANSWER=$(echo -e 'n\ny' | dmenu -p "Are you sure you want to remove them?")
 	[[ "$ANSWER" != 'y' ]] && exit 1
 
 	while read -r file

@@ -6,8 +6,11 @@ base
 binutils
 blueman
 bluez-utils
+criterion
 cronie
 discord
+dmenu
+doxygen
 dunst
 efibootmgr
 fakeroot
@@ -25,6 +28,7 @@ imagemagick
 imlib2
 jre11-openjdk
 libappindicator-gtk3
+libcsptr
 libexif
 libgnome-keyring
 libxft
@@ -46,6 +50,7 @@ nvidia-prime
 nvtop
 optimus-manager
 otf-font-awesome
+patch
 perl-rename
 pkgconf
 playerctl
@@ -54,12 +59,12 @@ pulseaudio-bluetooth
 pycharm-community-edition
 python-pip
 qutebrowser
-rofi
 spotify
 sudo
 sxhkd
 texlive-core
 texlive-latexextra
+texlive-pictures
 tree
 ttf-joypixels
 unclutter

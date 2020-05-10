@@ -8,7 +8,7 @@ alt + n ; t
 
 # PROGRAMS
 alt + p
-	rofi -show run
+	dmenu_run
 alt + n ; {v,d,s}
 	{pcmanfm,discord,spotify}
 

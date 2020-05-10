@@ -117,7 +117,7 @@
 
 	# Browser for opening urls in context menu.
 	browser = qutebrowser
-	dmenu = rofi -dmenu
+	dmenu = dmenu
 
 	# Always run rule-defined scripts, even if the notification is suppressed
 	always_run_script = true
