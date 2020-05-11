@@ -13,13 +13,14 @@ HISTFILE=$HOME/.config/zsh/histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
-# Automatic cd, do not beep, suppress ls error, do not ask confirmation for rm
-# and enable extended globbing.
+# Automatic cd, do not beep, suppress ls error, do not ask confirmation for rm,
+# enable extended globbing and ignore commands starting with a space.
 set -o autocd
 set -o No_Beep
 set +o nomatch
 set -o rm_star_silent
 set -o extended_glob
+set -o hist_ignore_space
 
 # Auto completion is case insensitive and has a nice menu.
 autoload -Uz compinit && compinit
