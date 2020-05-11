@@ -1,4 +1,10 @@
 ###############################################################################
+#                                   GENERAL                                   #
+###############################################################################
+
+source ~/.config/neomutt/aliases
+
+###############################################################################
 #                                    LOGIN                                    #
 ###############################################################################
 
@@ -23,6 +29,7 @@ mailboxes =Inbox =Drafts =Sent =Deleted =Junk
 mailboxes =Archive =Archive/fail2ban =Archive/misc =Archive/phone
 mailboxes =Archive/post =Archive/sshn =Archive/university
 
+set timeout = 5
 set mail_check = 10
 set ssl_use_sslv3 = yes
 
@@ -52,11 +59,26 @@ set sidebar_indent_string = "  "  # Indent with two spaces.
 bind index,pager B sidebar-toggle-visible
 
 ###############################################################################
+#                                   BROWSER                                   #
+###############################################################################
+
+set sort_browser = unsorted  # Same order as in the sidebar.
+set folder_format = "%2C %t %N %F %?n?%2n&  ? %i"
+
+###############################################################################
 #                                    HTML                                     #
 ###############################################################################
 
 set mailcap_path = ~/.config/neomutt/mailcap
 auto_view text/html
+
+###############################################################################
+#                                   CACHING                                   #
+###############################################################################
+
+set message_cachedir = ~/.cache/neomutt
+set header_cache = ~/.cache/neomutt
+set header_cache_backend = lmdb
 
 ###############################################################################
 #                               VI KEY BINDINGS                               #
@@ -75,10 +97,10 @@ bind attach,browser,index       G   last-entry
 # Scrolling
 bind attach,browser,pager,index \Cj next-page
 bind attach,browser,pager,index \Ck previous-page
+bind attach,browser,pager,index \Ce next-line
+bind attach,browser,pager,index \Cy previous-line
 bind attach,browser,pager,index \CU half-up
 bind attach,browser,pager,index \CD half-down
-bind browser,pager,index        \Ce next-line
-bind browser,pager,index        \Cy previous-line
 
 ###############################################################################
 #                            GENERAL KEY BINDINGS                             #
