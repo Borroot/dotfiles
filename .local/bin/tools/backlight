@@ -8,8 +8,9 @@ usage ()
 	exit $1
 }
 
-parse_options ()
+parse_opts ()
 {
+	local opt
 	while getopts 'i:d:s:gh' opt
 	do
 		case $opt in
@@ -30,7 +31,7 @@ main ()
 	readonly DEVICE=/sys/class/backlight/intel_backlight/brightness
 	readonly OLD=$(cat $DEVICE)
 
-	parse_options "$@"
+	parse_opts "$@"
 	sudo sh -c "echo $new > $DEVICE 2> /dev/null"
 }
 
