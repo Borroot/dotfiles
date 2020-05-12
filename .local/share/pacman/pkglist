@@ -70,6 +70,7 @@ tree
 ttf-joypixels
 unclutter
 unzip
+urlview
 virtualbox
 w3m
 xcape
@@ -87,6 +88,7 @@ yadm
 zathura
 zathura-pdf-mupdf
 zip
+zoom
 zsh
 zsh-autosuggestions
 zsh-history-substring-search

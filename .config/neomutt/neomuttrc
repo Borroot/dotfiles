@@ -3,6 +3,7 @@
 ###############################################################################
 
 source ~/.config/neomutt/aliases
+source ~/.config/neomutt/colors
 
 ###############################################################################
 #                                    LOGIN                                    #
@@ -105,6 +106,9 @@ bind attach,browser,pager,index \CD half-down
 ###############################################################################
 #                            GENERAL KEY BINDINGS                             #
 ###############################################################################
+
+# Urls
+macro index,pager,attach,compose \Cb "<pipe-message> urlview<enter>" "url"
 
 # Mailboxes
 macro index gi "<change-folder>=Inbox<enter>"   "Go to Inbox"

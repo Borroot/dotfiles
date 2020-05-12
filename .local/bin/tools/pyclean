@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # AUTHOR: Bram Pulles
 
-# Remove the __pycache__ folders in a Python program.
-find . -type d -name __pycache__ -exec rm -rf "{}" +
+# Remove the cache folders from a Python program.
+readonly REGEX='(.*__pycache__|.*.pytest_cache)'
+find . -type d -regextype egrep -regex "$REGEX" -exec rm -rf "{}" +
