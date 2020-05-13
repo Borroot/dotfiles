@@ -56,7 +56,7 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-" Shortcut for toggling 'list', clear highlighting, saving and sudo saving.
+" Shortcut toggling 'list', clear highlighting, saving and sudo saving.
 nmap <leader>i     :set invlist listchars=tab:>-,space:•,eol:$<CR>
 nmap <leader>s     :set invspell<CR>
 nmap <leader>h     :noh<CR>
@@ -76,7 +76,7 @@ nmap <leader>b :!shellcheck -x %<CR>
 " Auto markdown to pdf on save, auto restart sxhkd and auto restart shortcuts.
 au BufWritePost *.md    silent !mdtopdf % &
 au BufWritePost sxhkdrc silent !killall sxhkd; sxhkd 2> /dev/null &\!
-au BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
+au BufWritePost ~/.config/shortcuts/dirsrc,~/.config/shortcuts/filesrc !shortcuts
 
 " Auto commands for removing files.
 au VimLeave *.tex silent !tex-clear %
@@ -107,7 +107,7 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 	Plug 'miyakogi/seiya.vim'             " Transparent background.
-	Plug 'borroot/materialbox'            " Awesome color theme.
+	Plug 'morhetz/gruvbox'
 	Plug 'lervag/vimtex'                  " Latex support of all kinds.
 	Plug 'ntpeters/vim-better-whitespace' " Whitespace cleaning like a pro.
 	Plug 'scrooloose/nerdcommenter'       " Toggle comments: <leader>c<space>.
@@ -123,14 +123,15 @@ call plug#end()
 " PLUGIN SETTINGS
 " --------------------------------------------------------------------
 
-" Materialbox settings.
-let g:materialbox_contrast_dark = 'light'
+" Gruvbox settings.
 set bg=dark
-colorscheme materialbox
-hi clear CursorLineNr
+let g:gruvbox_bold = 0
+colorscheme gruvbox
 
-" Seiya settings.
+" Seiya settings. TODO Make my own seiya.
 let g:seiya_auto_enable = 1
+hi clear CursorLineNr
+hi clear Todo
 
 " Vimtex settings.
 au TextChanged,TextChangedI *.tex silent :w
