@@ -17,7 +17,6 @@ set ignorecase                " Ignore cases in searching.
 " --------------------------------------------------------------------
 
 set laststatus=0              " Show no statusbar, its a waste of space.
-set conceallevel=2            " Conceal some latex commands.
 set number relativenumber     " Use relative line numbers.
 
 " --------------------------------------------------------------------
@@ -106,8 +105,9 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-	Plug 'miyakogi/seiya.vim'             " Transparent background.
-	Plug 'morhetz/gruvbox'
+	Plug 'borroot/vim-nobg'               " Transparent background!
+	Plug 'borroot/vim-texcloak'           " Better tex concealment.
+	Plug 'morhetz/gruvbox'                " A nice theme.
 	Plug 'lervag/vimtex'                  " Latex support of all kinds.
 	Plug 'ntpeters/vim-better-whitespace' " Whitespace cleaning like a pro.
 	Plug 'scrooloose/nerdcommenter'       " Toggle comments: <leader>c<space>.
@@ -116,7 +116,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'kovetskiy/sxhkd-vim'            " Syntax highlighting for sxhkd.
 	Plug 'scrooloose/nerdtree'            " Tree file system explorer.
 	Plug 'sirver/ultisnips'               " Snippets are the best.
-	Plug 'borroot/vim-texcloak', {'for': 'tex'} " Better concealment.
 call plug#end()
 
 " --------------------------------------------------------------------
@@ -127,11 +126,6 @@ call plug#end()
 set bg=dark
 let g:gruvbox_bold = 0
 colorscheme gruvbox
-
-" Seiya settings. TODO Make my own seiya.
-let g:seiya_auto_enable = 1
-hi clear CursorLineNr
-hi clear Todo
 
 " Vimtex settings.
 au TextChanged,TextChangedI *.tex silent :w
@@ -144,6 +138,7 @@ let g:vimtex_quickfix_mode = 0
 nmap <leader>t :NERDTree<CR>
 
 " Setting for texcloak.
+set conceallevel=2
 let g:tex_conceal = 'abdmg'
 
 " Mapping and settings for UltiSnips.
@@ -166,5 +161,3 @@ let g:strip_whitespace_confirm  = 0
 let g:better_whitespace_enabled = 1
 let g:strip_whitelines_at_eof   = 1
 let g:show_spaces_that_precede_tabs = 1
-
-au BufEnter *tex.vim :DisableStripWhitespaceOnSave
