@@ -116,7 +116,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'kovetskiy/sxhkd-vim'            " Syntax highlighting for sxhkd.
 	Plug 'scrooloose/nerdtree'            " Tree file system explorer.
 	Plug 'sirver/ultisnips'               " Snippets are the best.
-	Plug 'borroot/tex-conceal', {'for': 'tex'} " Better concealment.
+	Plug 'borroot/vim-texcloak', {'for': 'tex'} " Better concealment.
 call plug#end()
 
 " --------------------------------------------------------------------
@@ -143,7 +143,7 @@ let g:vimtex_quickfix_mode = 0
 " Mapping for NerdTree.
 nmap <leader>t :NERDTree<CR>
 
-" Setting for tex conceal.
+" Setting for texcloak.
 let g:tex_conceal = 'abdmg'
 
 " Mapping and settings for UltiSnips.
