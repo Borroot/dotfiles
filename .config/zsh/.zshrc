@@ -29,13 +29,13 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' menu select
 
 # Load all the plugins.
-PLUG=/usr/share/zsh/plugins
-source $PLUG/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $PLUG/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $PLUG/zsh-history-substring-search/zsh-history-substring-search.zsh
+readonly PLUGS=/usr/share/zsh/plugins
+source $PLUGS/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $PLUGS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $PLUGS/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Load all the aliases and the shortcuts to files and dirs.
-CONFIG=$HOME/.config/shortcuts
+readonly CONFIG=$HOME/.config/shortcuts
 [[ -f $CONFIG/shortcutrc ]] && source $CONFIG/shortcutrc # Shortcuts to files and dirs.
 [[ -f $CONFIG/aliasrc    ]] && source $CONFIG/aliasrc    # Short functions and aliases.
 

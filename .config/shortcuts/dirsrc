@@ -1,8 +1,10 @@
 # Dotfiles
 cf    ~/.config
 cs    ~/.config/shortcuts
+cm    ~/.config/neomutt
 cn    ~/.config/nvim
 cnu   ~/.config/nvim/ultisnips
+cnp   ~/.config/nvim/plugged
 lb    ~/.local/bin
 lbm   ~/.local/bin/misc
 lbc   ~/.local/bin/cron
