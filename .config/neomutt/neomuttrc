@@ -3,7 +3,8 @@
 ###############################################################################
 
 source ~/.config/neomutt/aliases
-source ~/.config/neomutt/colors
+
+set sleep_time = 0
 
 ###############################################################################
 #                                    LOGIN                                    #
@@ -19,7 +20,7 @@ set imap_pass = "`gpg --batch -q --decrypt ~/.config/neomutt/account.gpg`"
 #                                  RECEIVING                                  #
 ###############################################################################
 
-set folder    = imaps://outlook.office365.com
+set folder    = ~/.local/share/mail
 
 set spoolfile = +Inbox
 set postponed = +Drafts
@@ -32,7 +33,6 @@ mailboxes =Archive/post =Archive/sshn =Archive/university
 
 set timeout = 5
 set mail_check = 10
-set ssl_use_sslv3 = yes
 
 ###############################################################################
 #                                   SENDING                                   #
@@ -42,7 +42,7 @@ set realname = "Bram Pulles"
 set from = "borroot@live.nl"
 set smtp_pass = "`gpg --batch -q --decrypt ~/.config/neomutt/account.gpg`"
 
-set smtp_url=smtp://borroot@live.nl@outlook.office365.com:587/
+set smtp_url = smtp://borroot@live.nl@outlook.office365.com:587/
 set ssl_force_tls = yes
 
 ###############################################################################
@@ -51,6 +51,7 @@ set ssl_force_tls = yes
 
 set mail_check_stats  # To check if there are unread emails for the sidebar.
 set sidebar_visible
+set sidebar_width = 18
 set sidebar_format = "%B%* %?N?%N?"
 
 set sidebar_short_path            # Shorten folder names.
@@ -72,6 +73,7 @@ set folder_format = "%2C %t %N %F %?n?%2n&  ? %i"
 
 set mailcap_path = ~/.config/neomutt/mailcap
 auto_view text/html
+set markers = no
 
 ###############################################################################
 #                                   CACHING                                   #
@@ -100,8 +102,8 @@ bind attach,browser,pager,index \Cj next-page
 bind attach,browser,pager,index \Ck previous-page
 bind attach,browser,pager,index \Ce next-line
 bind attach,browser,pager,index \Cy previous-line
-bind attach,browser,pager,index \CU half-up
-bind attach,browser,pager,index \CD half-down
+bind attach,browser,pager,index \Cu half-up
+bind attach,browser,pager,index \Cd half-down
 
 ###############################################################################
 #                            GENERAL KEY BINDINGS                             #

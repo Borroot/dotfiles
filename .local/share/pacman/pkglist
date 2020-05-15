@@ -26,6 +26,7 @@ htop
 i3lock
 imagemagick
 imlib2
+isync
 jre11-openjdk
 libappindicator-gtk3
 libcsptr
@@ -40,6 +41,7 @@ man-db
 man-pages
 mesa-demos
 minecraft-launcher
+mpich
 neomutt
 neovim
 networkmanager
@@ -52,6 +54,7 @@ nvtop
 optimus-manager
 otf-font-awesome
 patch
+peek
 perl-rename
 pkgconf
 playerctl

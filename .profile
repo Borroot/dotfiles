@@ -4,6 +4,7 @@ export PATH="$PATH:$(du $HOME/.local/bin/ | cut -f2 | tr '\n' ':' | sed 's/:$//'
 # Program specifics.
 export _JAVA_AWT_WM_NONREPARENTING=1 # intellij
 export PATH="$PATH:$HOME/builds/pycharm-community-2019.3.4/bin/"
+export PATH="$PATH:$HOME/builds/mpich/pkg/mpich/opt/mpich/bin/"
 
 # Set all the default programs.
 export EDITOR=nvim

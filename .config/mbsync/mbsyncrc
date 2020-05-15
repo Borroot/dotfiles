@@ -1,0 +1,20 @@
+IMAPAccount borroot
+Host outlook.office365.com
+User borroot@live.nl
+PassCmd "gpg --batch -q --decrypt ~/.config/neomutt/account.gpg"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore borroot-remote
+Account borroot
+
+MaildirStore borroot-local
+SubFolders Verbatim
+Path ~/.local/share/mail/
+
+Channel outlook
+Master :borroot-remote:
+Slave :borroot-local:
+Patterns *
+Create Both
+SyncState *
