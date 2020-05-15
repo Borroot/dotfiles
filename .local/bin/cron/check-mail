@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# AUTHOR: Bram Pulles
+
+# Check if there are new mails and show a notification.
+readonly CONFIG=$HOME/.config/mbsync/mbsyncrc
+mbsync -c "$CONFIG" -a
