@@ -3,7 +3,10 @@
 ###############################################################################
 
 source ~/.config/neomutt/aliases
+
 set sleep_time = 0
+set mark_old = no
+set sort=reverse-date
 
 ###############################################################################
 #                                    LOGIN                                    #
@@ -64,23 +67,29 @@ bind index,pager B sidebar-toggle-visible
 ###############################################################################
 
 set sort_browser = unsorted  # Same order as in the sidebar.
-set folder_format = "%2C %t %N %F %?n?%2n&  ? %i"
+set folder_format = "%2C %8t %?n?%2n&  ? %i"
 
 ###############################################################################
-#                                    HTML                                     #
+#                                    PAGER                                    #
 ###############################################################################
 
 set mailcap_path = ~/.config/neomutt/mailcap
 auto_view text/html
-set markers = no
+set markers = no  # Disable line wrapping markers '+'.
 
 ###############################################################################
-#                                   CACHING                                   #
+#                            GENERAL KEY BINDINGS                             #
 ###############################################################################
 
-set message_cachedir = ~/.cache/neomutt
-set header_cache = ~/.cache/neomutt
-set header_cache_backend = lmdb
+# Urls
+macro index,pager,attach,compose \Cb "<pipe-message> urlview<enter>" "url"
+
+# Mailboxes
+macro index gi "<change-folder>=Inbox<enter>"   "Go to Inbox"
+macro index gd "<change-folder>=Drafts<enter>"  "Go to Drafts"
+macro index gs "<change-folder>=Sent<enter>"    "Go to Sent"
+macro index gt "<change-folder>=Deleted<enter>" "Go to Deleted"
+macro index gj "<change-folder>=Junk<enter>"    "Go to Junk"
 
 ###############################################################################
 #                               VI KEY BINDINGS                               #
@@ -103,17 +112,3 @@ bind attach,browser,pager,index \Ce next-line
 bind attach,browser,pager,index \Cy previous-line
 bind attach,browser,pager,index \Cu half-up
 bind attach,browser,pager,index \Cd half-down
-
-###############################################################################
-#                            GENERAL KEY BINDINGS                             #
-###############################################################################
-
-# Urls
-macro index,pager,attach,compose \Cb "<pipe-message> urlview<enter>" "url"
-
-# Mailboxes
-macro index gi "<change-folder>=Inbox<enter>"   "Go to Inbox"
-macro index gd "<change-folder>=Drafts<enter>"  "Go to Drafts"
-macro index gs "<change-folder>=Sent<enter>"    "Go to Sent"
-macro index gt "<change-folder>=Deleted<enter>" "Go to Deleted"
-macro index gj "<change-folder>=Junk<enter>"    "Go to Junk"
