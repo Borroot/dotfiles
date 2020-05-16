@@ -20,7 +20,7 @@ check_options()
 	# Check if the given arguments are valid.
 	if [[ $1 != 'official' && $1 != 'aur' && $1 != 'all' || $# > 1 ]]
 	then
-		>&2 echo "usage: $0 <official|aur|all>"
+		>&2 echo "usage: $(basename $0) <official|aur|all>"
 		exit 1
 	fi
 }

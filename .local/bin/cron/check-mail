@@ -3,4 +3,25 @@
 
 # Check if there are new mails and show a notification.
 readonly CONFIG=$HOME/.config/mbsync/mbsyncrc
-mbsync -c "$CONFIG" -a
+readonly SHARE=$HOME/.local/share/mail
+readonly INBOX=$SHARE/Inbox/new   # contains new mails
+readonly LASTRUN=$SHARE/.lastrun  # indicates the last run of this script
+
+# Check if there is an internet connection and mbsync is not running.
+ping -q -c 1 1.1.1.1 > /dev/null 2> /dev/null || exit
+pgrep -x mbsync >/dev/null && exit
+
+# Retrieve new mails from the server for all accounts.
+mbsync --quiet --config "$CONFIG" --all
+
+# Check if there are any new mails and show notifications for them.
+readonly NEW=$(find "$INBOX" -type f -newer "$LASTRUN")
+for file in $NEW
+do
+	from=$(grep --color=never -E '^From:' "$file" | tr '<>' '[]')
+	subject=$(grep --color=never -E '^Subject:' "$file" | tr '<>' '[]')
+	notify-send ' New mail!' "$from\n$subject"
+done
+
+# Update the time this script was last run.
+touch "$LASTRUN"
