@@ -3,6 +3,8 @@ alt + Return
 	$TERMINAL
 alt + n ; n
 	$TERMINAL -e nmtui
+alt + n ; m
+	$TERMINAL -e neomutt
 alt + n ; t
 	$TERMINAL -e $EDITOR "$HOME"/Nextcloud/todo.txt
 
