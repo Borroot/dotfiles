@@ -85,6 +85,7 @@ set markers = no  # Disable line wrapping markers '+'.
 macro index,pager,attach,compose \Cb "<pipe-message> urlview<enter>" "url"
 
 # Mailboxes
+bind attach,browser,pager,index g noop
 macro index gi "<change-folder>=Inbox<enter>"   "Go to Inbox"
 macro index gd "<change-folder>=Drafts<enter>"  "Go to Drafts"
 macro index gs "<change-folder>=Sent<enter>"    "Go to Sent"
@@ -98,10 +99,8 @@ macro index gj "<change-folder>=Junk<enter>"    "Go to Junk"
 # Moving around
 bind pager                      k   previous-line
 bind pager                      j   next-line
-bind pager                      g   noop
 bind pager                      gg  top
 bind pager                      G   bottom
-bind attach,browser,index       g   noop
 bind attach,browser,index       gg  first-entry
 bind attach,browser,index       G   last-entry
 
