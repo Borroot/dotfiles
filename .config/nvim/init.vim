@@ -78,7 +78,7 @@ au BufWritePost sxhkdrc silent !killall sxhkd; sxhkd 2> /dev/null &\!
 au BufWritePost ~/.config/shortcuts/dirsrc,~/.config/shortcuts/filesrc !shortcuts
 
 " Auto commands for removing files.
-au VimLeave *.tex silent !tex-clear %
+au VimLeave *.tex silent !texclean
 au VimLeave *.py  silent !pyclean
 
 " --------------------------------------------------------------------

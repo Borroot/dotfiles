@@ -3,6 +3,7 @@ alacritty
 alsa-utils
 automake
 base
+biber
 binutils
 blueman
 bluez-utils
@@ -66,6 +67,7 @@ qutebrowser
 spotify
 sudo
 sxhkd
+texlive-bibtexextra
 texlive-core
 texlive-latexextra
 texlive-pictures
