@@ -6,6 +6,7 @@ source ~/.config/neomutt/aliases
 
 set sleep_time = 0
 set mark_old = no
+set delete = yes
 set sort=reverse-date
 
 ###############################################################################
