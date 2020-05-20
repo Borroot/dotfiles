@@ -89,6 +89,8 @@ macro compose a \
       "<enter-command>set sort_browser = alpha   <enter><attach-file>"
 macro pager,index c \
       "<enter-command>set sort_browser = unsorted<enter><change-folder>"
+macro pager,index s \
+      "<enter-command>set sort_browser = unsorted<enter><change-folder>"
 
 # Mailboxes
 bind attach,browser,pager,index g noop

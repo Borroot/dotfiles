@@ -5,6 +5,7 @@ automake
 base
 biber
 binutils
+bison
 blueman
 bluez-utils
 criterion
@@ -16,6 +17,7 @@ dunst
 efibootmgr
 fakeroot
 flameshot
+flex
 gcc
 gconf
 git
@@ -65,6 +67,7 @@ pulseaudio-bluetooth
 pycharm-community-edition
 python-pip
 qutebrowser
+sc
 spotify
 sudo
 sxhkd
@@ -72,6 +75,7 @@ texlive-bibtexextra
 texlive-core
 texlive-latexextra
 texlive-pictures
+tk
 tree
 ttf-joypixels
 unclutter
