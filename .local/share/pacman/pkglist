@@ -68,6 +68,7 @@ pycharm-community-edition
 python-pip
 qutebrowser
 sc
+sc-im
 spotify
 sudo
 sxhkd
@@ -80,7 +81,9 @@ tree
 ttf-joypixels
 unclutter
 unzip
+urlscan
 urlview
+valgrind
 virtualbox
 w3m
 xcape
@@ -91,6 +94,7 @@ xorg-fonts-encodings
 xorg-server
 xorg-xinit
 xorg-xinput
+xorg-xkill
 xorg-xrandr
 xorg-xsetroot
 xwallpaper

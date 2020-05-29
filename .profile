@@ -11,6 +11,7 @@ export EDITOR=nvim
 export TERMINAL=alacritty
 export READER=zathura
 export VIEWER=sxiv
+export MAIL=neomutt
 export BROWSER=qutebrowser
 
 # Home folder cleanup.

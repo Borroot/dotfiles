@@ -4,20 +4,21 @@
 # Interact with the backlight with an inc, dec, set or get.
 usage ()
 {
-	echo "usage: $0 [-i num] [-d num] [-s num] [-g] [-h]"
+	echo "usage: $(basename "$0") [-i num] [-d num] [-s num] [-g] [-m] [-h]"
 	exit $1
 }
 
 parse_opts ()
 {
 	local opt
-	while getopts 'i:d:s:gh' opt
+	while getopts 'i:d:s:gmh' opt
 	do
 		case $opt in
 			i) new=$((OLD + $OPTARG)) ;;
 			d) new=$((OLD - $OPTARG)) ;;
 			s) new=$OPTARG            ;;
 			g) echo "$OLD" && exit 0  ;;
+			m) cat  "$MAX" && exit 0  ;;
 			h) usage 0                ;;
 			?) usage 1                ;;
 		esac
@@ -29,6 +30,7 @@ main ()
 	[[ $# < 1 ]] && usage 1
 
 	readonly DEVICE=/sys/class/backlight/intel_backlight/brightness
+	readonly MAX=/sys/class/backlight/intel_backlight/max_brightness
 	readonly OLD=$(cat $DEVICE)
 
 	parse_opts "$@"

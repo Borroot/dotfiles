@@ -82,7 +82,7 @@ set markers = no  # Disable line wrapping markers '+'.
 ###############################################################################
 
 # Urls
-macro index,pager,attach,compose \Cb "<pipe-message> urlview<enter>" "url"
+macro index,pager,attach,compose \Cb "<pipe-message> urishow<enter>" "uri"
 
 # Browser sorting
 macro compose a \
@@ -90,7 +90,7 @@ macro compose a \
 macro pager,index c \
       "<enter-command>set sort_browser = unsorted<enter><change-folder>"
 macro pager,index s \
-      "<enter-command>set sort_browser = unsorted<enter><change-folder>"
+	  "<enter-command>set sort_browser = unsorted<enter><save-message>"
 
 # Mailboxes
 bind attach,browser,pager,index g noop

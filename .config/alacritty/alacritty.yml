@@ -12,10 +12,10 @@ cursor:
     vi_mode_style: Block
 
 key_bindings:
-    - { key: Y, mods: Control|Shift, action: ScrollLineUp   }
-    - { key: E, mods: Control|Shift, action: ScrollLineDown }
-    - { key: K, mods: Control|Shift, action: ScrollPageUp   }
-    - { key: J, mods: Control|Shift, action: ScrollPageDown }
+    - { key: K, mods: Control|Shift, action: ScrollLineUp   }
+    - { key: J, mods: Control|Shift, action: ScrollLineDown }
+    - { key: U, mods: Control|Shift, action: ScrollPageUp   }
+    - { key: D, mods: Control|Shift, action: ScrollPageDown }
 
 # Colors (Gruvbox dark)
 colors:
