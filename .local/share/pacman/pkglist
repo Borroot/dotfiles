@@ -10,6 +10,7 @@ blueman
 bluez-utils
 criterion
 cronie
+cuda
 discord
 dmenu
 doxygen
@@ -45,6 +46,7 @@ man-pages
 mesa-demos
 minecraft-launcher
 mpich
+mpv
 neomutt
 neovim
 networkmanager
@@ -54,6 +56,8 @@ noto-fonts
 nvidia
 nvidia-prime
 nvtop
+ocl-icd
+opencl-headers
 optimus-manager
 otf-font-awesome
 patch

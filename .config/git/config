@@ -5,7 +5,5 @@
 	default = current
 [pull]
 	default = current
-[credential]
-	helper = cache --timeout=7200
 [alias]
 	adog = log --all --decorate --oneline --graph

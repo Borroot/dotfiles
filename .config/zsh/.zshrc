@@ -44,6 +44,7 @@ readonly CONFIG=$HOME/.config/shortcuts
 # ----------------------------------------------------------------------
 
 bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char

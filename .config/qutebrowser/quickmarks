@@ -13,3 +13,5 @@ detextify http://detexify.kirelabs.org/classify.html
 criterion https://criterion.readthedocs.io/en/master/assert.html#string-assertions
 ascii https://theasciicode.com.ar/
 crontab https://crontab.guru/
+wolfram https://www.wolframalpha.com/
+github https://github.com/borroot/?tab=repositories
