@@ -48,7 +48,8 @@ alias \
 
 # Misc.
 alias \
-	ssh="TERM=xterm-color ssh"
+	ssh="TERM=xterm-color ssh" \
+	clip="xclip -sel clipboard"
 
 # Some short functions.
 c()    { cd "$@" && ls }

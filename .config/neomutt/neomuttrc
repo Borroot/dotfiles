@@ -82,7 +82,9 @@ set markers = no  # Disable line wrapping markers '+'.
 ###############################################################################
 
 # Urls
-macro index,pager,attach,compose \Cb "<pipe-message> urishow<enter>" "uri"
+macro index,pager,attach,compose \Cb \
+      "<pipe-message> python /home/borroot/Nextcloud/misc/urishow/src/main.py \
+	  <enter>" "uri"
 
 # Browser sorting
 macro compose a \

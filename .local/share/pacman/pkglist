@@ -8,6 +8,7 @@ binutils
 bison
 blueman
 bluez-utils
+clinfo
 criterion
 cronie
 cuda
@@ -30,6 +31,7 @@ htop
 i3lock
 imagemagick
 imlib2
+intel-opencl-runtime
 isync
 jre11-openjdk
 libappindicator-gtk3
@@ -47,6 +49,7 @@ mesa-demos
 minecraft-launcher
 mpich
 mpv
+ncurses5-compat-libs
 neomutt
 neovim
 networkmanager
@@ -73,6 +76,8 @@ python-pip
 qutebrowser
 sc
 sc-im
+shellcheck
+skypeforlinux-stable-bin
 spotify
 sudo
 sxhkd
