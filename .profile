@@ -1,5 +1,5 @@
 # Adds '~/.local/bin/' and all direct subdirectories to $PATH.
-export PATH="$PATH:$(find $HOME/.local/bin/ -mindepth 1 -maxdepth 1 -type d
+export PATH="$PATH:$(find $HOME/.local/bin/ -mindepth 1 -maxdepth 1 -type d \
                    | tr '\n' ':' | sed 's/:$//')"
 
 # Program specifics.
