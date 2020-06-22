@@ -96,11 +96,13 @@ macro pager,index s \
 
 # Mailboxes
 bind attach,browser,pager,index g noop
-macro index gi "<change-folder>=Inbox<enter>"   "Go to Inbox"
-macro index gd "<change-folder>=Drafts<enter>"  "Go to Drafts"
-macro index gs "<change-folder>=Sent<enter>"    "Go to Sent"
-macro index gt "<change-folder>=Deleted<enter>" "Go to Deleted"
-macro index gj "<change-folder>=Junk<enter>"    "Go to Junk"
+macro index gi "<change-folder>=Inbox<enter>"              "Go to Inbox"
+macro index gd "<change-folder>=Drafts<enter>"             "Go to Drafts"
+macro index gs "<change-folder>=Sent<enter>"               "Go to Sent"
+macro index gt "<change-folder>=Deleted<enter>"            "Go to Deleted"
+macro index gj "<change-folder>=Junk<enter>"               "Go to Junk"
+macro index gf "<change-folder>=Archive/fail2ban<enter>"   "Go to fail2ban"
+macro index gu "<change-folder>=Archive/university<enter>" "Go to university"
 
 ###############################################################################
 #                               VI KEY BINDINGS                               #
