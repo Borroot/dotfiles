@@ -16,7 +16,7 @@ bind-key n next-unread
 bind-key N prev-unread
 
 macro , open-in-browser
-macro v set browser "mpv %u &!" ; open-in-browser ; set browser "$BROWSER"
+macro v set browser "setsid -f mpv --no-terminal" ; open-in-browser ; set browser "$BROWSER"
 
 color listnormal cyan default
 color listfocus black yellow standout bold

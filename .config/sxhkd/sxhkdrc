@@ -1,10 +1,12 @@
 # TERMINAL
 alt + Return
 	$TERMINAL
-alt + n ; n
+alt + n ; w
 	$TERMINAL -e nmtui
 alt + n ; m
 	$TERMINAL -e neomutt
+alt + n ; n
+	$TERMINAL -e newsboat
 alt + n ; t
 	$TERMINAL -e $EDITOR "$HOME"/Nextcloud/todo.txt
 
