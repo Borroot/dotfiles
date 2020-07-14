@@ -8,6 +8,7 @@ binutils
 bison
 blueman
 bluez-utils
+chromium-widevine
 criterion
 cronie
 discord
@@ -49,6 +50,7 @@ neomutt
 neovim
 networkmanager
 networkmanager-openvpn
+newsboat
 nextcloud-client
 noto-fonts
 nvidia
@@ -84,6 +86,7 @@ w3m
 xcape
 xclip
 xcompmgr
+xmind-zen
 xorg-font-util
 xorg-fonts-encodings
 xorg-server
@@ -94,6 +97,7 @@ xorg-xrandr
 xorg-xsetroot
 xwallpaper
 yadm
+youtube-dl
 zathura
 zathura-pdf-mupdf
 zip
