@@ -1,4 +1,5 @@
 auto-reload yes
+text-width 79
 
 bind-key l open
 bind-key h quit
@@ -18,8 +19,9 @@ bind-key u pageup
 bind-key n next-unread
 bind-key N prev-unread
 
-macro , open-in-browser
-macro v set browser "setsid -f mpv --no-terminal" ; open-in-browser ; set browser "$BROWSER"
+browser openlink
+macro , set browser "$BROWSER" ; open-in-browser ; set browser openlink
+macro c set browser "xclip -sel clipboard <<<" ; open-in-browser ; set browser openlink
 
 color listnormal cyan default
 color listfocus black yellow standout bold

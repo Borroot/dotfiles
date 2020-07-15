@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# AUTHOR: Bram Pulles
+
+# Open the contents of the link by either downloading the video/image, opening
+# a terminal or the browser.
+video()
+{
+	setsid -f mpv --no-terminal "$1" > /dev/null 2>&1
+}
+
+image()
+{
+	readonly FILE=${1##*/}
+	cd /tmp
+	curl -Os "$1"
+	setsid -f sh -c "$VIEWER /tmp/'$FILE' > /dev/null 2>&1 && rm -f /tmp/'$FILE'"
+}
+
+misc()
+{
+	if [[ -f "$1" ]]
+	then
+		$TERMINAL -e $EDITOR "$1"
+	else
+		setsid -f $BROWSER "$1" > /dev/null 2>&1
+	fi
+}
+
+main()
+{
+	if [[ -z "$1" ]]
+	then
+		>&2 echo "Please provide a link to open."
+		exit 1
+	fi
+
+	case "$1" in
+		*mp4|*youtube.com/watch*|*youtube.com/playlist*)
+			video "$1" ;;
+		*png|*jpg|*jpeg|*gif)
+			image "$1" ;;
+		*)
+			misc "$1"  ;;
+	esac
+}
+
+main "$@"

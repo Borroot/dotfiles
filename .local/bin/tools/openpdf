@@ -1,6 +1,6 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # AUTHOR: Bram Pulles
 
 # Open the pdf corresponding to this files basename. Useful in Vim.
 readonly FILE="${1%.*}.pdf"
-[[ -f "$FILE" ]] && $READER "$FILE" &!
+[[ -f "$FILE" ]] && setsid -f $READER "$FILE"
