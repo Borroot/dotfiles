@@ -10,10 +10,10 @@ video()
 
 image()
 {
-	readonly FILE=${1##*/}
+	readonly FILE=/tmp/${1##*/}
 	cd /tmp
 	curl -Os "$1"
-	setsid -f sh -c "$VIEWER /tmp/'$FILE' > /dev/null 2>&1 && rm -f /tmp/'$FILE'"
+	setsid -f sh -c "$VIEWER '$FILE' > /dev/null 2>&1 && rm -f '$FILE'"
 }
 
 misc()

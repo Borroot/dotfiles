@@ -1,4 +1,5 @@
 auto-reload yes
+max-items 99
 text-width 79
 
 bind-key l open
