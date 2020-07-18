@@ -4,6 +4,7 @@ alsa-utils
 automake
 base
 biber
+bind-tools
 binutils
 bison
 blueman
@@ -77,12 +78,14 @@ texlive-core
 texlive-latexextra
 texlive-pictures
 tk
+traceroute
 tree
 ttf-joypixels
 unclutter
 unzip
 virtualbox
 w3m
+whois
 xcape
 xclip
 xcompmgr
