@@ -4,7 +4,7 @@ alsa-utils
 automake
 base
 biber
-bind-tools
+bind
 binutils
 bison
 blueman
@@ -86,6 +86,7 @@ unzip
 virtualbox
 w3m
 whois
+wol
 xcape
 xclip
 xcompmgr

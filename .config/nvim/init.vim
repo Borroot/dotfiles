@@ -33,10 +33,11 @@ set display=lastline          " Show parts of a wrapped line not @'s.
 
 " Set all kinds of format options, see `:h fo-table`.
 set textwidth=79
-au FileType *       set      fo-=t fo-=c fo-=o
-au FileType mail    setlocal fo+=t
-au FileType c,cpp   setlocal fo+=r fo+=c fo+=o fo+=q
-au FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
+au FileType *        set      fo-=t fo-=c fo-=o
+au FileType mail     setlocal fo+=t
+au FileType c,cpp    setlocal fo+=r fo+=c fo+=o fo+=q
+au FileType haskell  setlocal shiftwidth=2 tabstop=2 expandtab
+au FileType html,css setlocal shiftwidth=2 tabstop=2
 
 " --------------------------------------------------------------------
 " MAPS
