@@ -11,6 +11,7 @@ Account borroot
 MaildirStore borroot-local
 SubFolders Verbatim
 Path ~/.local/share/mail/
+Inbox ~/.local/share/mail/Inbox
 
 Channel outlook
 Master :borroot-remote:
