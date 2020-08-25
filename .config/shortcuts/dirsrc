@@ -36,11 +36,10 @@ nah   ~/Nextcloud/archive/highschool
 nar   ~/Nextcloud/archive/research
 
 # Courses
-ncl   ~/Nextcloud/courses/new_devices_lab
-ncn   ~/Nextcloud/courses/networks_and_distributed_systems
-ncs   ~/Nextcloud/courses/semantics_and_rewriting
-ncy   ~/Nextcloud/courses/network_security
-ncr   ~/Nextcloud/courses/research_methods
-ncp   ~/Nextcloud/courses/parallel_computing
-ncc   ~/Nextcloud/courses/introduction_to_cryptography
+nce   ~/Nextcloud/courses/ethiek
+nck   ~/Nextcloud/courses/kenleer_en_wetenschapsleer
+ncl   ~/Nextcloud/courses/logica
+ncc   ~/Nextcloud/courses/cognitiefilosofie
+ncm   ~/Nextcloud/courses/geschiedenis_van_de_moderne_filosofie
+nca  ~/Nextcloud/courses/geschiedenis_van_de_antieke_filosofie
 nct   ~/Nextcloud/courses/bachelor_thesis

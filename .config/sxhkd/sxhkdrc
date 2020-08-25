@@ -1,7 +1,7 @@
 # TERMINAL
 alt + Return
 	$TERMINAL
-alt + n ; w
+alt + n ; i
 	$TERMINAL -e nmtui
 alt + n ; m
 	$TERMINAL -e neomutt

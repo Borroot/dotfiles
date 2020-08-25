@@ -91,7 +91,6 @@ wol
 xcape
 xclip
 xcompmgr
-xmind-zen
 xorg-font-util
 xorg-fonts-encodings
 xorg-server
@@ -106,6 +105,7 @@ youtube-dl
 zathura
 zathura-pdf-mupdf
 zip
+zoom
 zsh
 zsh-autosuggestions
 zsh-history-substring-search
