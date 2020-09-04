@@ -58,6 +58,7 @@ nvidia
 nvidia-prime
 nvtop
 optimus-manager
+os-prober
 otf-font-awesome
 patch
 peek
@@ -82,6 +83,7 @@ traceroute
 tree
 ttf-joypixels
 unclutter
+unoconv
 unzip
 virtualbox
 vym

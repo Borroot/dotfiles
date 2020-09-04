@@ -31,8 +31,8 @@ set record    = +Sent
 set trash     = +Deleted
 
 mailboxes =Inbox =Drafts =Sent =Deleted =Junk
-mailboxes =Archive =Archive/fail2ban =Archive/misc =Archive/phone
-mailboxes =Archive/post =Archive/sshn =Archive/university
+mailboxes =Archive =Archive/associations =Archive/fail2ban =Archive/misc
+mailboxes =Archive/phone =Archive/post =Archive/sshn =Archive/university
 
 set timeout = 5
 set mail_check = 10
@@ -101,6 +101,7 @@ macro index gd "<change-folder>=Drafts<enter>"             "Go to Drafts"
 macro index gs "<change-folder>=Sent<enter>"               "Go to Sent"
 macro index gt "<change-folder>=Deleted<enter>"            "Go to Deleted"
 macro index gj "<change-folder>=Junk<enter>"               "Go to Junk"
+macro index ga "<change-folder>=Archive/associations<enter>" "Go to associations"
 macro index gf "<change-folder>=Archive/fail2ban<enter>"   "Go to fail2ban"
 macro index gu "<change-folder>=Archive/university<enter>" "Go to university"
 
