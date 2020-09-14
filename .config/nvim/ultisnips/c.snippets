@@ -26,6 +26,15 @@ snippet incc "" b
 #include "${1}"
 endsnippet
 
+snippet ifn "" bA
+#ifndef ${1}_H_
+#define $1_H_
+
+${0}
+
+#endif
+endsnippet
+
 ## CONDITIONALS
 # if else
 snippet if "" b

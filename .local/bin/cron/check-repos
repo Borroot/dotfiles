@@ -44,10 +44,11 @@ sync_official()
 		declare -r NUMBER_OF_UPDATES=$(pacman -Qu | wc -l)
 		if (( $NUMBER_OF_UPDATES > 0 ))
 		then
-			notify "$NUMBER_OF_UPDATES package(s) can be updated."
-		else
-			notify 'All the official packages are up to date!'
+			#notify "$NUMBER_OF_UPDATES package(s) can be updated."
+			notify "Updating $NUMBER_OF_UPDATES package(s)..."
+			sudo pacman -Syu --noconfirm > /dev/null
 		fi
+		notify 'All the official packages are up to date!'
 	else
 		notify_error 'An error occured during downloading.'
 	fi
