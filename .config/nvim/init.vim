@@ -58,7 +58,8 @@ nmap <C-l> <C-w>l
 
 " Shortcut toggling 'list', clear highlighting, saving and sudo saving.
 nmap <leader>i     :set invlist listchars=tab:>-,space:•,eol:$<CR>
-nmap <leader>s     :set invspell<CR>
+nmap <leader>se    :set invspell spelllang=en<CR>
+nmap <leader>sn    :set invspell spelllang=nl<CR>
 nmap <leader>h     :noh<CR>
 nmap <leader>x     :x<CR>
 nmap <leader>w     :w<CR>
