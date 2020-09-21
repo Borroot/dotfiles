@@ -32,7 +32,8 @@ set trash     = +Deleted
 
 mailboxes =Inbox =Drafts =Sent =Deleted =Junk
 mailboxes =Archive =Archive/associations =Archive/fail2ban =Archive/misc
-mailboxes =Archive/phone =Archive/post =Archive/sshn =Archive/university
+mailboxes =Archive/phone =Archive/post =Archive/sshn =Archive/thesis
+mailboxes =Archive/university
 
 set timeout = 5
 set mail_check = 10
