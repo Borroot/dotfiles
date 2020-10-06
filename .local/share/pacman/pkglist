@@ -18,6 +18,7 @@ doxygen
 dunst
 efibootmgr
 fakeroot
+firefox
 flameshot
 flex
 gcc
@@ -72,6 +73,7 @@ pycharm-community-edition
 python-pip
 qutebrowser
 sc
+skypeforlinux-stable-bin
 spotify
 sudo
 sxhkd
@@ -87,6 +89,7 @@ ttf-joypixels
 unclutter
 unoconv
 unzip
+vdhcoapp
 virtualbox
 vym
 w3m

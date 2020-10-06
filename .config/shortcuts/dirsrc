@@ -30,6 +30,7 @@ nmu   ~/Nextcloud/misc/urishow
 nmq   ~/Nextcloud/misc/quaternity
 nmb   ~/Nextcloud/misc/libbt
 nme   ~/Nextcloud/misc/euler
+nmd   ~/Nextcloud/misc/dialog
 na    ~/Nextcloud/archive
 nah   ~/Nextcloud/archive/highschool
 nar   ~/Nextcloud/archive/research
@@ -42,3 +43,10 @@ ncc   ~/Nextcloud/courses/cognitiefilosofie
 ncm   ~/Nextcloud/courses/geschiedenis_van_de_moderne_filosofie
 nca   ~/Nextcloud/courses/geschiedenis_van_de_antieke_filosofie
 nct   ~/Nextcloud/courses/bachelor_thesis
+
+ncen  ~/Nextcloud/courses/ethiek/notes
+nckn  ~/Nextcloud/courses/kenleer_en_wetenschapsleer/notes
+ncln  ~/Nextcloud/courses/logica/notes
+nccn  ~/Nextcloud/courses/cognitiefilosofie/notes
+ncmn  ~/Nextcloud/courses/geschiedenis_van_de_moderne_filosofie/notes
+ncan  ~/Nextcloud/courses/geschiedenis_van_de_antieke_filosofie/notes
