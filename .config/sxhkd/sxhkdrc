@@ -13,8 +13,8 @@ alt + n ; t
 # PROGRAMS
 alt + p
 	dmenu_run
-alt + n ; {v,d,s}
-	{pcmanfm, discord, spotify}
+alt + n ; {v,d,s,a}
+	{pcmanfm, discord, spotify, aseprite}
 
 # BROWSER
 alt + n ; f

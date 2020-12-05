@@ -178,3 +178,14 @@ snippet tab "" bA
 	\label{tab: ${2}}
 \end{table}
 endsnippet
+
+snippet subtab "" bA
+\begin{subtable}[h]{0.${1}\textwidth}
+	\centering
+	\begin{tabular}{|${4}|}\hline
+		${0}
+	\end{tabular}
+	\caption{${2}}
+	\label{tab: ${3}}
+\end{subtable}
+endsnippet

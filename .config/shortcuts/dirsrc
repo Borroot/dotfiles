@@ -26,11 +26,9 @@ npi   ~/Nextcloud/photos/inbox
 npw   ~/Nextcloud/photos/wallpapers
 nc    ~/Nextcloud/courses
 nm    ~/Nextcloud/misc
-nmu   ~/Nextcloud/misc/urishow
-nmq   ~/Nextcloud/misc/quaternity
-nmb   ~/Nextcloud/misc/libbt
-nme   ~/Nextcloud/misc/euler
-nmd   ~/Nextcloud/misc/dialog
+nmb   ~/Nextcloud/misc/rayblocks
+nml   ~/Nextcloud/misc/raylines
+nms   ~/Nextcloud/misc/sdl2
 na    ~/Nextcloud/archive
 nah   ~/Nextcloud/archive/highschool
 nar   ~/Nextcloud/archive/research

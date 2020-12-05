@@ -10,6 +10,7 @@ export EDITOR=nvim
 export TERMINAL=alacritty
 export READER=zathura
 export VIEWER=sxiv
+export PLAYER=mpv
 export MAIL=neomutt
 export BROWSER=qutebrowser
 

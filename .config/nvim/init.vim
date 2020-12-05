@@ -34,7 +34,7 @@ set display=lastline          " Show parts of a wrapped line not @'s.
 " Set all kinds of format options, see `:h fo-table`.
 set textwidth=79
 au FileType *        set      fo-=t fo-=c fo-=o
-au FileType mail,tex setlocal fo+=t
+au FileType mail     setlocal fo+=t
 au FileType c,cpp    setlocal fo+=r fo+=c fo+=o fo+=q
 au FileType python   setlocal fo+=c fo+=q
 au FileType haskell  setlocal shiftwidth=2 tabstop=2 expandtab
@@ -59,12 +59,19 @@ nmap <C-l> <C-w>l
 
 " Shortcut toggling 'list', clear highlighting, saving and sudo saving.
 nmap <leader>i     :set invlist listchars=tab:>-,space:•,eol:$<CR>
-nmap <leader>se    :set invspell spelllang=en<CR>
-nmap <leader>sn    :set invspell spelllang=nl<CR>
 nmap <leader>h     :noh<CR>
 nmap <leader>x     :x<CR>
 nmap <leader>w     :w<CR>
 nmap <leader><S-w> :w !sudo tee > /dev/null %<CR><CR>
+
+" Activate some auto commands on the go (or format options).
+nmap <leader>at+ :set fo+=t<CR>
+nmap <leader>at- :set fo-=t<CR>
+nmap <leader>aw  :au TextChanged,TextChangedI *.tex silent :w<CR>
+
+" Turn on spell checking.
+nmap <leader>se :set invspell spelllang=en<CR>
+nmap <leader>sn :set invspell spelllang=nl<CR>
 
 " Run make, open corresponding PDF and run shellcheck.
 nmap <leader>m :make<CR>
@@ -131,7 +138,6 @@ let g:gruvbox_bold = 0
 colorscheme gruvbox
 
 " Vimtex settings.
-au TextChanged,TextChangedI *.tex silent :w
 let g:tex_flavor = 'latex'
 let g:vimtex_enabled = 1
 let g:vimtex_matchparen_enabled = 0

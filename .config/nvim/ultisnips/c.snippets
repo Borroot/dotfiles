@@ -158,3 +158,13 @@ endsnippet
 snippet todo "" b
 /* TODO: ${0} */
 endsnippet
+
+#ifndef
+snippet ifn "" b
+#ifndef ${1}_H_
+#define $1_H_
+
+${VISUAL}$0
+
+#endif /* $1_H_ */
+endsnippet

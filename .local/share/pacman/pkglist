@@ -1,6 +1,11 @@
 acpi
 alacritty
+alsa-card-profiles
+alsa-plugins
+alsa-topology-conf
+alsa-ucm-conf
 alsa-utils
+aseprite
 automake
 base
 biber
@@ -23,7 +28,10 @@ flameshot
 flex
 gcc
 gconf
+gdb
+ghc
 git
+glm
 gnome-keyring
 grub
 gtk2
@@ -33,6 +41,7 @@ i3lock
 imagemagick
 imlib2
 isync
+jack
 jre11-openjdk
 libappindicator-gtk3
 libcsptr
@@ -58,6 +67,7 @@ noto-fonts
 nvidia
 nvidia-prime
 nvtop
+okular
 optimus-manager
 os-prober
 otf-font-awesome
@@ -67,12 +77,14 @@ peek
 perl-rename
 pkgconf
 playerctl
+pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
 pycharm-community-edition
 python-pip
 qutebrowser
 sc
+sdl2_ttf
 skypeforlinux-stable-bin
 spotify
 sudo
@@ -90,6 +102,7 @@ ttf-joypixels
 unclutter
 unoconv
 unzip
+valgrind
 vdhcoapp
 virtualbox
 vym
@@ -113,6 +126,7 @@ youtube-dl
 zathura
 zathura-pdf-mupdf
 zip
+zita-alsa-pcmi
 zoom
 zsh
 zsh-autosuggestions
