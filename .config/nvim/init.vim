@@ -119,6 +119,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'borroot/vim-texcloak'           " Better tex concealment.
 	Plug 'morhetz/gruvbox'                " A nice theme.
 	Plug 'lervag/vimtex'                  " Latex support of all kinds.
+	Plug 'pangloss/vim-javascript'        " Proper js syntax hightlighting.
 	Plug 'ntpeters/vim-better-whitespace' " Whitespace cleaning like a pro.
 	Plug 'scrooloose/nerdcommenter'       " Toggle comments: <leader>c<space>.
 	Plug 'tpope/vim-surround'             " Easy surrounding things.

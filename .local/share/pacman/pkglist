@@ -8,6 +8,7 @@ alsa-utils
 aseprite
 automake
 base
+bfg
 biber
 bind
 binutils
@@ -15,6 +16,7 @@ bison
 blueman
 bluez-utils
 chromium-widevine
+code
 criterion
 cronie
 discord
@@ -23,7 +25,6 @@ doxygen
 dunst
 efibootmgr
 fakeroot
-firefox
 flameshot
 flex
 gcc
@@ -75,6 +76,7 @@ pandoc
 patch
 peek
 perl-rename
+pinta
 pkgconf
 playerctl
 pulseaudio
@@ -84,6 +86,7 @@ pycharm-community-edition
 python-pip
 qutebrowser
 sc
+screenkey
 sdl2_ttf
 skypeforlinux-stable-bin
 spotify
@@ -98,6 +101,7 @@ texlive-science
 tk
 traceroute
 tree
+ttf-fira-code
 ttf-joypixels
 unclutter
 unoconv
@@ -124,7 +128,7 @@ xwallpaper
 yadm
 youtube-dl
 zathura
-zathura-pdf-mupdf
+zathura-pdf-poppler
 zip
 zita-alsa-pcmi
 zoom

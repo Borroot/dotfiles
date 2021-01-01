@@ -2,6 +2,7 @@
 
 import string, vim, re
 
+
 def complete(tab, opts):
     """
     get options that match with tab
@@ -21,6 +22,7 @@ def complete(tab, opts):
     cads = "|".join(opts[:5])
     if len(opts) > 5: cads += "|..."
     return "({0})".format(cads)
+
 
 def _parse_comments(s):
     """ Parses vim's comments option to extract comment format """
@@ -58,6 +60,7 @@ def _parse_comments(s):
                     rv.insert(0, ("SINGLE_CHAR", text, text, text, ""))
     except StopIteration:
         return rv
+
 
 def get_comment_format():
     """ Returns a 4-element tuple (first_line, middle_lines, end_line, indent)
