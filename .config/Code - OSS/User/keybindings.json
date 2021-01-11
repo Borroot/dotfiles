@@ -32,5 +32,15 @@
         "key": "ctrl+shift+n",
         "command": "explorer.newFolder",
         "when": "!editorFocus"
-    }
+    },
+    {
+        "key": "ctrl+.",
+        "command": "-problems.action.showQuickFixes",
+        "when": "problemFocus"
+    },
+    {
+        "key": "meta",
+        "command": "problems.action.showQuickFixes",
+        "when": "problemFocus"
+    },
 ]

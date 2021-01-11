@@ -30,8 +30,13 @@ check_internet()
 	# Check if there is an internet connection.
 	if ! ping -q -c 1 '8.8.8.8' > /dev/null
 	then
-		notify_error 'Could not connect to the internet.'
-		exit 1
+		# If it doesnt work the first time, wait a bit and try again.
+		sleep 3s
+		if ! ping -q -c 1 '8.8.8.8' > /dev/null
+		then
+			notify_error 'Could not connect to the internet.'
+			exit 1
+		fi
 	fi
 }
 
@@ -44,11 +49,16 @@ sync_official()
 		declare -r NUMBER_OF_UPDATES=$(pacman -Qu | wc -l)
 		if (( $NUMBER_OF_UPDATES > 0 ))
 		then
-			#notify "$NUMBER_OF_UPDATES package(s) can be updated."
 			notify "Updating $NUMBER_OF_UPDATES package(s)..."
-			sudo pacman -Syu --noconfirm > /dev/null
+			if sudo pacman -Syu --noconfirm > /dev/null
+			then
+				notify 'All the official packages are up to date!'
+			else
+				notify_error 'An error occured during installation.'
+			fi
+		else
+			notify 'All the official packages are up to date!'
 		fi
-		notify 'All the official packages are up to date!'
 	else
 		notify_error 'An error occured during downloading.'
 	fi
