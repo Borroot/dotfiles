@@ -2,6 +2,7 @@ config.load_autoconfig(False)  # don't load settings configured through the GUI
 
 config.bind(',r', 'config-source')  # reload config file
 config.bind(',d', 'download-clear')
+config.bind(',m', 'spawn mpv {url}')
 
 config.bind('<Shift-j>', 'tab-prev')
 config.bind('<Shift-k>', 'tab-next')

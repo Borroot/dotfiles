@@ -13,8 +13,8 @@ alt + n ; t
 # PROGRAMS
 alt + p
 	dmenu_run
-alt + n ; {v,d,s,c, shift + s}
-	{pcmanfm, discord, spotify, code, signal-desktop}
+alt + n ; {d,s,c,v, shift + s}
+	{discord, spotify, code, pavucontrol-qt, signal-desktop}
 
 # BROWSER
 alt + n ; f
