@@ -1,20 +1,16 @@
 # TERMINAL
 alt + Return
 	$TERMINAL
-alt + n ; i
-	$TERMINAL -e nmtui
-alt + n ; m
-	$TERMINAL -e neomutt
-alt + n ; n
-	$TERMINAL -e newsboat
 alt + n ; t
 	$TERMINAL -e $EDITOR "$HOME"/Nextcloud/todo.txt
+alt + n ; {i, m, n, v}
+	$TERMINAL -e {nmtui, neomutt, newsboat, pulsemixer}
 
 # PROGRAMS
 alt + p
 	dmenu_run
-alt + n ; {d,s,c,v, shift + s}
-	{discord, spotify, code, pavucontrol-qt, signal-desktop}
+alt + n ; {d, s, c, shift + s}
+	{discord, spotify, code, signal-desktop}
 
 # BROWSER
 alt + n ; f
@@ -42,6 +38,6 @@ XF86MonBrightness{Down,Up}
 	backlight -{d,i} 5
 
 XF86AudioMute
-	amixer set Master toggle
+	pulsemixer --toggle-mute
 XF86Audio{Lower,Raise}Volume
-	amixer set Master 2%{-,+}
+	pulsemixer --max-volume 120 --change-volume {-,+}2

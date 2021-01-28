@@ -2,17 +2,9 @@
 # AUTHOR: Bram Pulles
 
 # Print volume information nicely formatted.
-if [[ $(amixer get Master) =~ 'Right:' ]]
-then
-	readonly OUTPUT=$(amixer get Master | grep 'Right:')
-else
-	readonly OUTPUT=$(amixer get Master | grep 'Mono:')
-fi
+readonly PERCENTAGE=$(pulsemixer --get-volume | cut -f 2 -d ' ')
 
-readonly SOUND=$(echo "$OUTPUT" | awk -F '[][]' '{ print $4 }')
-readonly PERCENTAGE=$(echo "$OUTPUT" | awk -F '[][]' '{ print substr($2, 1, length($2) - 1) }')
-
-if [[ $SOUND == off ]]
+if [[ $(pulsemixer --get-mute) == 1 ]]  # muted
 then
 	echo " MUTE"
 elif (( $PERCENTAGE == 0 ))
