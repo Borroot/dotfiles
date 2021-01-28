@@ -1,0 +1,13 @@
+Config
+    { font = "xft:Noto Sans Mono:pixelsize=12:antialias=true"
+    , additionalFonts = [ "xft:Font Awesome 5 Free Solid:pixelsize=12" ]
+    , commands =
+        [ Run Com "volume"   [] "" 10
+        , Run Com "battery"  [] "" 10
+        , Run Com "clock"    [] "" 10
+        , Run Com "date" ["+%d-%m"] "" 10
+        ]
+    , template = "%StdinReader% }{ <fn=1></fn> %volume% | %battery% | %clock% | %date% "
+    }
+
+-- vim: ft=haskell

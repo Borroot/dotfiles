@@ -94,6 +94,7 @@ sdl2_ttf
 signal-desktop
 skypeforlinux-stable-bin
 spotify
+stalonetray
 sudo
 sxhkd
 texlive-bibtexextra
@@ -121,6 +122,9 @@ wol
 xcape
 xclip
 xcompmgr
+xmobar
+xmonad
+xmonad-contrib
 xorg-font-util
 xorg-fonts-encodings
 xorg-server

@@ -37,7 +37,7 @@ au FileType *        set      fo-=t fo-=c fo-=o
 au FileType mail     setlocal fo+=t
 au FileType c,cpp    setlocal fo+=r fo+=c fo+=o fo+=q
 au FileType python   setlocal fo+=c fo+=q
-au FileType haskell  setlocal shiftwidth=2 tabstop=2 expandtab
+au FileType haskell  setlocal shiftwidth=4 tabstop=4 expandtab
 au FileType html,css setlocal shiftwidth=2 tabstop=2
 
 " --------------------------------------------------------------------
