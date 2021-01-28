@@ -1,6 +1,5 @@
-arch https://wiki.archlinux.org/index.php/
-mc https://minecraft.gamepedia.com/Minecraft_Wiki
 wiki https://www.wikipedia.org/
+arch https://wiki.archlinux.org/index.php/
 ip https://ifconfig.me/
 overleaf https://overleaf.com/login
 google https://www.google.com/
@@ -38,3 +37,12 @@ libsdl https://wiki.libsdl.org/
 textures http://areyep.com/RIPandMCS-TextureLibrary.html
 skribbl https://skribbl.io/
 netflix https://www.netflix.com/browse
+mc https://minecraft.gamepedia.com/Minecraft_Wiki
+osiris https://ru.osiris-student.nl/#/home
+news eu https://www.europarl.europa.eu/news/nl/press-room
+news nos https://nos.nl/
+news rijksoverheid https://www.rijksoverheid.nl/actueel/nieuws
+news tweakers https://tweakers.net/
+hackage http://hackage.haskell.org/
+hoogle https://hoogle.haskell.org/
+apophenia https://apophenia.ga/level7/labyrinthic
