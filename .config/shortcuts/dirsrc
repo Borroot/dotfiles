@@ -32,17 +32,12 @@ nah   ~/Nextcloud/archive/highschool
 nar   ~/Nextcloud/archive/research
 
 # Courses
-nce   ~/Nextcloud/courses/ethiek
-nck   ~/Nextcloud/courses/kenleer_en_wetenschapsleer
-ncl   ~/Nextcloud/courses/logica
-ncc   ~/Nextcloud/courses/cognitiefilosofie
-ncm   ~/Nextcloud/courses/geschiedenis_van_de_moderne_filosofie
-nca   ~/Nextcloud/courses/geschiedenis_van_de_antieke_filosofie
-nct   ~/Nextcloud/courses/bachelor_thesis
-
-ncen  ~/Nextcloud/courses/ethiek/notes
-nckn  ~/Nextcloud/courses/kenleer_en_wetenschapsleer/notes
-ncln  ~/Nextcloud/courses/logica/notes
-nccn  ~/Nextcloud/courses/cognitiefilosofie/notes
-ncmn  ~/Nextcloud/courses/geschiedenis_van_de_moderne_filosofie/notes
-ncan  ~/Nextcloud/courses/geschiedenis_van_de_antieke_filosofie/notes
+ncc   ~/Nextcloud/courses/organizing_cyber_security
+ncs   ~/Nextcloud/courses/software_engineering
+ncd   ~/Nextcloud/courses/big_data
+ncp   ~/Nextcloud/courses/sociale_en_politieke_filosofie
+nca   ~/Nextcloud/courses/filosofische_antropologie
+ncf   ~/Nextcloud/courses/metafysica
+nct   ~/Nextcloud/courses/taalfilosofie
+nch   ~/Nextcloud/courses/geschiedenis_hedendaagse_filosofie
+ncm   ~/Nextcloud/courses/geschiedenis_middeleeuwse_filosofie

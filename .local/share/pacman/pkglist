@@ -14,6 +14,7 @@ binutils
 bison
 blueman
 bluez-utils
+cabal-install
 chromium-widevine
 code
 criterion
@@ -88,6 +89,7 @@ qutebrowser
 sc
 screenkey
 sdl2_ttf
+signal-desktop
 skypeforlinux-stable-bin
 spotify
 sudo
@@ -106,6 +108,7 @@ ttf-joypixels
 unclutter
 unoconv
 unzip
+usbutils
 valgrind
 vdhcoapp
 virtualbox
@@ -128,7 +131,7 @@ xwallpaper
 yadm
 youtube-dl
 zathura
-zathura-pdf-poppler
+zathura-pdf-mupdf
 zip
 zita-alsa-pcmi
 zoom
