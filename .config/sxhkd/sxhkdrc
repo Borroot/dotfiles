@@ -13,8 +13,8 @@ alt + n ; {d, s, c, shift + s}
 	{discord, spotify, code, signal-desktop}
 
 # BROWSER
-alt + n ; f
-	$BROWSER
+alt + n ; {f, shift + f}
+	$BROWSER --target {window, private-window}
 alt + n ; b
 	$BROWSER 'https://brightspace.ru.nl'
 alt + n ; o
