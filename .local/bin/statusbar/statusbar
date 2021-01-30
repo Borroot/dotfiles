@@ -2,22 +2,8 @@
 # AUTHOR: Bram Pulles
 
 # Generate the statusbar and show it on the screen.
-generate_status ()
-{
-	status=""
-	if [[ $(music) != "" ]]
-	then
-		status=" $(music) |"
-	fi
-	status+=" $(volume) | $(battery) | $(clock) | $(calendar) |"
-}
-
-main ()
-{
-	while generate_status && xsetroot -name "$status"
-	do
-		sleep .5s
-	done
-}
-
-main "$@"
+while true
+do
+	xsetroot -name "$(status)"
+	sleep .5s
+done

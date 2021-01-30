@@ -9,8 +9,8 @@ alt + n ; {i, m, n, v}
 # PROGRAMS
 alt + p
 	dmenu_run
-alt + n ; {d, s, c, shift + s}
-	{discord, spotify, code, signal-desktop}
+alt + n ; {d, c, s, shift + s}
+	{discord, code, spotify, signal-desktop}
 
 # BROWSER
 alt + n ; {f, shift + f}

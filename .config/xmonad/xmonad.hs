@@ -6,7 +6,7 @@ import System.IO
 
 main = do
     xmproc <- spawnPipe "xmobar"
-    xmtray <- spawnPipe "stalonetray"
+    xmtray <- spawnPipe "trayershow"
     xmonad $ docks defaultConfig
         { layoutHook = avoidStruts $ layoutHook defaultConfig
         , logHook = dynamicLogWithPP xmobarPP
