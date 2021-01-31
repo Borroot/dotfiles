@@ -12,6 +12,7 @@ cfs   ~/.config/sxhkd/sxhkdrc
 cft   ~/.config/alacritty/alacritty.yml
 cfx   ~/.config/xorg/xprofile
 cfm   ~/.config/xmonad/xmonad.hs
+cfo   ~/.config/xmobar/xmobarrc
 
 # Misc
 t     ~/Nextcloud/todo.txt

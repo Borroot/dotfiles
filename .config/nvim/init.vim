@@ -1,6 +1,6 @@
-" --------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 " BASICS
-" --------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 
 let mapleader = ","           " Set the leader to ','.
 let maplocalleader = ","      " Set the local leader to ','.
@@ -12,16 +12,16 @@ filetype plugin on            " Enable recognistion of filetypes.
 set mouse=a                   " Turn on mouse support.
 set ignorecase                " Ignore cases in searching.
 
-" --------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 " VISUALS
-" --------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 
 set laststatus=0              " Show no statusbar, its a waste of space.
 set number relativenumber     " Use relative line numbers.
 
-" --------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 " FORMATTING
-" --------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 
 filetype plugin indent on     " Enable changing of tabs.
 set tabstop=4 shiftwidth=4    " Set the tabsize to 4.
@@ -40,9 +40,9 @@ au FileType python   setlocal fo+=c fo+=q
 au FileType haskell  setlocal shiftwidth=4 tabstop=4 expandtab
 au FileType html,css setlocal shiftwidth=2 tabstop=2
 
-" --------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 " MAPS
-" --------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 
 " Don't accidentally open a command-line window.
 nmap q: :q
@@ -78,22 +78,26 @@ nmap <leader>m :make<CR>
 nmap <leader>p :!openpdf %<CR><CR>
 nmap <leader>b :!shellcheck -x %<CR>
 
-" --------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 " AUTOCMDS
-" --------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 
-" Auto markdown to pdf on save, auto restart sxhkd and auto restart shortcuts.
-au BufWritePost *.md    silent !mdtopdf % &
-au BufWritePost sxhkdrc silent !killall sxhkd; sxhkd 2> /dev/null &\!
-au BufWritePost ~/.config/shortcuts/dirsrc,~/.config/shortcuts/filesrc !shortcuts
+" Auto markdown to pdf, auto restart sxhkd and xmobar, and auto make shortcuts.
+au BufWritePost *.md     silent !mdtopdf % &
+au BufWritePost sxhkdrc  silent !killall sxhkd; setsid -f sxhkd 2> /dev/null
+au BufWritePost dirsrc,filesrc !shortcuts
 
-" Auto commands for removing files.
+" Auto commands for removing files and recompiling xmonad.
 au VimLeave *.tex silent !texclean
 au VimLeave *.py  silent !pyclean
 
-" --------------------------------------------------------------------
+" Some haskell specific automation.
+au VimLeave xmobarrc !killall xmobar; setsid -f xmobar
+au VimLeave xmonad.hs !rm -rf ~/.xmonad && setsid -f xmonad --recompile
+
+" -----------------------------------------------------------------------------
 " CURSOR
-" --------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 
 " Start with a block cursor and leave with a beam cursor.
 au VimEnter * silent exec "! echo -ne '\e[1 q'"
@@ -103,9 +107,9 @@ au VimLeave * silent exec "! echo -ne '\e[5 q'"
 au InsertEnter * silent exec "! echo -ne '\e[5 q'"
 au InsertLeave * silent exec "! echo -ne '\e[1 q'"
 
-" --------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 " PLUGINS
-" --------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 
 " Auto install Vim-Plug if not available.
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
@@ -129,9 +133,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'sirver/ultisnips'               " Snippets are the best.
 call plug#end()
 
-" --------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 " PLUGIN SETTINGS
-" --------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 
 " Gruvbox settings.
 set bg=dark
