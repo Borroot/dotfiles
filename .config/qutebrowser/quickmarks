@@ -1,3 +1,4 @@
+yt https://www.youtube.com/
 wiki https://www.wikipedia.org/
 arch https://wiki.archlinux.org/index.php/
 ip https://ifconfig.me/
@@ -48,5 +49,6 @@ hoogle https://hoogle.haskell.org/
 apophenia https://apophenia.ga/level7/labyrinthic
 cheatsheet xmonad https://wiki.haskell.org/wikiupload/b/b8/Xmbindings.png
 xmobar https://xmobar.org/
-yt https://www.youtube.com/
 xmonad https://hackage.haskell.org/package/xmonad
+haskell guards https://stackoverflow.com/questions/9345589/guards-vs-if-then-else-vs-cases-in-haskell
+haskell recordtype https://devtut.github.io/haskell/record-syntax.html#basic-syntax
