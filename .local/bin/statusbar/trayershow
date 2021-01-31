@@ -2,7 +2,7 @@
 # AUTHOR: Bram Pulles
 
 # Show the system tray application.
-killall trayer
+killall trayer >&2 2> /dev/null
 trayer \
 	--edge top --align right              \
 	--transparent true --alpha 0 --tint 0 \

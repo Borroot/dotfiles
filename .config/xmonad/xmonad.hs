@@ -1,5 +1,6 @@
 import XMonad
 
+import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 
@@ -70,7 +71,7 @@ myManageHook = composeAll
     , className =? "Blueman-manager" --> doFloat
     ]
 
-myLayoutHook  = avoidStruts $ layoutHook def
+myLayoutHook  = smartBorders . avoidStruts $ layoutHook def
 myStartupHook = do { spawn "trayershow" }
 
 -------------------------------------------------------------------------------
