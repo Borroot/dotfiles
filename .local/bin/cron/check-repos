@@ -70,11 +70,11 @@ sync_aur()
 	notify 'Checking for package updates in the AUR...'
 
 	local out_of_date=""  # the packages which can be upgraded
-	declare -r BUILDS_FOLDER=$HOME/builds  # folder containing the aur repos
+	declare -r PACKAGES=$(find "$HOME/builds" -maxdepth 1 -mindepth 1)
 
-	for build_folder in $(command ls "$BUILDS_FOLDER")
+	for build_folder in $PACKAGES
 	do
-		cd "$BUILDS_FOLDER/$build_folder"
+		cd "$build_folder"
 
 		# Check if we are on the master branch.
 		local branch=$(git rev-parse --abbrev-ref HEAD)
@@ -87,7 +87,7 @@ sync_aur()
 			if [[ "$local_hash" != "$upstream_hash" ]]
 			then
 				# Add the package to the out of date packages.
-				out_of_date="$out_of_date $build_folder"
+				out_of_date="$out_of_date ${build_folder##*/}"
 			fi
 		fi
 	done
