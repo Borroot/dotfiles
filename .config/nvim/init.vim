@@ -67,7 +67,6 @@ nmap <leader><S-w> :w !sudo tee > /dev/null %<CR><CR>
 " Activate some auto commands on the go (or format options).
 nmap <leader>at+ :set fo+=t<CR>
 nmap <leader>at- :set fo-=t<CR>
-nmap <leader>aw  :au TextChanged,TextChangedI *.tex silent :w<CR>
 
 " Turn on spell checking.
 nmap <leader>se :set invspell spelllang=en<CR>
@@ -86,12 +85,13 @@ nmap <leader>b :!shellcheck -x %<CR>
 au BufWritePost *.md     silent !mdtopdf % &
 au BufWritePost sxhkdrc  silent !killall sxhkd; setsid -f sxhkd 2> /dev/null
 au BufWritePost dirsrc,filesrc !shortcuts
+au TextChanged,TextChangedI *.tex silent :write  " Automatic saving tex files.
 
-" Auto commands for removing files and recompiling xmonad.
+" Auto commands for removing files / cleaning directories.
 au VimLeave *.tex silent !texclean
 au VimLeave *.py  silent !pyclean
 
-" Some haskell specific automation.
+" Automatically update xmobar and xmonad on configuration changes.
 au VimLeave xmobarrc !killall xmobar; setsid -f xmobar
 au VimLeave xmonad.hs !rm -rf ~/.xmonad && setsid -f xmonad --recompile
 
