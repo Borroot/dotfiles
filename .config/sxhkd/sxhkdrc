@@ -3,10 +3,10 @@ alt + Return
 	$TERMINAL
 alt + n ; t
 	$TERMINAL -e $EDITOR "$HOME"/Nextcloud/todo.txt
-alt + n ; {i, m, n}
-	$TERMINAL -e {nmtui, neomutt, newsboat}
-alt + n ; v
-	$TERMINAL --class pulsemixer -e pulsemixer
+alt + n ; {m, n}
+	$TERMINAL -e {neomutt, newsboat}
+alt + n ; {i, v}
+	$TERMINAL --class floater -e {nmtui, pulsemixer}
 
 # PROGRAMS
 alt + p

@@ -5,10 +5,11 @@
 eval $(/usr/bin/gnome-keyring-daemon --start) &
 export SSH_AUTH_SOCK &
 
-nextcloud       & # Start Nextcloud.
+nextcloud       & # Start the Nextcloud client.
 sxhkd           & # Start the shortcut daemon.
 dunst           & # Start dunst for usage of notify-send.
 flameshot       & # Start the screenshot daemon.
+blueman-applet &> /dev/null & # Start the bluetooth applet.
 
 xcompmgr        & # For transparency.
 setbg           & # Turn on the background.
@@ -18,8 +19,6 @@ remaps          & # Remap some keys.
 unclutter       & # Cursor disappears when inactive.
 touchpad-toggle & # Turn of the touchpad by default.
 
-prime-offload   & # Load prime for GPU switching.
-blueman-applet  & # Load the bluetooth applet.
 check-repos all & # Check the repos for updates.
 
 # Use the Xresources colors/settings (for sxiv).

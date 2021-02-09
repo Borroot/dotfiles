@@ -36,4 +36,4 @@ colors:
     white:   '#a89984'
 
 debug:
-    log_level: Debug
+    log_level: Warn
