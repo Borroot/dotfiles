@@ -21,6 +21,7 @@ criterion
 cronie
 discord
 dmenu
+docker
 doxygen
 dunst
 efibootmgr

@@ -82,7 +82,7 @@ nmap <leader>b :!shellcheck -x %<CR>
 " -----------------------------------------------------------------------------
 
 " Auto markdown to pdf, auto restart sxhkd and xmobar, and auto make shortcuts.
-au BufWritePost *.md     silent !mdtopdf % &
+"au BufWritePost *.md     silent !mdtopdf % &
 au BufWritePost sxhkdrc  silent !killall sxhkd; setsid -f sxhkd 2> /dev/null
 au BufWritePost dirsrc,filesrc !shortcuts
 au TextChanged,TextChangedI *.tex silent :write  " Automatic saving tex files.

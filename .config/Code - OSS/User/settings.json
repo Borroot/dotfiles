@@ -15,4 +15,10 @@
     "editor.insertSpaces": true,
   },
   "explorer.confirmDragAndDrop": false,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.defaultDateShortFormat": null,
+  "gitlens.defaultTimeFormat": "kk:mm",
+  "gitlens.defaultDateFormat": "MMMM Do, YYYY kk:mm",
 }
