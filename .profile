@@ -4,6 +4,7 @@ export PATH="$PATH:$(find $HOME/.local/bin/ -mindepth 1 -maxdepth 1 -type d \
 
 # Program specifics.
 export _JAVA_AWT_WM_NONREPARENTING=1 # intellij
+export PATH="$PATH:$HOME/.local/bin"
 
 # Set all the default programs.
 export TERMINAL=alacritty

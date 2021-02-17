@@ -16,7 +16,6 @@ blueman
 bluez-utils
 cabal-install
 chromium-widevine
-code
 criterion
 cronie
 discord
@@ -117,6 +116,7 @@ usbutils
 valgrind
 vdhcoapp
 virtualbox
+visual-studio-code-bin
 vym
 w3m
 whois
