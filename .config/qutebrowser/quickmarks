@@ -46,7 +46,7 @@ news rijksoverheid https://www.rijksoverheid.nl/actueel/nieuws
 news tweakers https://tweakers.net/
 hackage http://hackage.haskell.org/
 hoogle https://hoogle.haskell.org/
-apophenia https://apophenia.ga/level7/labyrinthic
+apophenia https://apophenia.ga/level8/keyboards
 cheatsheet xmonad https://wiki.haskell.org/wikiupload/b/b8/Xmbindings.png
 xmobar https://xmobar.org/
 xmonad https://hackage.haskell.org/package/xmonad
@@ -58,3 +58,14 @@ giphouse https://github.com/GipHouse/bdt
 big data https://github.com/rubigdata/bigdata-blog-2021-Borroot
 ffi http://wiki.haskell.org/Foreign_Function_Interface
 odrive https://docs.odriverobotics.com/
+pdf https://www.pdf2go.com/create-searchable-pdf
+odrive notes https://odrive.atlassian.net/wiki/spaces/ODRIVE/overview
+odrive sprints https://odrive.atlassian.net/secure/BrowseProjects.jspa
+philosophy experiments https://www.philosophyexperiments.com/
+chinese scoring https://senseis.xmp.net/?ChineseCounting
+japanese scoring https://senseis.xmp.net/?JapaneseCounting
+sensei go https://senseis.xmp.net/?PagesForBeginners
+odrive docs http://pharaoh-doc.westeurope.cloudapp.azure.com/Home/BDT
+adventure time https://www.adventure-time.best/seasons
+odrive dyno https://github.com/Capo01/odrive_based_electric_motor_dynamometer
+terrain generation https://www.redblobgames.com/maps/terrain-from-noise/

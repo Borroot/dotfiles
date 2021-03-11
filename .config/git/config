@@ -7,3 +7,5 @@
 	default = current
 [alias]
 	adog = log --all --decorate --oneline --graph
+[init]
+	defaultBranch = master

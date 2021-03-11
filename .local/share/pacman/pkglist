@@ -5,6 +5,9 @@ alsa-lib
 alsa-plugins
 alsa-topology-conf
 alsa-ucm-conf
+arandr
+arduino
+arduino-avr-core
 aseprite
 automake
 base
@@ -16,6 +19,7 @@ blueman
 bluez-utils
 cabal-install
 chromium-widevine
+clang
 criterion
 cronie
 discord
@@ -25,6 +29,7 @@ doxygen
 dunst
 efibootmgr
 fakeroot
+fdupes
 flameshot
 flex
 gcc
@@ -53,6 +58,7 @@ libxft
 libxinerama
 linux
 linux-firmware
+linux-headers
 make
 man-db
 man-pages
@@ -70,6 +76,7 @@ noto-fonts
 nvidia
 nvidia-prime
 nvtop
+obs-studio
 okular
 os-prober
 otf-font-awesome
@@ -109,10 +116,12 @@ trayer
 tree
 ttf-fira-code
 ttf-joypixels
+tup
 unclutter
 unoconv
 unzip
 usbutils
+v4l2loopback-dkms
 valgrind
 vdhcoapp
 virtualbox

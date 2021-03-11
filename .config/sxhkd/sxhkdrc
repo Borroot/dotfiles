@@ -31,8 +31,8 @@ alt + y ; {shift + s, shift + r, h, l}
 	{shutdown now, reboot, systemctl suspend, lock}
 
 # MUSIC
-alt + {Left, Down, Right}
-	playerctl {previous, play-pause, next}
+alt + {Left, Right}
+	playerctl {previous, next}
 
 # SPECIAL KEYS
 Print

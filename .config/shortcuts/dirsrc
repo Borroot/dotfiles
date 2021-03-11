@@ -34,6 +34,7 @@ nah   ~/Nextcloud/archive/highschool
 nar   ~/Nextcloud/archive/research
 
 # Courses
+nce   ~/Nextcloud/courses/case_study_committee
 ncc   ~/Nextcloud/courses/organizing_cyber_security
 ncs   ~/Nextcloud/courses/software_engineering
 ncd   ~/Nextcloud/courses/big_data

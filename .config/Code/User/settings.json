@@ -21,4 +21,12 @@
   "gitlens.defaultDateShortFormat": null,
   "gitlens.defaultTimeFormat": "kk:mm",
   "gitlens.defaultDateFormat": "MMMM Do, YYYY kk:mm",
+  "liveshare.authenticationProvider": "Microsoft",
+  "window.zoomLevel": 1,
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
 }
