@@ -13,6 +13,7 @@ cft   ~/.config/alacritty/alacritty.yml
 cfx   ~/.config/xorg/xprofile
 cfm   ~/.config/xmonad/xmonad.hs
 cfo   ~/.config/xmobar/xmobarrc
+cfu   ~/.config/newsboat/urls
 
 # Misc
 t     ~/Nextcloud/todo.txt
