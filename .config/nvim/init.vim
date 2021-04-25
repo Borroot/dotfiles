@@ -4,7 +4,7 @@
 
 let mapleader = ","           " Set the leader to ','.
 let maplocalleader = ","      " Set the local leader to ','.
-set shell=/bin/zsh            " Set the default shell to zsh.
+set shell=/bin/zsh\ -i        " Set the default shell to zsh.
 
 syntax on                     " Enable syntax highlighting.
 filetype plugin on            " Enable recognistion of filetypes.
