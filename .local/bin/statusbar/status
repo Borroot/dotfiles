@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# AUTHOR: Bram Pulles
+
+# Generate the status for in the statusbar.
+[[ $(music) != "" ]] && music=" $(music) |" || music=""
+echo "$music $(volume) | $(battery) | $(clock) | $(calendar) |"

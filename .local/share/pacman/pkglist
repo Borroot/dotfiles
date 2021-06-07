@@ -38,6 +38,7 @@ ghc
 git
 glm
 gnome-keyring
+gnu-netcat
 grub
 gtk2
 gtk3
@@ -101,6 +102,7 @@ sdl2_ttf
 signal-desktop
 spotify
 stack
+steam
 sudo
 sxhkd
 texlive-bibtexextra
@@ -127,6 +129,7 @@ virtualbox
 visual-studio-code-bin
 vym
 w3m
+wget
 whois
 wol
 xcape

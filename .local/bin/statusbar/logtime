@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# AUTHOR: Bram Pulles
+
+start_date=$(last 1 | awk '{print $4, $5}' | tail -n 1)
+end_date=$(  last 1 | awk '{print $4, $5}' | head -n 1)
+
+beauty ()
+{
+	last 1 | awk '{print $9}' | grep -Eo '[[:digit:]]{2}:[[:digit:]]{2}' \
+	       | tr : ' ' | cut -f "$1" -d ' ' | sed 's/^0//g' | tr '\n' ' '
+}
+
+hours=$(beauty 1)
+minutes=$(beauty 2)
+
+((total_hours   = 0))
+((total_minutes = 0))
+
+for hour in $hours
+do
+	((total_hours += hour))
+done
+
+for minute in $minutes
+do
+	((total_minutes += minute))
+done
+
+((total_hours += total_minutes / 60))
+
+downs=$(last 1 | wc -l)
+((downs -= 2))
+crashes=$(last 1 | grep -c crash)
+
+echo "From $start_date till $end_date I logged $total_hours hours..."
+echo "The OS crashed $crashes out of $downs shutdowns."

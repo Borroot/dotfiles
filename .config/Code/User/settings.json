@@ -29,4 +29,5 @@
       "filenamePattern": "*.ipynb"
     }
   ],
+  "diffEditor.renderSideBySide": false,
 }
