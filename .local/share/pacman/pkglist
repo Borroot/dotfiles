@@ -14,6 +14,7 @@ biber
 bind
 binutils
 bison
+blender
 blueman
 bluez-utils
 cabal-install
@@ -72,6 +73,7 @@ networkmanager-openvpn
 newsboat
 nextcloud-client
 noto-fonts
+ntp
 nvidia
 nvidia-prime
 nvtop
@@ -99,6 +101,7 @@ qutebrowser
 sc
 screenkey
 sdl2_ttf
+sfml
 signal-desktop
 spotify
 stack
