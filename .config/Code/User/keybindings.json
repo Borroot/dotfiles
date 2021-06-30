@@ -44,7 +44,7 @@
         "when": "problemFocus"
     },
     {
-        "key": ", h",
+        "key": ",+h",
         "command": "C_Cpp.SwitchHeaderSource",
         "when": "editorTextFocus && editorLangId == 'c' || editorTextFocus && editorLangId == 'cpp' || editorTextFocus && editorLangId == 'cuda-cpp'"
     },
